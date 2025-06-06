@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the latest research publications and academic contributions from GeoD Labs at IIT Gandhinagar, specializing in remote sensing, urban analytics, and GeoAI.">
+    <title>Publications - GeoD Labs - IIT Gandhinagar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+<header class="site-header">
+    <div class="container header-container">
+        <div class="logo">
+            <a href="index.html" aria-label="GeoD Labs Home">
+                <img src="/api/placeholder/50/50" alt="GeoD Labs Logo" width="50" height="50">
+                <span class="logo-text">Geo<span class="highlight">D</span> Labs</span>
+            </a>
+        </div>
+        
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+        
+        <nav id="primary-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="research.html" class="nav-link">Research</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="datasets.html" class="nav-link">Datasets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="team.html" class="nav-link">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h2>Publications</h2>
+            <p>Explore our latest research publications and academic contributions</p>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <main id="main-content" class="publications-page">
+        <div class="container">
+            <!-- Search Box -->
+            <div class="search-container">
+                <input type="text" id="publication-search" placeholder="Search publications by title, author, or keyword" class="search-input">
+                <button class="search-button" aria-label="Search publications">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Publications Filter -->
+            <div class="publications-filter">
+                <h3>Filter Publications</h3>
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label for="year-filter">Year:</label>
+                        <select id="year-filter" aria-label="Filter by year">
+                            <option value="all">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="topic-filter">Research Topic:</label>
+                        <select id="topic-filter" aria-label="Filter by research topic">
+                            <option value="all">All Topics</option>
+                            <option value="remote-sensing">Remote Sensing</option>
+                            <option value="urban-analytics">Urban Analytics</option>
+                            <option value="geo-ai">GeoAI</option>
+                            <option value="disaster-management">Disaster Management</option>
+                            <option value="climate-studies">Climate Studies</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="author-filter">Author:</label>
+                        <select id="author-filter" aria-label="Filter by author">
+                            <option value="all">All Authors</option>
+                            <option value="sharma-a">Sharma A.</option>
+                            <option value="patel-v">Patel V.</option>
+                            <option value="kumar-r">Kumar R.</option>
+                            <option value="desai-n">Desai N.</option>
+                            <option value="mehta-s">Mehta S.</option>
+                        </select>
+                    </div>
+                    <button id="clear-filters" class="btn btn-secondary">Clear Filters</button>
+                </div>
+            </div>
+            
+            <!-- Publication Stats -->
+            <div class="publication-stats">
+                <div class="stat-item">
+                    <span class="stat-number">42</span>
+                    <span class="stat-label">Total Publications</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Publications in 2024</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2150+</span>
+                    <span class="stat-label">Citations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">18</span>
+                    <span class="stat-label">Research Partners</span>
+                </div>
+            </div>
+            
+            <!-- View Toggles -->
+            <div class="view-options">
+                <span>View as:</span>
+                <button class="view-toggle active" id="grid-view" aria-label="Grid view">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button class="view-toggle" id="list-view" aria-label="List view">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+            
+            <!-- Publication List -->
+            <div class="publication-list grid-view">
+                <article class="publication-item" data-year="2024" data-topic="remote-sensing,urban-analytics" data-authors="sharma-a,patel-v,kumar-r,desai-n">
+                    <div class="publication-card">
+                        <div class="publication-year">2024</div>
+                        <h4 class="publication-title">Machine Learning Approaches for Urban Growth Prediction Using Multi-temporal Satellite Imagery</h4>
+                        <div class="publication-meta">
+                            <div class="authors">
+                                <i class="fas fa-users"></i>
+                                <span>Sharma A., Patel V., Kumar R., Desai N.</span>
+                            </div>
+                            <div class="journal">
+                                <i class="fas fa-book"></i>
+                                <span>International Journal of Remote Sensing</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Remote Sensing</span>
+                                <span class="tag">Urban Analytics</span>
+                                <span class="tag">Machine Learning</span>
+                            </div>
+                        </div>
+                        <div class="publication-abstract">
+                            <p>This study presents a novel approach combining convolutional neural networks and time series analysis to predict urban expansion patterns in rapidly growing Indian cities using Landsat and Sentinel imagery.</p>
+                        </div>
+                        <div class="publication-stats">
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> 24 citations</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="pub-link" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="pub-link" aria-label="Visit DOI link"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            <a href="#" class="pub-link" aria-label="View code repository"><i class="fas fa-code"></i> Code</a>
+                            <button class="abstract-toggle" aria-expanded="false" aria-controls="abstract-1">
+                                <i class="fas fa-chevron-down"></i> <span>Show Abstract</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="publication-item" data-year="2023" data-topic="remote-sensing,geo-ai" data-authors="mehta-s,joshi-p,singh-k,patel-r">
+                    <div class="publication-card">
+                        <div class="publication-year">2023</div>
+                        <h4 class="publication-title">A Deep Learning Framework for Automated Road Network Extraction from Satellite Imagery</h4>
+                        <div class="publication-meta">
+                            <div class="authors">
+                                <i class="fas fa-users"></i>
+                                <span>Mehta S., Joshi P., Singh K., Patel R.</span>
+                            </div>
+                            <div class="journal">
+                                <i class="fas fa-book"></i>
+                                <span>ISPRS Journal of Photogrammetry and Remote Sensing</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Deep Learning</span>
+                                <span class="tag">Remote Sensing</span>
+                                <span class="tag">Infrastructure</span>
+                            </div>
+                        </div>
+                        <div class="publication-abstract">
+                            <p>This paper proposes an improved U-Net architecture for efficient and accurate extraction of road networks from high-resolution satellite imagery with applications in infrastructure planning and disaster response.</p>
+                        </div>
+                        <div class="publication-stats">
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> 37 citations</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="pub-link" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="pub-link" aria-label="Visit DOI link"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            <a href="#" class="pub-link" aria-label="View code repository"><i class="fas fa-code"></i> Code</a>
+                            <button class="abstract-toggle" aria-expanded="false" aria-controls="abstract-2">
+                                <i class="fas fa-chevron-down"></i> <span>Show Abstract</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="publication-item" data-year="2023" data-topic="climate-studies,urban-analytics" data-authors="kumar-a,shah-m,desai-p,gupta-r">
+                    <div class="publication-card">
+                        <div class="publication-year">2023</div>
+                        <h4 class="publication-title">Spatio-temporal Analysis of Urban Heat Islands Using Thermal Remote Sensing and GIS</h4>
+                        <div class="publication-meta">
+                            <div class="authors">
+                                <i class="fas fa-users"></i>
+                                <span>Kumar A., Shah M., Desai P., Gupta R.</span>
+                            </div>
+                            <div class="journal">
+                                <i class="fas fa-book"></i>
+                                <span>Remote Sensing of Environment</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Climate Studies</span>
+                                <span class="tag">Urban Heat Islands</span>
+                                <span class="tag">Thermal Imaging</span>
+                            </div>
+                        </div>
+                        <div class="publication-abstract">
+                            <p>This research investigates the dynamics of urban heat islands in metropolitan regions using thermal infrared data from multiple satellites, revealing correlations with urban density and vegetation cover.</p>
+                        </div>
+                        <div class="publication-stats">
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> 42 citations</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="pub-link" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="pub-link" aria-label="Visit DOI link"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            <a href="#" class="pub-link" aria-label="View code repository"><i class="fas fa-code"></i> Code</a>
+                            <button class="abstract-toggle" aria-expanded="false" aria-controls="abstract-3">
+                                <i class="fas fa-chevron-down"></i> <span>Show Abstract</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="publication-item" data-year="2023" data-topic="disaster-management,remote-sensing" data-authors="patel-j,verma-s,iyer-a,nair-v">
+                    <div class="publication-card">
+                        <div class="publication-year">2023</div>
+                        <h4 class="publication-title">Flood Risk Assessment and Mapping Using Integrated Remote Sensing and GIS Techniques</h4>
+                        <div class="publication-meta">
+                            <div class="authors">
+                                <i class="fas fa-users"></i>
+                                <span>Patel J., Verma S., Iyer A., Nair V.</span>
+                            </div>
+                            <div class="journal">
+                                <i class="fas fa-book"></i>
+                                <span>Natural Hazards</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Disaster Management</span>
+                                <span class="tag">Flood Risk</span>
+                                <span class="tag">GIS</span>
+                            </div>
+                        </div>
+                        <div class="publication-abstract">
+                            <p>This study develops a comprehensive methodology for flood risk assessment by integrating multi-source remote sensing data, hydrological modeling, and socioeconomic vulnerability indicators.</p>
+                        </div>
+                        <div class="publication-stats">
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> 29 citations</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="pub-link" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="pub-link" aria-label="Visit DOI link"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            <a href="#" class="pub-link" aria-label="View code repository"><i class="fas fa-code"></i> Code</a>
+                            <button class="abstract-toggle" aria-expanded="false" aria-controls="abstract-4">
+                                <i class="fas fa-chevron-down"></i> <span>Show Abstract</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="publication-item" data-year="2023" data-topic="urban-analytics,remote-sensing" data-authors="desai-n,sharma-a,iyer-p,mehta-r">
+                    <div class="publication-card">
+                        <div class="publication-year">2023</div>
+                        <h4 class="publication-title">Detecting and Monitoring Land Subsidence in Urban Areas Using InSAR Time Series</h4>
+                        <div class="publication-meta">
+                            <div class="authors">
+                                <i class="fas fa-users"></i>
+                                <span>Desai N., Sharma A., Iyer P., Mehta R.</span>
+                            </div>
+                            <div class="journal">
+                                <i class="fas fa-book"></i>
+                                <span>ISPRS International Journal of Geo-Information</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">InSAR</span>
+                                <span class="tag">Land Subsidence</span>
+                                <span class="tag">Urban Monitoring</span>
+                            </div>
+                        </div>
+                        <div class="publication-abstract">
+                            <p>This research utilizes interferometric synthetic aperture radar (InSAR) time series to detect and monitor land subsidence in rapidly urbanizing areas, with a case study in Gujarat industrial regions.</p>
+                        </div>
+                        <div class="publication-stats">
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> 18 citations</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="pub-link" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="pub-link" aria-label="Visit DOI link"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            <a href="#" class="pub-link" aria-label="View code repository"><i class="fas fa-code"></i> Code</a>
+                            <button class="abstract-toggle" aria-expanded="false" aria-controls="abstract-5">
+                                <i class="fas fa-chevron-down"></i> <span>Show Abstract</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="publication-item" data-year="2022" data-topic="geo-ai,urban-analytics" data-authors="kumar-r,singh-a,patel-v,roy-m">
+                    <div class="publication-card">
+                        <div class="publication-year">2022</div>
+                        <h4 class="publication-title">Automated Building Footprint Extraction from Very High Resolution Satellite Imagery Using Deep Learning</h4>
+                        <div class="publication-meta">
+                            <div class="authors">
+                                <i class="fas fa-users"></i>
+                                <span>Kumar R., Singh A., Patel V., Roy M.</span>
+                            </div>
+                            <div class="journal">
+                                <i class="fas fa-book"></i>
+                                <span>Remote Sensing Applications: Society and Environment</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Deep Learning</span>
+                                <span class="tag">Building Extraction</span>
+                                <span class="tag">Satellite Imagery</span>
+                            </div>
+                        </div>
+                        <div class="publication-abstract">
+                            <p>This study presents a refined deep learning approach for automated building footprint extraction from VHR satellite imagery, achieving over 94% accuracy across diverse urban morphologies.</p>
+                        </div>
+                        <div class="publication-stats">
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> 57 citations</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="pub-link" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="pub-link" aria-label="Visit DOI link"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            <a href="#" class="pub-link" aria-label="View code repository"><i class="fas fa-code"></i> Code</a>
+                            <button class="abstract-toggle" aria-expanded="false" aria-controls="abstract-6">
+                                <i class="fas fa-chevron-down"></i> <span>Show Abstract</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="publication-item" data-year="2022" data-topic="disaster-management,geo-ai" data-authors="shah-m,nair-v,sharma-a,joshi-k">
+                    <div class="publication-card">
+                        <div class="publication-year">2022</div>
+                        <h4 class="publication-title">Integrating Earth Observation Data and Social Media Analytics for Enhanced Disaster Response</h4>
+                        <div class="publication-meta">
+                            <div class="authors">
+                                <i class="fas fa-users"></i>
+                                <span>Shah M., Nair V., Sharma A., Joshi K.</span>
+                            </div>
+                            <div class="journal">
+                                <i class="fas fa-book"></i>
+                                <span>International Journal of Disaster Risk Reduction</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Social Media</span>
+                                <span class="tag">Earth Observation</span>
+                                <span class="tag">Disaster Response</span>
+                            </div>
+                        </div>
+                        <div class="publication-abstract">
+                            <p>This paper introduces a novel framework that combines satellite imagery analysis with social media data mining to improve situational awareness and response during natural disasters.</p>
+                        </div>
+                        <div class="publication-stats">
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> 33 citations</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="pub-link" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="pub-link" aria-label="Visit DOI link"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            <a href="#" class="pub-link" aria-label="View code repository"><i class="fas fa-code"></i> Code</a>
+                            <button class="abstract-toggle" aria-expanded="false" aria-controls="abstract-7">
+                                <i class="fas fa-chevron-down"></i> <span>Show Abstract</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="publication-item" data-year="2022" data-topic="remote-sensing,climate-studies" data-authors="patel-v,gupta-r,mehta-s,kumar-a">
+                    <div class="publication-card">
+                        <div class="publication-year">2022</div>
+                        <h4 class="publication-title">Monitoring Agricultural Drought Using Multi-source Remote Sensing Data and Machine Learning</h4>
+                        <div class="publication-meta">
+                            <div class="authors">
+                                <i class="fas fa-users"></i>
+                                <span>Patel V., Gupta R., Mehta S., Kumar A.</span>
+                            </div>
+                            <div class="journal">
+                                <i class="fas fa-book"></i>
+                                <span>Agricultural Water Management</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Agricultural Drought</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Remote Sensing</span>
+                            </div>
+                        </div>
+                        <div class="publication-abstract">
+                            <p>This research develops an integrated approach for monitoring agricultural drought conditions using multi-spectral satellite data, meteorological variables, and advanced machine learning algorithms.</p>
+                        </div>
+                        <div class="publication-stats">
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> 45 citations</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="pub-link" aria-label="Download PDF"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="pub-link" aria-label="Visit DOI link"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            <a href="#" class="pub-link" aria-label="View code repository"><i class="fas fa-code"></i> Code</a>
+                            <button class="abstract-toggle" aria-expanded="false" aria-controls="abstract-8">
+                                <i class="fas fa-chevron-down"></i> <span>Show Abstract</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="no-results" class="no-results hidden">
+                <i class="fas fa-search"></i>
+                <p>No publications match your search criteria.</p>
+                <button id="reset-search" class="btn">Reset Search</button>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button id="load-more" class="btn btn-outline">Load More Publications</button>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Publication pagination" class="pagination">
+                <a href="#" class="active" aria-current="page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#" aria-label="Next page">Next <i class="fas fa-angle-right"></i></a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Citation Metrics Section -->
+    <section class="metrics-section">
+        <div class="container">
+            <h3>Citation Metrics</h3>
+            <p>Track our research impact and academic influence</p>
+            
+            <div class="metrics-container">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="metric-info">
+                        <h4>H-Index</h4>
+                        <div class="metric-value">24</div>
+                        <p>Based on Google Scholar</p>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="metric-info">
+                        <h4>Total Citations</h4>
+                        <div class="metric-value">2,150+</div>
+                        <p>Across all publications</p>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="metric-info">
+                        <h4>Featured in</h4>
+                        <div class="metric-value">18</div>
+                        <p>High-impact journals</p>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-info">
+                        <h4>Collaborations</h4>
+                        <div class="metric-value">45+</div>
+                        <p>Research partnerships</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Publication -->
+    <section class="featured-publication">
+        <div class="container">
+            <div class="featured-card">
+                <div class="featured-header">
+                    <span class="featured-badge">Featured Publication</span>
+                    <h3>Machine Learning Approaches for Urban Growth Prediction Using Multi-temporal Satellite Imagery</h3>
+                </div>
+                <div class="featured-content">
+                    <div class="featured-image">
+                        <img src="/api/placeholder/400/300" alt="Urban growth prediction visualization">
+                    </div>
+                    <div class="featured-details">
+                        <p class="featured-abstract">This groundbreaking study introduces a novel deep learning architecture that combines convolutional neural networks with time series analysis to accurately predict urban expansion patterns in rapidly growing Indian cities. Using multi-temporal Landsat and Sentinel imagery spanning two decades, our model achieves prediction accuracy of 92.7%, significantly outperforming traditional methods.</p>
+                        <div class="featured-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Published in International Journal of Remote Sensing (Impact Factor: 4.23)</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Most cited paper from our lab in 2024</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Complete code and datasets available openly</span>
+                            </div>
+                        </div>
+                        <div class="featured-actions">
+                            <a href="#" class="btn">Read Full Paper</a>
+                            <a href="#" class="btn btn-outline">View Code Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h2>GeoD Labs</h2>
+                <p>Advancing geospatial data science research at IIT Gandhinagar.</p>
+                <div class="footer-logo">
+                    <img src="images/iitgn logo.png" alt="IIT Gandhinagar logo" width="120" height="120" loading="lazy">
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Dataset</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <address>
+                    GeoD Labs<br>
+                    IIT Gandhinagar<br>
+                    Palaj, Gandhinagar, Gujarat 382055<br>
+                    <a href="mailto:geodlabs@iitgn.ac.in">
+                        <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
+                    </a><br>
+                    <a href="tel:+919999999999">
+                        <i class="fas fa-phone"></i> +91 9999 999 999
+                    </a>
+                </address>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Suggested JavaScript - you mentioned you already have a JS file -->
+    <script src="script.js"></script>
+    
+    <!-- To be added to your script.js file or inline here -->
+    <script>
+        // This represents the functionality that could be added to your existing script.js file
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle abstract visibility
+            const abstractToggles = document.querySelectorAll('.abstract-toggle');
+            abstractToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const publicationItem = this.closest('.publication-item');
+                    const abstract = publicationItem.querySelector('.publication-abstract');
+                    
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    
+                    if (isExpanded) {
+                        abstract.style.maxHeight = '0';
+                        this.querySelector('span').textContent = 'Show Abstract';
+                        this.querySelector('i').classList.remove('fa-chevron-up');
+                        this.querySelector('i').classList.add('fa-chevron-down');
+                    } else {
+                        abstract.style.maxHeight = abstract.scrollHeight + 'px';
+                        this.querySelector('span').textContent = 'Hide Abstract';
+                        this.querySelector('i').classList.remove('fa-chevron-down');
+                        this.querySelector('i').classList.add('fa-chevron-up');
+                    }
+                });
+            });
+            
+            // View toggle (grid/list)
+            const gridViewBtn = document.getElementById('grid-view');
+            const listViewBtn = document.getElementById('list-view');
+            const publicationList = document.querySelector('.publication-list');
+            
+            gridViewBtn.addEventListener('click', function() {
+                publicationList.classList.remove('list-view');
+                publicationList.classList.add('grid-view');
+                gridViewBtn.classList.add('active');
+                listViewBtn.classList.remove('active');
+            });
+            
+            listViewBtn.addEventListener('click', function() {
+                publicationList.classList.remove('grid-view');
+                publicationList.classList.add('list-view');
+                listViewBtn.classList.add('active');
+                gridViewBtn.classList.remove('active');
+            });
+            
+            // Filter functionality
+            const yearFilter = document.getElementById('year-filter');
+            const topicFilter = document.getElementById('topic-filter');
+            const authorFilter = document.getElementById('author-filter');
+            const clearFiltersBtn = document.getElementById('clear-filters');
+            const publicationItems = document.querySelectorAll('.publication-item');
+            const noResults = document.getElementById('no-results');
+            
+            function applyFilters() {
+                const selectedYear = yearFilter.value;
+                const selectedTopic = topicFilter.value;
+                const selectedAuthor = authorFilter.value;
+                
+                let visibleCount = 0;
+                
+                publicationItems.forEach(item => {
+                    const yearMatch = selectedYear === 'all' || item.getAttribute('data-year') === selectedYear;
+                    const topicMatch = selectedTopic === 'all' || item.getAttribute('data-topic').includes(selectedTopic);
+                    const authorMatch = selectedAuthor === 'all' || item.getAttribute('data-authors').includes(selectedAuthor);
+                    
+                    if (yearMatch && topicMatch && authorMatch) {
+                        item.style.display = '';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            }
+            
+            yearFilter.addEventListener('change', applyFilters);
+            topicFilter.addEventListener('change', applyFilters);
+            authorFilter.addEventListener('change', applyFilters);
+            
+            clearFiltersBtn.addEventListener('click', function() {
+                yearFilter.value = 'all';
+                topicFilter.value = 'all';
+                authorFilter.value = 'all';
+                applyFilters();
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('publication-search');
+            const resetSearchBtn = document.getElementById('reset-search');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                let visibleCount = 0;
+                
+                publicationItems.forEach(item => {
+                    const title = item.querySelector('.publication-title').textContent.toLowerCase();
+                    const authors = item.querySelector('.authors').textContent.toLowerCase();
+                    const abstract = item.querySelector('.publication-abstract').textContent.toLowerCase();
+                    const journal = item.querySelector('.journal').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || authors.includes(searchTerm) || 
+                        abstract.includes(searchTerm) || journal.includes(searchTerm)) {
+                        item.style.display = '';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            });
+            
+            resetSearchBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                publicationItems.forEach(item => {
+                    item.style.display = '';
+                });
+                noResults.classList.add('hidden');
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Load more button
+            const loadMoreBtn = document.getElementById('load-more');
+            let itemsToShow = 8; // Initial number of items shown
+            
+            // Initially hide items beyond the first 8
+            publicationItems.forEach((item, index) => {
+                if (index >= itemsToShow) {
+                    item.classList.add('hidden');
+                }
+            });
+            
+            loadMoreBtn.addEventListener('click', function() {
+                itemsToShow += 4; // Show 4 more items
+                
+                publicationItems.forEach((item, index) => {
+                    if (index < itemsToShow) {
+                        item.classList.remove('hidden');
+                    }
+                });
+                
+                // Hide the button if all items are shown
+                if (itemsToShow >= publicationItems.length) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

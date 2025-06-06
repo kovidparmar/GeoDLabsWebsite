@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - GeoD Labs - IIT Gandhinagar</title>
+    <meta name="description" content="Meet the talented researchers, faculty, and students at GeoD Labs working on cutting-edge geospatial research at IIT Gandhinagar.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add preconnect for performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+<body>
+    <!-- Header -->
+<header class="site-header">
+    <div class="container header-container">
+        <div class="logo">
+            <a href="index.html" aria-label="GeoD Labs Home">
+                <img src="/api/placeholder/50/50" alt="GeoD Labs Logo" width="50" height="50">
+                <span class="logo-text">Geo<span class="highlight">D</span> Labs</span>
+            </a>
+        </div>
+        
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+        
+        <nav id="primary-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="research.html" class="nav-link">Research</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="datasets.html" class="nav-link">Datasets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="team.html" class="nav-link">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h2>Our Team</h2>
+            <p>Meet our diverse team of researchers, faculty, and students working on cutting-edge geospatial research</p>
+        </div>
+    </section>
+
+    <!-- Team Filter Navigation -->
+    <section class="team-filter">
+        <div class="container">
+            <nav class="filter-nav" aria-label="Team filter navigation">
+                <ul>
+                    <li><a href="#all" class="filter-active" data-filter="all">All Members</a></li>
+                    <li><a href="#faculty" data-filter="faculty">Faculty</a></li>
+                    <li><a href="#phd" data-filter="phd">PhD Scholars</a></li>
+                    <li><a href="#research-associates" data-filter="research-associates">Research Associates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-page">
+        <div class="container">
+            <div class="team-intro">
+                <h3>About Our Team</h3>
+                <p>Our lab brings together experts from various disciplines including geospatial science, computer science, environmental science, and urban planning. This interdisciplinary approach allows us to tackle complex problems with innovative perspectives and methodologies. Our team members come from diverse backgrounds and are united by a passion for using geospatial technology to address real-world challenges.</p>
+            </div>
+            
+            <!-- Faculty Members -->
+            <div class="team-category" id="faculty">
+                <h3>Faculty</h3>
+                
+                <div class="team-grid">
+                    <div class="team-member-card" data-categories="faculty remote-sensing urban-analytics">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Dr. Anand Sharma">
+                        </div>
+                        <div class="member-info">
+                            <h4>Dr. Anand Sharma</h4>
+                            <p class="member-position">Lab Director & Associate Professor</p>
+                            <p class="member-edu">Ph.D. Remote Sensing, University of Cambridge</p>
+                            <p class="member-desc">Dr. Sharma specializes in remote sensing applications for urban studies and has led multiple national and international research projects. His current work focuses on developing machine learning approaches for analyzing multi-temporal satellite imagery.</p>
+                            <div class="member-expertise">
+                                <span>Remote Sensing</span>
+                                <span>Urban Analytics</span>
+                                <span>Machine Learning</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:anand.sharma@iitgn.ac.in" aria-label="Email Dr. Anand Sharma"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Dr. Anand Sharma"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter profile of Dr. Anand Sharma"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Website of Dr. Anand Sharma"><i class="fas fa-globe"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card" data-categories="faculty disaster-management gis">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Dr. Priya Patel">
+                        </div>
+                        <div class="member-info">
+                            <h4>Dr. Priya Patel</h4>
+                            <p class="member-position">Associate Professor</p>
+                            <p class="member-edu">Ph.D. Geospatial Science, MIT</p>
+                            <p class="member-desc">Dr. Patel's research centers on disaster risk management using geospatial technologies. She has extensive experience in flood mapping, risk assessment, and the development of early warning systems for natural hazards.</p>
+                            <div class="member-expertise">
+                                <span>Disaster Management</span>
+                                <span>GIS</span>
+                                <span>Risk Assessment</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:priya.patel@iitgn.ac.in" aria-label="Email Dr. Priya Patel"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Dr. Priya Patel"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter profile of Dr. Priya Patel"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Website of Dr. Priya Patel"><i class="fas fa-globe"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card" data-categories="faculty geoai deep-learning">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Dr. Rahul Kumar">
+                        </div>
+                        <div class="member-info">
+                            <h4>Dr. Rahul Kumar</h4>
+                            <p class="member-position">Assistant Professor</p>
+                            <p class="member-edu">Ph.D. Computer Science, Stanford University</p>
+                            <p class="member-desc">Dr. Kumar bridges the gap between computer science and geospatial analysis. His research focuses on developing novel algorithms for spatial data mining, deep learning for remote sensing image analysis, and geospatial visualization.</p>
+                            <div class="member-expertise">
+                                <span>GeoAI</span>
+                                <span>Deep Learning</span>
+                                <span>Visualization</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:rahul.kumar@iitgn.ac.in" aria-label="Email Dr. Rahul Kumar"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Dr. Rahul Kumar"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter profile of Dr. Rahul Kumar"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Website of Dr. Rahul Kumar"><i class="fas fa-globe"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PhD Scholars -->
+            <div class="team-category" id="phd">
+                <h3>PhD Scholars</h3>
+                
+                <div class="team-grid">
+                    <div class="team-member-card" data-categories="phd urban-heat-islands remote-sensing">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Meera Shah">
+                        </div>
+                        <div class="member-info">
+                            <h4>Meera Shah</h4>
+                            <p class="member-position">PhD Scholar</p>
+                            <p class="member-edu">M.Tech. Remote Sensing, IIT Bombay</p>
+                            <p class="member-desc">Meera's doctoral research focuses on the analysis of urban heat islands using thermal remote sensing data. She is developing new methodologies for spatio-temporal analysis of temperature patterns in rapidly urbanizing cities.</p>
+                            <div class="member-expertise">
+                                <span>Urban Heat Islands</span>
+                                <span>Thermal Remote Sensing</span>
+                                <span>Climate Studies</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:meera.shah@iitgn.ac.in" aria-label="Email Meera Shah"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Meera Shah"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter profile of Meera Shah"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card" data-categories="phd deep-learning computer-vision">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Vikram Desai">
+                        </div>
+                        <div class="member-info">
+                            <h4>Vikram Desai</h4>
+                            <p class="member-position">PhD Scholar</p>
+                            <p class="member-edu">M.Tech. Geoinformatics, IIT Roorkee</p>
+                            <p class="member-desc">Vikram's research applies deep learning techniques to automate the extraction of features from high-resolution satellite imagery. His current focus is on developing models for road network and building footprint extraction in complex urban environments.</p>
+                            <div class="member-expertise">
+                                <span>Deep Learning</span>
+                                <span>Feature Extraction</span>
+                                <span>Computer Vision</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:vikram.desai@iitgn.ac.in" aria-label="Email Vikram Desai"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Vikram Desai"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub profile of Vikram Desai"><i class="fab fa-github"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card" data-categories="phd agricultural-remote-sensing drought-monitoring">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Sanjay Mehta">
+                        </div>
+                        <div class="member-info">
+                            <h4>Sanjay Mehta</h4>
+                            <p class="member-position">PhD Scholar</p>
+                            <p class="member-edu">M.Sc. Environmental Science, Delhi University</p>
+                            <p class="member-desc">Sanjay's doctoral work investigates the application of remote sensing for agricultural drought monitoring and prediction. He is developing integrated approaches combining satellite data with meteorological variables and machine learning techniques.</p>
+                            <div class="member-expertise">
+                                <span>Agricultural Remote Sensing</span>
+                                <span>Drought Monitoring</span>
+                                <span>Time Series Analysis</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:sanjay.mehta@iitgn.ac.in" aria-label="Email Sanjay Mehta"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Sanjay Mehta"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="ResearchGate profile of Sanjay Mehta"><i class="fab fa-researchgate"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card" data-categories="phd urban-mobility spatial-analysis gis">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Priyanka Joshi">
+                        </div>
+                        <div class="member-info">
+                            <h4>Priyanka Joshi</h4>
+                            <p class="member-position">PhD Scholar</p>
+                            <p class="member-edu">M.Tech. Geoinformatics, CEPT University</p>
+                            <p class="member-desc">Priyanka's research focuses on spatial analysis and modeling of urban mobility patterns. She is developing new methodologies to analyze and visualize human movement within cities using anonymized location data and GIS techniques.</p>
+                            <div class="member-expertise">
+                                <span>Urban Mobility</span>
+                                <span>Spatial Analysis</span>
+                                <span>GIS</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:priyanka.joshi@iitgn.ac.in" aria-label="Email Priyanka Joshi"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Priyanka Joshi"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter profile of Priyanka Joshi"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Research Associates -->
+            <div class="team-category" id="research-associates">
+                <h3>Research Associates</h3>
+                
+                <div class="team-grid">
+                    <div class="team-member-card" data-categories="research-associates disaster-response social-media-analytics">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Nisha Gupta">
+                        </div>
+                        <div class="member-info">
+                            <h4>Nisha Gupta</h4>
+                            <p class="member-position">Research Associate</p>
+                            <p class="member-edu">M.Sc. Geoinformatics, Anna University</p>
+                            <p class="member-desc">Nisha works on integrating remote sensing data with social media analytics for improved disaster response. Her research aims to develop frameworks that enhance situational awareness during natural disasters.</p>
+                            <div class="member-expertise">
+                                <span>Disaster Response</span>
+                                <span>Social Media Analytics</span>
+                                <span>GIS</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:nisha.gupta@iitgn.ac.in" aria-label="Email Nisha Gupta"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Nisha Gupta"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter profile of Nisha Gupta"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card" data-categories="research-associates flood-mapping hydrological-modeling">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Arjun Nair">
+                        </div>
+                        <div class="member-info">
+                            <h4>Arjun Nair</h4>
+                            <p class="member-position">Research Associate</p>
+                            <p class="member-edu">M.Tech. GIS, IIRS Dehradun</p>
+                            <p class="member-desc">Arjun specializes in flood risk assessment and mapping using integrated remote sensing and GIS techniques. His work involves developing hydrological models and analyzing socioeconomic vulnerability indicators.</p>
+                            <div class="member-expertise">
+                                <span>Flood Mapping</span>
+                                <span>Hydrological Modeling</span>
+                                <span>Risk Assessment</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:arjun.nair@iitgn.ac.in" aria-label="Email Arjun Nair"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Arjun Nair"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="ResearchGate profile of Arjun Nair"><i class="fab fa-researchgate"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card" data-categories="research-associates geospatial-visualization web-gis">
+                        <div class="member-image">
+                            <img src="/api/placeholder/300/300" alt="Kiran Singh">
+                        </div>
+                        <div class="member-info">
+                            <h4>Kiran Singh</h4>
+                            <p class="member-position">Research Associate</p>
+                            <p class="member-edu">M.Sc. Computer Science, BHU</p>
+                            <p class="member-desc">Kiran works on geospatial data visualization and web-based GIS development. She creates interactive platforms and tools to effectively communicate complex geospatial information to diverse stakeholders.</p>
+                            <div class="member-expertise">
+                                <span>Geospatial Visualization</span>
+                                <span>Web GIS</span>
+                                <span>UI/UX Design</span>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:kiran.singh@iitgn.ac.in" aria-label="Email Kiran Singh"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn profile of Kiran Singh"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub profile of Kiran Singh"><i class="fab fa-github"></i></a>
+                            </div>
+                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Highlights Carousel -->
+            <div class="research-highlights">
+                <h3>Recent Research Highlights</h3>
+                <div class="highlights-carousel">
+                    <div class="highlight-card">
+                        <img src="/api/placeholder/400/200" alt="Urban Heat Island Study">
+                        <div class="highlight-info">
+                            <h4>Urban Heat Island Study</h4>
+                            <p>Meera Shah's work on thermal patterns in Ahmedabad was featured in Environmental Research Letters.</p>
+                            <a href="#" class="highlight-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <img src="/api/placeholder/400/200" alt="Flood Mapping Project">
+                        <div class="highlight-info">
+                            <h4>Flood Risk Assessment</h4>
+                            <p>Dr. Patel and Arjun Nair's new model for integrating socioeconomic factors in flood risk maps.</p>
+                            <a href="#" class="highlight-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <img src="/api/placeholder/400/200" alt="Building Detection AI">
+                        <div class="highlight-info">
+                            <h4>Building Detection AI</h4>
+                            <p>Vikram's deep learning model achieved 94% accuracy in identifying informal settlements.</p>
+                            <a href="#" class="highlight-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="prev-btn" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                        <button class="next-btn" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Join Us Section -->
+            <div class="join-us-section">
+                <div class="join-us-content">
+                    <h3>Join Our Team</h3>
+                    <p>We are always looking for talented and motivated individuals who are passionate about geospatial data science and its applications. If you are interested in joining our lab as a PhD student, postdoctoral researcher, or research associate, please check our open positions.</p>
+                    <div class="join-us-buttons">
+                        <a href="#" class="btn">View Open Positions</a>
+                        <a href="contact.html" class="btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+                <div class="join-us-image">
+                    <img src="/api/placeholder/500/300" alt="Join Our Team - Researchers collaborating in GeoD Labs">
+                </div>
+            </div>
+            
+            <!-- Collaboration Opportunities -->
+            <div class="collaboration-section">
+                <h3>Collaboration Opportunities</h3>
+                <div class="collaboration-cards">
+                    <div class="collab-card">
+                        <i class="fas fa-university"></i>
+                        <h4>Academic Partners</h4>
+                        <p>Join our network of academic institutions collaborating on geospatial research projects.</p>
+                        <a href="#" class="collab-link">Learn More</a>
+                    </div>
+                    <div class="collab-card">
+                        <i class="fas fa-industry"></i>
+                        <h4>Industry Projects</h4>
+                        <p>Partner with our lab to solve real-world challenges using cutting-edge geospatial technologies.</p>
+                        <a href="#" class="collab-link">Learn More</a>
+                    </div>
+                    <div class="collab-card">
+                        <i class="fas fa-globe-asia"></i>
+                        <h4>Government Collaborations</h4>
+                        <p>Work with us on policy-focused research and applications for public benefit.</p>
+                        <a href="#" class="collab-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alumni Section -->
+            <div class="alumni-section">
+                <h3>Alumni Network</h3>
+                <p>Our former team members continue to make significant contributions to the field of geospatial science in academia, industry, and government organizations around the world.</p>
+                <div class="alumni-map">
+                    <img src="/api/placeholder/800/400" alt="World map showing alumni locations">
+                    <div class="alumni-stats">
+                        <div class="stat">
+                            <span class="stat-number">45+</span>
+                            <span class="stat-label">Alumni</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">16</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Organizations</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn">View Alumni Network</a>
+            </div>
+        </div>
+    </section>
+
+   
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h2>GeoD Labs</h2>
+                <p>Advancing geospatial data science research at IIT Gandhinagar.</p>
+                <div class="footer-logo">
+                    <img src="images/iitgn logo.png" alt="IIT Gandhinagar logo" width="120" height="120" loading="lazy">
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Dataset</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <address>
+                    GeoD Labs<br>
+                    IIT Gandhinagar<br>
+                    Palaj, Gandhinagar, Gujarat 382055<br>
+                    <a href="mailto:geodlabs@iitgn.ac.in">
+                        <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
+                    </a><br>
+                    <a href="tel:+919999999999">
+                        <i class="fas fa-phone"></i> +91 9999 999 999
+                    </a>
+                </address>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

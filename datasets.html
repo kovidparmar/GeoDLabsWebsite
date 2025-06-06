@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access publicly available geospatial datasets from GeoD Labs at IIT Gandhinagar for research and educational purposes">
+    <title>Datasets - GeoD Labs - IIT Gandhinagar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+    
+    <!-- Header -->
+<header class="site-header">
+    <div class="container header-container">
+        <div class="logo">
+            <a href="index.html" aria-label="GeoD Labs Home">
+                <img src="/api/placeholder/50/50" alt="GeoD Labs Logo" width="50" height="50">
+                <span class="logo-text">Geo<span class="highlight">D</span> Labs</span>
+            </a>
+        </div>
+        
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+        
+        <nav id="primary-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="research.html" class="nav-link">Research</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="datasets.html" class="nav-link">Datasets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="team.html" class="nav-link">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h2>Datasets</h2>
+            <p>Access our publicly available datasets and resources for research and educational purposes</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Search and Filter Section -->
+        <section class="dataset-filters">
+            <div class="container">
+                <form class="search-filter-form" role="search">
+                    <div class="search-box">
+                        <label for="dataset-search" class="visually-hidden">Search datasets</label>
+                        <input type="search" id="dataset-search" placeholder="Search datasets..." aria-label="Search datasets">
+                        <button type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </div>
+                    
+                    <div class="filter-controls">
+                        <label for="category-filter">Filter by category:</label>
+                        <select id="category-filter" aria-label="Filter datasets by category">
+                            <option value="all">All Categories</option>
+                            <option value="remote-sensing">Remote Sensing</option>
+                            <option value="urban-data">Urban Data</option>
+                            <option value="environmental-monitoring">Environmental Monitoring</option>
+                            <option value="disaster-management">Disaster Management</option>
+                            <option value="machine-learning">Machine Learning</option>
+                            <option value="gis-resources">GIS Resources</option>
+                        </select>
+                        
+                        <label for="sort-datasets">Sort by:</label>
+                        <select id="sort-datasets" aria-label="Sort datasets">
+                            <option value="newest">Most Recent</option>
+                            <option value="name">Name (A-Z)</option>
+                            <option value="size">Size</option>
+                            <option value="downloads">Most Downloaded</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Datasets Section -->
+        <section class="datasets-page">
+            <div class="container">
+                <div class="datasets-intro">
+                    <h3>Open Data Resources</h3>
+                    <p>At GeoD Labs, we believe in the open sharing of data to advance scientific research and innovation. Our datasets are the result of extensive research efforts and are made available to the academic community and the public under appropriate licensing terms. These resources can be used for research, education, and non-commercial applications.</p>
+                    
+                    <div class="dataset-categories" role="navigation" aria-label="Dataset categories">
+                        <a href="#" class="category-tag" data-filter="remote-sensing">Remote Sensing</a>
+                        <a href="#" class="category-tag" data-filter="urban-data">Urban Data</a>
+                        <a href="#" class="category-tag" data-filter="environmental-monitoring">Environmental Monitoring</a>
+                        <a href="#" class="category-tag" data-filter="disaster-management">Disaster Management</a>
+                        <a href="#" class="category-tag" data-filter="machine-learning">Machine Learning</a>
+                        <a href="#" class="category-tag" data-filter="gis-resources">GIS Resources</a>
+                    </div>
+                </div>
+                
+                <div class="dataset-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-database" aria-hidden="true"></i>
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Total Datasets</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        <span class="stat-number">5.2K</span>
+                        <span class="stat-label">Downloads</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <span class="stat-number">312</span>
+                        <span class="stat-label">Research Users</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-file-alt" aria-hidden="true"></i>
+                        <span class="stat-number">78</span>
+                        <span class="stat-label">Publications Citing</span>
+                    </div>
+                </div>
+                
+                <div class="featured-dataset">
+                    <div class="featured-badge">Featured Dataset</div>
+                    <div class="featured-content">
+                        <div class="featured-text">
+                            <h3>Gujarat Urban Growth Dataset (2000-2023)</h3>
+                            <p>Our most comprehensive urban expansion monitoring dataset covering a 23-year period for major cities in Gujarat. Includes classified land cover, temporal analysis, and validated accuracy assessments.</p>
+                            <div class="featured-meta">
+                                <span><i class="fas fa-calendar" aria-hidden="true"></i> Updated: March 2024</span>
+                                <span><i class="fas fa-download" aria-hidden="true"></i> 2.3 GB</span>
+                                <span><i class="fas fa-chart-bar" aria-hidden="true"></i> 450+ Downloads</span>
+                            </div>
+                            <div class="featured-actions">
+                                <a href="#" class="btn">Download Dataset</a>
+                                <a href="#" class="btn-secondary">View Documentation</a>
+                            </div>
+                        </div>
+                        <div class="featured-image">
+                            <img src="/api/placeholder/400/250" alt="Urban growth visualization showing expansion of Ahmedabad from 2000-2023">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dataset-grid" id="dataset-grid">
+                    <div class="dataset-card" data-category="remote-sensing">
+                        <div class="dataset-header">
+                            <h4>Gujarat Urban Growth Dataset (2000-2023)</h4>
+                            <span class="dataset-tag">Remote Sensing</span>
+                        </div>
+                        <div class="dataset-content">
+                            <p>Time series satellite imagery and classified urban land cover maps for major cities in Gujarat covering a 23-year period. This dataset includes Landsat and Sentinel-derived classifications with validation data.</p>
+                            <div class="dataset-details">
+                                <div class="dataset-detail-item">
+                                    <strong>Format:</strong> GeoTIFF, Shapefile
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Temporal Coverage:</strong> 2000-2023
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Spatial Resolution:</strong> 10-30m
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Citation:</strong> Sharma et al. (2024)
+                                </div>
+                            </div>
+                            <div class="dataset-meta">
+                                <div><i class="fas fa-calendar" aria-hidden="true"></i> Updated: March 2024</div>
+                                <div><i class="fas fa-download" aria-hidden="true"></i> 2.3 GB</div>
+                                <div><i class="fas fa-chart-bar" aria-hidden="true"></i> 450+ Downloads</div>
+                            </div>
+                            <div class="dataset-actions">
+                                <a href="#" class="btn">Download Dataset</a>
+                                <a href="#" class="btn-secondary">Documentation</a>
+                                <button class="btn-icon" aria-label="Preview dataset" title="Preview dataset"><i class="fas fa-eye" aria-hidden="true"></i></button>
+                                <button class="btn-icon" aria-label="Cite dataset" title="Cite dataset"><i class="fas fa-quote-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dataset-card" data-category="urban-data">
+                        <div class="dataset-header">
+                            <h4>Indian Cities Infrastructure Mapping</h4>
+                            <span class="dataset-tag">Urban Data</span>
+                        </div>
+                        <div class="dataset-content">
+                            <p>Comprehensive geospatial database of urban infrastructure including roads, buildings, and utilities for 20 major Indian cities. Contains vector data with detailed attribute information and classification.</p>
+                            <div class="dataset-details">
+                                <div class="dataset-detail-item">
+                                    <strong>Format:</strong> Shapefile, GeoJSON
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Coverage:</strong> 20 major Indian cities
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Features:</strong> Roads, buildings, utilities
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Citation:</strong> Kumar et al. (2023)
+                                </div>
+                            </div>
+                            <div class="dataset-meta">
+                                <div><i class="fas fa-calendar" aria-hidden="true"></i> Updated: January 2024</div>
+                                <div><i class="fas fa-download" aria-hidden="true"></i> 4.7 GB</div>
+                                <div><i class="fas fa-chart-bar" aria-hidden="true"></i> 325+ Downloads</div>
+                            </div>
+                            <div class="dataset-actions">
+                                <a href="#" class="btn">Download Dataset</a>
+                                <a href="#" class="btn-secondary">Documentation</a>
+                                <button class="btn-icon" aria-label="Preview dataset" title="Preview dataset"><i class="fas fa-eye" aria-hidden="true"></i></button>
+                                <button class="btn-icon" aria-label="Cite dataset" title="Cite dataset"><i class="fas fa-quote-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dataset-card" data-category="disaster-management">
+                        <div class="dataset-header">
+                            <h4>Gujarat Flood Events Database (2010-2023)</h4>
+                            <span class="dataset-tag">Disaster Management</span>
+                        </div>
+                        <div class="dataset-content">
+                            <p>Historical flood event data including extent maps, precipitation records, and damage assessments for flood events in Gujarat region. Includes satellite-derived flood extent maps and field survey data.</p>
+                            <div class="dataset-details">
+                                <div class="dataset-detail-item">
+                                    <strong>Format:</strong> GeoTIFF, CSV, Shapefile
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Temporal Coverage:</strong> 2010-2023
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Events Recorded:</strong> 35 major flood events
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Citation:</strong> Patel et al. (2024)
+                                </div>
+                            </div>
+                            <div class="dataset-meta">
+                                <div><i class="fas fa-calendar" aria-hidden="true"></i> Updated: April 2024</div>
+                                <div><i class="fas fa-download" aria-hidden="true"></i> 1.8 GB</div>
+                                <div><i class="fas fa-chart-bar" aria-hidden="true"></i> 280+ Downloads</div>
+                            </div>
+                            <div class="dataset-actions">
+                                <a href="#" class="btn">Download Dataset</a>
+                                <a href="#" class="btn-secondary">Documentation</a>
+                                <button class="btn-icon" aria-label="Preview dataset" title="Preview dataset"><i class="fas fa-eye" aria-hidden="true"></i></button>
+                                <button class="btn-icon" aria-label="Cite dataset" title="Cite dataset"><i class="fas fa-quote-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dataset-card" data-category="machine-learning">
+                        <div class="dataset-header">
+                            <h4>Remote Sensing Training Dataset</h4>
+                            <span class="dataset-tag">Machine Learning</span>
+                        </div>
+                        <div class="dataset-content">
+                            <p>Annotated satellite imagery for training machine learning models for land use classification, object detection, and segmentation tasks. Contains multi-spectral data with expert annotations.</p>
+                            <div class="dataset-details">
+                                <div class="dataset-detail-item">
+                                    <strong>Format:</strong> GeoTIFF, JSON
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Classes:</strong> 15 land use classes
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Image Count:</strong> 5,000+ annotated images
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Citation:</strong> Desai et al. (2023)
+                                </div>
+                            </div>
+                            <div class="dataset-meta">
+                                <div><i class="fas fa-calendar" aria-hidden="true"></i> Updated: February 2024</div>
+                                <div><i class="fas fa-download" aria-hidden="true"></i> 3.5 GB</div>
+                                <div><i class="fas fa-chart-bar" aria-hidden="true"></i> 510+ Downloads</div>
+                            </div>
+                            <div class="dataset-actions">
+                                <a href="#" class="btn">Download Dataset</a>
+                                <a href="#" class="btn-secondary">Documentation</a>
+                                <button class="btn-icon" aria-label="Preview dataset" title="Preview dataset"><i class="fas fa-eye" aria-hidden="true"></i></button>
+                                <button class="btn-icon" aria-label="Cite dataset" title="Cite dataset"><i class="fas fa-quote-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dataset-card" data-category="environmental-monitoring">
+                        <div class="dataset-header">
+                            <h4>Urban Heat Island Monitoring Data</h4>
+                            <span class="dataset-tag">Environmental Monitoring</span>
+                        </div>
+                        <div class="dataset-content">
+                            <p>Multi-temporal thermal infrared data for urban areas in India showing land surface temperature patterns and urban heat island effects. Includes satellite data and ground measurements.</p>
+                            <div class="dataset-details">
+                                <div class="dataset-detail-item">
+                                    <strong>Format:</strong> GeoTIFF, CSV
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Temporal Coverage:</strong> 2015-2023
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Spatial Resolution:</strong> 30-100m
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Citation:</strong> Kumar et al. (2023)
+                                </div>
+                            </div>
+                            <div class="dataset-meta">
+                                <div><i class="fas fa-calendar" aria-hidden="true"></i> Updated: December 2023</div>
+                                <div><i class="fas fa-download" aria-hidden="true"></i> 1.2 GB</div>
+                                <div><i class="fas fa-chart-bar" aria-hidden="true"></i> 190+ Downloads</div>
+                            </div>
+                            <div class="dataset-actions">
+                                <a href="#" class="btn">Download Dataset</a>
+                                <a href="#" class="btn-secondary">Documentation</a>
+                                <button class="btn-icon" aria-label="Preview dataset" title="Preview dataset"><i class="fas fa-eye" aria-hidden="true"></i></button>
+                                <button class="btn-icon" aria-label="Cite dataset" title="Cite dataset"><i class="fas fa-quote-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dataset-card" data-category="urban-data">
+                        <div class="dataset-header">
+                            <h4>Urban Mobility Patterns Dataset</h4>
+                            <span class="dataset-tag">Urban Data</span>
+                        </div>
+                        <div class="dataset-content">
+                            <p>Anonymous mobility data showing urban movement patterns in major Gujarat cities. Includes origin-destination matrices, temporal patterns, and transportation mode information.</p>
+                            <div class="dataset-details">
+                                <div class="dataset-detail-item">
+                                    <strong>Format:</strong> CSV, GeoJSON
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Temporal Coverage:</strong> 2020-2023
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Cities:</strong> Ahmedabad, Gandhinagar, Surat, Vadodara
+                                </div>
+                                <div class="dataset-detail-item">
+                                    <strong>Citation:</strong> Shah et al. (2024)
+                                </div>
+                            </div>
+                            <div class="dataset-meta">
+                                <div><i class="fas fa-calendar" aria-hidden="true"></i> Updated: March 2024</div>
+                                <div><i class="fas fa-download" aria-hidden="true"></i> 850 MB</div>
+                                <div><i class="fas fa-chart-bar" aria-hidden="true"></i> 215+ Downloads</div>
+                            </div>
+                            <div class="dataset-actions">
+                                <a href="#" class="btn">Download Dataset</a>
+                                <a href="#" class="btn-secondary">Documentation</a>
+                                <button class="btn-icon" aria-label="Preview dataset" title="Preview dataset"><i class="fas fa-eye" aria-hidden="true"></i></button>
+                                <button class="btn-icon" aria-label="Cite dataset" title="Cite dataset"><i class="fas fa-quote-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn" aria-label="Previous page" disabled><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <span class="pagination-text">Page 1 of 2</span>
+                    <button class="pagination-btn" aria-label="Next page"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+                
+                <div class="datasets-usage">
+                    <h3>Data Usage Policy</h3>
+                    <p>Our datasets are provided under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). This means you are free to:</p>
+                    <ul>
+                        <li>Share — copy and redistribute the material in any medium or format</li>
+                        <li>Adapt — remix, transform, and build upon the material</li>
+                    </ul>
+                    <p>Under the following terms:</p>
+                    <ul>
+                        <li>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.</li>
+                        <li>NonCommercial — You may not use the material for commercial purposes without prior written consent.</li>
+                    </ul>
+                    <p>When using our datasets in your research, please cite the relevant publication as indicated in the dataset details.</p>
+                    <div class="license-badge">
+                        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">
+                            <img src="/api/placeholder/120/40" alt="CC BY-NC 4.0 License Badge">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Request Section -->
+        <section class="data-request">
+            <div class="container">
+                <div class="request-content">
+                    <h3>Need Specific Data?</h3>
+                    <p>Don't see what you're looking for? Our team may be able to provide additional datasets or customized data extracts for specific research needs.</p>
+                    <a href="contact.html" class="btn">Request Data</a>
+                </div>
+                
+                <div class="collaboration-cta">
+                    <h3>Collaborate With Us</h3>
+                    <p>Are you a researcher or organization with valuable geospatial data? Partner with us to make your data available to the research community through our platform.</p>
+                    <a href="collaborate.html" class="btn-secondary">Learn More About Collaboration</a>
+                </div>
+            </div>
+        </section>
+
+       
+    <!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h2>GeoD Labs</h2>
+                <p>Advancing geospatial data science research at IIT Gandhinagar.</p>
+                <div class="footer-logo">
+                    <img src="images/iitgn logo.png" alt="IIT Gandhinagar logo" width="120" height="120" loading="lazy">
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Dataset</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <address>
+                    GeoD Labs<br>
+                    IIT Gandhinagar<br>
+                    Palaj, Gandhinagar, Gujarat 382055<br>
+                    <a href="mailto:geodlabs@iitgn.ac.in">
+                        <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
+                    </a><br>
+                    <a href="tel:+919999999999">
+                        <i class="fas fa-phone"></i> +91 9999 999 999
+                    </a>
+                </address>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
