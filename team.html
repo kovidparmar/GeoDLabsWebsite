@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team - GeoD Labs - IIT Gandhinagar</title>
-    <meta name="description" content="Meet the talented researchers, faculty, and students at GeoD Labs working on cutting-edge geospatial research at IIT Gandhinagar.">
+    <title>Our Team</title>
+    <meta name="description" content="Meet the brilliant minds driving innovation and research in our laboratory">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <!-- Add preconnect for performance -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 </head>
 <body>
+
     <!-- Header -->
 <header class="site-header">
     <div class="container header-container">
@@ -29,7 +30,7 @@
         <nav id="primary-navigation" aria-label="Main navigation">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link">About</a>
@@ -44,7 +45,7 @@
                     <a href="datasets.html" class="nav-link">Datasets</a>
                 </li>
                 <li class="nav-item">
-                    <a href="team.html" class="nav-link">Team</a>
+                    <a href="team.html" class="nav-link active" aria-current="page">Team</a>
                 </li>
                 <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact</a>
@@ -54,393 +55,528 @@
     </div>
 </header>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <h2>Our Team</h2>
-            <p>Meet our diverse team of researchers, faculty, and students working on cutting-edge geospatial research</p>
+            <h1>Our Team</h1>
+            <p>Meet the brilliant minds driving innovation and research in our laboratory</p>
         </div>
     </section>
 
-    <!-- Team Filter Navigation -->
-    <section class="team-filter">
+    <!-- Team Navigation -->
+    <nav class="team-nav">
         <div class="container">
-            <nav class="filter-nav" aria-label="Team filter navigation">
-                <ul>
-                    <li><a href="#all" class="filter-active" data-filter="all">All Members</a></li>
-                    <li><a href="#faculty" data-filter="faculty">Faculty</a></li>
-                    <li><a href="#phd" data-filter="phd">PhD Scholars</a></li>
-                    <li><a href="#research-associates" data-filter="research-associates">Research Associates</a></li>
-                </ul>
-            </nav>
+            <div class="nav-buttons">
+                <button class="nav-btn active" data-category="all">All Members</button>
+                <button class="nav-btn" data-category="faculty">Faculty</button>
+                <button class="nav-btn" data-category="postdoc">Postdocs</button>
+                <button class="nav-btn" data-category="phd">PhD Students</button>
+                <button class="nav-btn" data-category="masters">Masters Students</button>
+            </div>
         </div>
-    </section>
+    </nav>
 
     <!-- Team Section -->
-    <section class="team-page">
+    <section class="team-section">
         <div class="container">
-            <div class="team-intro">
-                <h3>About Our Team</h3>
-                <p>Our lab brings together experts from various disciplines including geospatial science, computer science, environmental science, and urban planning. This interdisciplinary approach allows us to tackle complex problems with innovative perspectives and methodologies. Our team members come from diverse backgrounds and are united by a passion for using geospatial technology to address real-world challenges.</p>
-            </div>
-            
-            <!-- Faculty Members -->
-            <div class="team-category" id="faculty">
-                <h3>Faculty</h3>
-                
-                <div class="team-grid">
-                    <div class="team-member-card" data-categories="faculty remote-sensing urban-analytics">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Dr. Anand Sharma">
-                        </div>
-                        <div class="member-info">
-                            <h4>Dr. Anand Sharma</h4>
-                            <p class="member-position">Lab Director & Associate Professor</p>
-                            <p class="member-edu">Ph.D. Remote Sensing, University of Cambridge</p>
-                            <p class="member-desc">Dr. Sharma specializes in remote sensing applications for urban studies and has led multiple national and international research projects. His current work focuses on developing machine learning approaches for analyzing multi-temporal satellite imagery.</p>
-                            <div class="member-expertise">
-                                <span>Remote Sensing</span>
-                                <span>Urban Analytics</span>
-                                <span>Machine Learning</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:anand.sharma@iitgn.ac.in" aria-label="Email Dr. Anand Sharma"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Dr. Anand Sharma"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter profile of Dr. Anand Sharma"><i class="fab fa-twitter"></i></a>
-                                <a href="#" aria-label="Website of Dr. Anand Sharma"><i class="fas fa-globe"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member-card" data-categories="faculty disaster-management gis">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Dr. Priya Patel">
-                        </div>
-                        <div class="member-info">
-                            <h4>Dr. Priya Patel</h4>
-                            <p class="member-position">Associate Professor</p>
-                            <p class="member-edu">Ph.D. Geospatial Science, MIT</p>
-                            <p class="member-desc">Dr. Patel's research centers on disaster risk management using geospatial technologies. She has extensive experience in flood mapping, risk assessment, and the development of early warning systems for natural hazards.</p>
-                            <div class="member-expertise">
-                                <span>Disaster Management</span>
-                                <span>GIS</span>
-                                <span>Risk Assessment</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:priya.patel@iitgn.ac.in" aria-label="Email Dr. Priya Patel"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Dr. Priya Patel"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter profile of Dr. Priya Patel"><i class="fab fa-twitter"></i></a>
-                                <a href="#" aria-label="Website of Dr. Priya Patel"><i class="fas fa-globe"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member-card" data-categories="faculty geoai deep-learning">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Dr. Rahul Kumar">
-                        </div>
-                        <div class="member-info">
-                            <h4>Dr. Rahul Kumar</h4>
-                            <p class="member-position">Assistant Professor</p>
-                            <p class="member-edu">Ph.D. Computer Science, Stanford University</p>
-                            <p class="member-desc">Dr. Kumar bridges the gap between computer science and geospatial analysis. His research focuses on developing novel algorithms for spatial data mining, deep learning for remote sensing image analysis, and geospatial visualization.</p>
-                            <div class="member-expertise">
-                                <span>GeoAI</span>
-                                <span>Deep Learning</span>
-                                <span>Visualization</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:rahul.kumar@iitgn.ac.in" aria-label="Email Dr. Rahul Kumar"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Dr. Rahul Kumar"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter profile of Dr. Rahul Kumar"><i class="fab fa-twitter"></i></a>
-                                <a href="#" aria-label="Website of Dr. Rahul Kumar"><i class="fas fa-globe"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
-                        </div>
-                    </div>
+            <!-- Faculty Section -->
+            <div class="team-category" data-category="faculty">
+                <div class="category-header">
+                    <h3>Faculty Members</h3>
+                    <p>Leading researchers and educators guiding our scientific endeavors</p>
                 </div>
-            </div>
-            
-            <!-- PhD Scholars -->
-            <div class="team-category" id="phd">
-                <h3>PhD Scholars</h3>
-                
                 <div class="team-grid">
-                    <div class="team-member-card" data-categories="phd urban-heat-islands remote-sensing">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Meera Shah">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://via.placeholder.com/150x150/667eea/ffffff?text=Member-1" alt="Faculty Member 1">
                         </div>
-                        <div class="member-info">
-                            <h4>Meera Shah</h4>
-                            <p class="member-position">PhD Scholar</p>
-                            <p class="member-edu">M.Tech. Remote Sensing, IIT Bombay</p>
-                            <p class="member-desc">Meera's doctoral research focuses on the analysis of urban heat islands using thermal remote sensing data. She is developing new methodologies for spatio-temporal analysis of temperature patterns in rapidly urbanizing cities.</p>
-                            <div class="member-expertise">
-                                <span>Urban Heat Islands</span>
-                                <span>Thermal Remote Sensing</span>
-                                <span>Climate Studies</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:meera.shah@iitgn.ac.in" aria-label="Email Meera Shah"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Meera Shah"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter profile of Meera Shah"><i class="fab fa-twitter"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        <h3 class="member-name">Member-1</h3>
+                        <p class="member-position">Professor & Lab Director</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> Ph.D. Computer Science, Stanford University
                         </div>
-                    </div>
-                    
-                    <div class="team-member-card" data-categories="phd deep-learning computer-vision">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Vikram Desai">
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Machine Learning</span>
+                                <span class="interest-tag">Artificial Intelligence</span>
+                                <span class="interest-tag">Data Science</span>
+                            </div>
                         </div>
-                        <div class="member-info">
-                            <h4>Vikram Desai</h4>
-                            <p class="member-position">PhD Scholar</p>
-                            <p class="member-edu">M.Tech. Geoinformatics, IIT Roorkee</p>
-                            <p class="member-desc">Vikram's research applies deep learning techniques to automate the extraction of features from high-resolution satellite imagery. His current focus is on developing models for road network and building footprint extraction in complex urban environments.</p>
-                            <div class="member-expertise">
-                                <span>Deep Learning</span>
-                                <span>Feature Extraction</span>
-                                <span>Computer Vision</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:vikram.desai@iitgn.ac.in" aria-label="Email Vikram Desai"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Vikram Desai"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="GitHub profile of Vikram Desai"><i class="fab fa-github"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        <div class="social-links">
+                            <a href="mailto:member1@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link website" title="Website">
+                                <i class="fas fa-globe"></i>
+                            </a>
                         </div>
                     </div>
-                    
-                    <div class="team-member-card" data-categories="phd agricultural-remote-sensing drought-monitoring">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Sanjay Mehta">
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://via.placeholder.com/150x150/764ba2/ffffff?text=Member-2" alt="Faculty Member 2">
                         </div>
-                        <div class="member-info">
-                            <h4>Sanjay Mehta</h4>
-                            <p class="member-position">PhD Scholar</p>
-                            <p class="member-edu">M.Sc. Environmental Science, Delhi University</p>
-                            <p class="member-desc">Sanjay's doctoral work investigates the application of remote sensing for agricultural drought monitoring and prediction. He is developing integrated approaches combining satellite data with meteorological variables and machine learning techniques.</p>
-                            <div class="member-expertise">
-                                <span>Agricultural Remote Sensing</span>
-                                <span>Drought Monitoring</span>
-                                <span>Time Series Analysis</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:sanjay.mehta@iitgn.ac.in" aria-label="Email Sanjay Mehta"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Sanjay Mehta"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="ResearchGate profile of Sanjay Mehta"><i class="fab fa-researchgate"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        <h3 class="member-name">Member-2</h3>
+                        <p class="member-position">Associate Professor</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> Ph.D. Electrical Engineering, MIT
                         </div>
-                    </div>
-                    
-                    <div class="team-member-card" data-categories="phd urban-mobility spatial-analysis gis">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Priyanka Joshi">
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Robotics</span>
+                                <span class="interest-tag">Computer Vision</span>
+                                <span class="interest-tag">Neural Networks</span>
+                            </div>
                         </div>
-                        <div class="member-info">
-                            <h4>Priyanka Joshi</h4>
-                            <p class="member-position">PhD Scholar</p>
-                            <p class="member-edu">M.Tech. Geoinformatics, CEPT University</p>
-                            <p class="member-desc">Priyanka's research focuses on spatial analysis and modeling of urban mobility patterns. She is developing new methodologies to analyze and visualize human movement within cities using anonymized location data and GIS techniques.</p>
-                            <div class="member-expertise">
-                                <span>Urban Mobility</span>
-                                <span>Spatial Analysis</span>
-                                <span>GIS</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:priyanka.joshi@iitgn.ac.in" aria-label="Email Priyanka Joshi"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Priyanka Joshi"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter profile of Priyanka Joshi"><i class="fab fa-twitter"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Research Associates -->
-            <div class="team-category" id="research-associates">
-                <h3>Research Associates</h3>
-                
-                <div class="team-grid">
-                    <div class="team-member-card" data-categories="research-associates disaster-response social-media-analytics">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Nisha Gupta">
-                        </div>
-                        <div class="member-info">
-                            <h4>Nisha Gupta</h4>
-                            <p class="member-position">Research Associate</p>
-                            <p class="member-edu">M.Sc. Geoinformatics, Anna University</p>
-                            <p class="member-desc">Nisha works on integrating remote sensing data with social media analytics for improved disaster response. Her research aims to develop frameworks that enhance situational awareness during natural disasters.</p>
-                            <div class="member-expertise">
-                                <span>Disaster Response</span>
-                                <span>Social Media Analytics</span>
-                                <span>GIS</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:nisha.gupta@iitgn.ac.in" aria-label="Email Nisha Gupta"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Nisha Gupta"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="Twitter profile of Nisha Gupta"><i class="fab fa-twitter"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member-card" data-categories="research-associates flood-mapping hydrological-modeling">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Arjun Nair">
-                        </div>
-                        <div class="member-info">
-                            <h4>Arjun Nair</h4>
-                            <p class="member-position">Research Associate</p>
-                            <p class="member-edu">M.Tech. GIS, IIRS Dehradun</p>
-                            <p class="member-desc">Arjun specializes in flood risk assessment and mapping using integrated remote sensing and GIS techniques. His work involves developing hydrological models and analyzing socioeconomic vulnerability indicators.</p>
-                            <div class="member-expertise">
-                                <span>Flood Mapping</span>
-                                <span>Hydrological Modeling</span>
-                                <span>Risk Assessment</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:arjun.nair@iitgn.ac.in" aria-label="Email Arjun Nair"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Arjun Nair"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="ResearchGate profile of Arjun Nair"><i class="fab fa-researchgate"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member-card" data-categories="research-associates geospatial-visualization web-gis">
-                        <div class="member-image">
-                            <img src="/api/placeholder/300/300" alt="Kiran Singh">
-                        </div>
-                        <div class="member-info">
-                            <h4>Kiran Singh</h4>
-                            <p class="member-position">Research Associate</p>
-                            <p class="member-edu">M.Sc. Computer Science, BHU</p>
-                            <p class="member-desc">Kiran works on geospatial data visualization and web-based GIS development. She creates interactive platforms and tools to effectively communicate complex geospatial information to diverse stakeholders.</p>
-                            <div class="member-expertise">
-                                <span>Geospatial Visualization</span>
-                                <span>Web GIS</span>
-                                <span>UI/UX Design</span>
-                            </div>
-                            <div class="member-contact">
-                                <a href="mailto:kiran.singh@iitgn.ac.in" aria-label="Email Kiran Singh"><i class="fas fa-envelope"></i></a>
-                                <a href="#" aria-label="LinkedIn profile of Kiran Singh"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" aria-label="GitHub profile of Kiran Singh"><i class="fab fa-github"></i></a>
-                            </div>
-                            <a href="#" class="view-profile-btn">View Full Profile</a>
+                        <div class="social-links">
+                            <a href="mailto:member2@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link orcid" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Research Highlights Carousel -->
-            <div class="research-highlights">
-                <h3>Recent Research Highlights</h3>
-                <div class="highlights-carousel">
-                    <div class="highlight-card">
-                        <img src="/api/placeholder/400/200" alt="Urban Heat Island Study">
-                        <div class="highlight-info">
-                            <h4>Urban Heat Island Study</h4>
-                            <p>Meera Shah's work on thermal patterns in Ahmedabad was featured in Environmental Research Letters.</p>
-                            <a href="#" class="highlight-link">Read More</a>
+            <!-- Postdocs Section -->
+            <div class="team-category" data-category="postdoc">
+                <div class="category-header">
+                    <h3>Postdoctoral Researchers</h3>
+                    <p>Experienced researchers advancing cutting-edge projects</p>
+                </div>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://via.placeholder.com/150x150/28a745/ffffff?text=Member-3" alt="Postdoc 1">
+                        </div>
+                        <h3 class="member-name">Shravan Kumar</h3>
+                        <p class="member-position">Postdoctoral Researcher</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> Ph.D. BHU
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Geophysics</span>
+                                <span class="interest-tag">Gravity modelling</span>
+                                <span class="interest-tag">Geodynamics</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member3@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="highlight-card">
-                        <img src="/api/placeholder/400/200" alt="Flood Mapping Project">
-                        <div class="highlight-info">
-                            <h4>Flood Risk Assessment</h4>
-                            <p>Dr. Patel and Arjun Nair's new model for integrating socioeconomic factors in flood risk maps.</p>
-                            <a href="#" class="highlight-link">Read More</a>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://via.placeholder.com/150x150/dc3545/ffffff?text=Member-4" alt="Postdoc 2">
                         </div>
-                    </div>
-                    <div class="highlight-card">
-                        <img src="/api/placeholder/400/200" alt="Building Detection AI">
-                        <div class="highlight-info">
-                            <h4>Building Detection AI</h4>
-                            <p>Vikram's deep learning model achieved 94% accuracy in identifying informal settlements.</p>
-                            <a href="#" class="highlight-link">Read More</a>
+                        <h3 class="member-name">Member-4</h3>
+                        <p class="member-position">Postdoctoral Researcher</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> Ph.D. Materials Science, Caltech
                         </div>
-                    </div>
-                    <div class="carousel-controls">
-                        <button class="prev-btn" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
-                        <button class="next-btn" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Nanotechnology</span>
+                                <span class="interest-tag">Quantum Materials</span>
+                                <span class="interest-tag">Energy Storage</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member4@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link orcid" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Join Us Section -->
-            <div class="join-us-section">
-                <div class="join-us-content">
-                    <h3>Join Our Team</h3>
-                    <p>We are always looking for talented and motivated individuals who are passionate about geospatial data science and its applications. If you are interested in joining our lab as a PhD student, postdoctoral researcher, or research associate, please check our open positions.</p>
-                    <div class="join-us-buttons">
-                        <a href="#" class="btn">View Open Positions</a>
-                        <a href="contact.html" class="btn-secondary">Contact Us</a>
-                    </div>
+
+            <!-- PhD Students Section -->
+            <div class="team-category" data-category="phd">
+                <div class="category-header">
+                    <h3>PhD Students</h3>
+                    <p>Dedicated doctoral candidates pursuing groundbreaking research</p>
                 </div>
-                <div class="join-us-image">
-                    <img src="/api/placeholder/500/300" alt="Join Our Team - Researchers collaborating in GeoD Labs">
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Virat Upadhyay 23310090.jpg" alt="PhD Student 1">
+                        </div>
+                        <h3 class="member-name">Virat Upadhyay</h3>
+                        <p class="member-position">PhD Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> B.Tech in Civil Engineering (2016-2020)<br>
+M.Tech in Earth System Science and Engineering (2021-2023)<br>
+PhD in Earth Science (2023-present)
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Topographic affect of Earthquake</span>
+                                <span class="interest-tag">Engineering Seismology</span>
+                                <span class="interest-tag"> Earthquake Induced Landslides</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:23310090@iitgn.ac.in" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Omkar Singh.jpg" alt="PhD Student 2">
+                        </div>
+                        <h3 class="member-name">Omkar</h3>
+                        <p class="member-position">PhD Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> BTech in Mechanical Engineering (2016-2020)<br>
+MTech is Earth Science (2020-2023)<br>
+Phd in Earth Science (2023- Ongoing)
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Seismology</span>
+                                <span class="interest-tag">Statistical Seismology</span>
+                                <span class="interest-tag">Engineering Seismology</span>
+                                <span class="interest-tag">Optimisation</span>
+                                <span class="interest-tag"> Ground Motion Modelling</span>
+                                <span class="interest-tag">Ground Motion Simulation</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member6@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Saurabh Choubey.jpg" alt="PhD Student 3">
+                        </div>
+                        <h3 class="member-name">Saurabh Choubey</h3>
+                        <p class="member-position">PhD Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i>B.Sc. (Hons) in Physics i(2012-2015)<br>M.SC. Tech in Applied Geophysics (2016-2019)<br> Ph.D. (2020-Ongoing)
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Numerical Geodynamic Modeling</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member7@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link website" title="Website">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\shikha sharma 19310028.heif" alt="PhD Student 2">
+                        </div>
+                        <h3 class="member-name">Shikha Sharma</h3>
+                        <p class="member-position">PhD Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i>  Bachelor of Technology(B.Tech) in Civil Engineering from BIT Ghaziabad(Gold Medalist)<br>
+Master of Technology(M.Tech) (2017-2019) in Earthquake Science and Engineering from IIT(ISM) Dhanbad<br>
+PhD (2019 onwards) in Department of Earth Sciences"
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Seismology</span>
+                                <span class="interest-tag">Earthquake Engineering Ground Motion</span>
+                                <span class="interest-tag">Seismic Hazard Analysis</span>
+                                <span class="interest-tag">Earthquake Seismology</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member6@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Parvee.png" alt="PhD Student 2">
+                        </div>
+                        <h3 class="member-name">Parvee</h3>
+                        <p class="member-position">PhD Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i>B.Sc. (Physics, Mathematics, Computer Science)  2017-2019 CSJM University, Kanpur<br>
+M.Sc.(Tech) Applied Geophysics, 2020-2023, IIT (ISM) Dhanbad<br>
+PhD, Earth Science, 2023- Ongoing, IIT Gandhinagar
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Seismic Interpretation and Geodynamic Modelling</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member6@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Deoyani Shelke.jpg" alt="PhD Student 2">
+                        </div>
+                        <h3 class="member-name">Deoyani Shelke</h3>
+                        <p class="member-position">PhD Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> B.Sc.  2017-2020 (Geology, Physics,Chemistry) Shri Shivaji Science College,Nagpur<br>
+M.Sc  20212023 (Applied Geology) IIEST, Shibpur, West Bengal<br>
+Ph.D.  2023-present (IITGn)
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">High-Pressure mineralogy</span>
+                                <span class="interest-tag"> Density Functional Theory</span>
+                                <span class="interest-tag">Deep Earth Geophysics</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member6@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Sumit Singh 24310062.jpg" alt="PhD Student 2">
+                        </div>
+                        <h3 class="member-name">Sumit Singh </h3>
+                        <p class="member-position">PhD Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> Msc Applied Geology 
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Computational Geodynamics</span>
+                                <span class="interest-tag">SFD-MIC</span>
+                                <span class="interest-tag">Fracture propagation</span>
+                                <span class="interest-tag">Phase field modelling</span>
+                                <span class="interest-tag">Earthquake distributions</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member6@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            
-            <!-- Collaboration Opportunities -->
-            <div class="collaboration-section">
-                <h3>Collaboration Opportunities</h3>
-                <div class="collaboration-cards">
-                    <div class="collab-card">
-                        <i class="fas fa-university"></i>
-                        <h4>Academic Partners</h4>
-                        <p>Join our network of academic institutions collaborating on geospatial research projects.</p>
-                        <a href="#" class="collab-link">Learn More</a>
+
+            <!-- Masters Students Section -->
+            <div class="team-category" data-category="masters">
+                <div class="category-header">
+                    <h3>Masters Students</h3>
+                    <p>Talented graduate students contributing to ongoing research projects</p>
+                </div>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Jagroop Singh.jpg" alt="Masters Student 1">
+                        </div>
+                        <h3 class="member-name">Jagroop SIngh</h3>
+                        <p class="member-position">Masters Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> B.Sc. Physics (2017-2020), M.Sc. Physics ( 2020-2022) <br>M.Tech. Earth Sciences (2023-2025)
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Geodynamic Modeling</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member8@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="collab-card">
-                        <i class="fas fa-industry"></i>
-                        <h4>Industry Projects</h4>
-                        <p>Partner with our lab to solve real-world challenges using cutting-edge geospatial technologies.</p>
-                        <a href="#" class="collab-link">Learn More</a>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Dakshata Bhamare.jpg" alt="Masters Student 2">
+                        </div>
+                        <h3 class="member-name">Dakshata Suresh bhamare</h3>
+                        <p class="member-position">Masters Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> B.E in Mechanical (2017-2021)<br>
+                             M.Tech in Earth System Science(2023-present)
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Statistical or engineering seismology</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member9@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="collab-card">
-                        <i class="fas fa-globe-asia"></i>
-                        <h4>Government Collaborations</h4>
-                        <p>Work with us on policy-focused research and applications for public benefit.</p>
-                        <a href="#" class="collab-link">Learn More</a>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Anindita Jana 24210013.jpg" alt="Masters Student 2">
+                        </div>
+                        <h3 class="member-name">Anindita Jana</h3>
+                        <p class="member-position">Masters Student</p>
+                        <div class="member-education">Master of Science in Soil Science and Agricultural Chemistry
+                        </div>
+                            <i class="fas fa-graduation-cap"></i> 
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Geodynamic modelling</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member9@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images\Devanarayanan E M 24210029.jpg" alt="Masters Student 2">
+                        </div>
+                        <h3 class="member-name">Devanarayanan EM</h3>
+                        <p class="member-position">Masters Student</p>
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i> 5 Year Integrated Msc in Applied Geology (2018-2023)
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Basin Analysis and Forward Stratigraphic Modelling</span>
+                                <span class="interest-tag">Seismic and Structural Interpretations.</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:member9@university.edu" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            
-            <!-- Alumni Section -->
-            <div class="alumni-section">
-                <h3>Alumni Network</h3>
-                <p>Our former team members continue to make significant contributions to the field of geospatial science in academia, industry, and government organizations around the world.</p>
-                <div class="alumni-map">
-                    <img src="/api/placeholder/800/400" alt="World map showing alumni locations">
-                    <div class="alumni-stats">
-                        <div class="stat">
-                            <span class="stat-number">45+</span>
-                            <span class="stat-label">Alumni</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">16</span>
-                            <span class="stat-label">Countries</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">30+</span>
-                            <span class="stat-label">Organizations</span>
-                        </div>
-                    </div>
+
+          
                 </div>
-                <a href="#" class="btn">View Alumni Network</a>
             </div>
         </div>
     </section>
 
-   
-<!-- Footer -->
+    <!-- Footer -->
 <footer class="site-footer">
     <div class="container">
         <div class="footer-container">
@@ -488,10 +624,79 @@
     </div>
 </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Team filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.nav-btn');
+            const teamCategories = document.querySelectorAll('.team-category');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show/hide categories
+                    teamCategories.forEach(categoryElement => {
+                        const categoryType = categoryElement.getAttribute('data-category');
+                        
+                        if (category === 'all' || category === categoryType) {
+                            categoryElement.style.display = 'block';
+                            // Animate cards
+                            const cards = categoryElement.querySelectorAll('.member-card');
+                            cards.forEach((card, index) => {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(30px)';
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, index * 100);
+                            });
+                        } else {
+                            categoryElement.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add intersection observer for animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all member cards
+            document.querySelectorAll('.member-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>
