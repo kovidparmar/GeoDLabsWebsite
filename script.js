@@ -751,3 +751,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Log that initialization is complete
   console.log('GeoD Labs website scripts initialized');
 });
+
+
+

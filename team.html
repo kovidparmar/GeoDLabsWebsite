@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,50 +11,52 @@
     <!-- Add preconnect for performance -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 </head>
+
 <body>
 
     <!-- Header -->
-<header class="site-header">
-    <div class="container header-container">
-        <div class="logo">
-            <a href="index.html" aria-label="GeoD Labs Home">
-                <img src="/api/placeholder/50/50" alt="GeoD Labs Logo" width="50" height="50">
-                <span class="logo-text">Geo<span class="highlight">D</span> Labs</span>
-            </a>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" aria-label="GeoD Labs Home">
+                    <img src="/api/placeholder/50/50" alt="GeoD Labs Logo" width="50" height="50">
+                    <span class="logo-text">Geo<span class="highlight">D</span> Labs</span>
+                </a>
+            </div>
+
+            <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation"
+                aria-label="Toggle navigation menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <nav id="primary-navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="research.html" class="nav-link">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="publications.html" class="nav-link">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="datasets.html" class="nav-link">Datasets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link active" aria-current="page">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        
-        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation menu">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-            <span class="sr-only">Menu</span>
-        </button>
-        
-        <nav id="primary-navigation" aria-label="Main navigation">
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="research.html" class="nav-link">Research</a>
-                </li>
-                <li class="nav-item">
-                    <a href="publications.html" class="nav-link">Publications</a>
-                </li>
-                <li class="nav-item">
-                    <a href="datasets.html" class="nav-link">Datasets</a>
-                </li>
-                <li class="nav-item">
-                    <a href="team.html" class="nav-link active" aria-current="page">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -72,6 +75,7 @@
                 <button class="nav-btn" data-category="postdoc">Postdocs</button>
                 <button class="nav-btn" data-category="phd">PhD Students</button>
                 <button class="nav-btn" data-category="masters">Masters Students</button>
+                <button class="nav-btn" data-category="interns">Intern's</button>
             </div>
         </div>
     </nav>
@@ -88,7 +92,8 @@
                 <div class="team-grid">
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="https://via.placeholder.com/150x150/667eea/ffffff?text=Member-1" alt="Faculty Member 1">
+                            <img src="https://via.placeholder.com/150x150/667eea/ffffff?text=Member-1"
+                                alt="Faculty Member 1">
                         </div>
                         <h3 class="member-name">Member-1</h3>
                         <p class="member-position">Professor & Lab Director</p>
@@ -121,7 +126,8 @@
 
                     <div class="member-card">
                         <div class="member-photo">
-                            <img src="https://via.placeholder.com/150x150/764ba2/ffffff?text=Member-2" alt="Faculty Member 2">
+                            <img src="https://via.placeholder.com/150x150/764ba2/ffffff?text=Member-2"
+                                alt="Faculty Member 2">
                         </div>
                         <h3 class="member-name">Member-2</h3>
                         <p class="member-position">Associate Professor</p>
@@ -238,8 +244,8 @@
                         <p class="member-position">PhD Student</p>
                         <div class="member-education">
                             <i class="fas fa-graduation-cap"></i> B.Tech in Civil Engineering (2016-2020)<br>
-M.Tech in Earth System Science and Engineering (2021-2023)<br>
-PhD in Earth Science (2023-present)
+                            M.Tech in Earth System Science and Engineering (2021-2023)<br>
+                            PhD in Earth Science (2023-present)
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -270,8 +276,8 @@ PhD in Earth Science (2023-present)
                         <p class="member-position">PhD Student</p>
                         <div class="member-education">
                             <i class="fas fa-graduation-cap"></i> BTech in Mechanical Engineering (2016-2020)<br>
-MTech is Earth Science (2020-2023)<br>
-Phd in Earth Science (2023- Ongoing)
+                            MTech is Earth Science (2020-2023)<br>
+                            Phd in Earth Science (2023- Ongoing)
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -304,7 +310,8 @@ Phd in Earth Science (2023- Ongoing)
                         <h3 class="member-name">Saurabh Choubey</h3>
                         <p class="member-position">PhD Student</p>
                         <div class="member-education">
-                            <i class="fas fa-graduation-cap"></i>B.Sc. (Hons) in Physics i(2012-2015)<br>M.SC. Tech in Applied Geophysics (2016-2019)<br> Ph.D. (2020-Ongoing)
+                            <i class="fas fa-graduation-cap"></i>B.Sc. (Hons) in Physics i(2012-2015)<br>M.SC. Tech in
+                            Applied Geophysics (2016-2019)<br> Ph.D. (2020-Ongoing)
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -332,9 +339,11 @@ Phd in Earth Science (2023- Ongoing)
                         <h3 class="member-name">Shikha Sharma</h3>
                         <p class="member-position">PhD Student</p>
                         <div class="member-education">
-                            <i class="fas fa-graduation-cap"></i>  Bachelor of Technology(B.Tech) in Civil Engineering from BIT Ghaziabad(Gold Medalist)<br>
-Master of Technology(M.Tech) (2017-2019) in Earthquake Science and Engineering from IIT(ISM) Dhanbad<br>
-PhD (2019 onwards) in Department of Earth Sciences"
+                            <i class="fas fa-graduation-cap"></i> Bachelor of Technology(B.Tech) in Civil Engineering
+                            from BIT Ghaziabad(Gold Medalist)<br>
+                            Master of Technology(M.Tech) (2017-2019) in Earthquake Science and Engineering from IIT(ISM)
+                            Dhanbad<br>
+                            PhD (2019 onwards) in Department of Earth Sciences"
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -365,9 +374,10 @@ PhD (2019 onwards) in Department of Earth Sciences"
                         <h3 class="member-name">Parvee</h3>
                         <p class="member-position">PhD Student</p>
                         <div class="member-education">
-                            <i class="fas fa-graduation-cap"></i>B.Sc. (Physics, Mathematics, Computer Science)  2017-2019 CSJM University, Kanpur<br>
-M.Sc.(Tech) Applied Geophysics, 2020-2023, IIT (ISM) Dhanbad<br>
-PhD, Earth Science, 2023- Ongoing, IIT Gandhinagar
+                            <i class="fas fa-graduation-cap"></i>B.Sc. (Physics, Mathematics, Computer Science)
+                            2017-2019 CSJM University, Kanpur<br>
+                            M.Sc.(Tech) Applied Geophysics, 2020-2023, IIT (ISM) Dhanbad<br>
+                            PhD, Earth Science, 2023- Ongoing, IIT Gandhinagar
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -395,9 +405,10 @@ PhD, Earth Science, 2023- Ongoing, IIT Gandhinagar
                         <h3 class="member-name">Deoyani Shelke</h3>
                         <p class="member-position">PhD Student</p>
                         <div class="member-education">
-                            <i class="fas fa-graduation-cap"></i> B.Sc.  2017-2020 (Geology, Physics,Chemistry) Shri Shivaji Science College,Nagpur<br>
-M.Sc  20212023 (Applied Geology) IIEST, Shibpur, West Bengal<br>
-Ph.D.  2023-present (IITGn)
+                            <i class="fas fa-graduation-cap"></i> B.Sc. 2017-2020 (Geology, Physics,Chemistry) Shri
+                            Shivaji Science College,Nagpur<br>
+                            M.Sc 20212023 (Applied Geology) IIEST, Shibpur, West Bengal<br>
+                            Ph.D. 2023-present (IITGn)
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -427,7 +438,7 @@ Ph.D.  2023-present (IITGn)
                         <h3 class="member-name">Sumit Singh </h3>
                         <p class="member-position">PhD Student</p>
                         <div class="member-education">
-                            <i class="fas fa-graduation-cap"></i> Msc Applied Geology 
+                            <i class="fas fa-graduation-cap"></i> Msc Applied Geology
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -469,7 +480,8 @@ Ph.D.  2023-present (IITGn)
                         <h3 class="member-name">Jagroop SIngh</h3>
                         <p class="member-position">Masters Student</p>
                         <div class="member-education">
-                            <i class="fas fa-graduation-cap"></i> B.Sc. Physics (2017-2020), M.Sc. Physics ( 2020-2022) <br>M.Tech. Earth Sciences (2023-2025)
+                            <i class="fas fa-graduation-cap"></i> B.Sc. Physics (2017-2020), M.Sc. Physics ( 2020-2022)
+                            <br>M.Tech. Earth Sciences (2023-2025)
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -498,7 +510,7 @@ Ph.D.  2023-present (IITGn)
                         <p class="member-position">Masters Student</p>
                         <div class="member-education">
                             <i class="fas fa-graduation-cap"></i> B.E in Mechanical (2017-2021)<br>
-                             M.Tech in Earth System Science(2023-present)
+                            M.Tech in Earth System Science(2023-present)
                         </div>
                         <div class="research-interests">
                             <h4>Research Interests</h4>
@@ -522,9 +534,10 @@ Ph.D.  2023-present (IITGn)
                         </div>
                         <h3 class="member-name">Anindita Jana</h3>
                         <p class="member-position">Masters Student</p>
-                        <div class="member-education">Master of Science in Soil Science and Agricultural Chemistry
+                        <div class="member-education">
+                            <i class="fas fa-graduation-cap"></i>Master of Science in Soil Science and Agricultural
+                            Chemistry
                         </div>
-                            <i class="fas fa-graduation-cap"></i> 
                         <div class="research-interests">
                             <h4>Research Interests</h4>
                             <div class="interests-tags">
@@ -566,84 +579,153 @@ Ph.D.  2023-present (IITGn)
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-          
+            <!-- Interns Section -->
+            <div class="team-category" data-category="interns">
+                <div class="category-header">
+                    <h3>Student Interns</h3>
+                    <p>Young minds contributing to cutting-edge research and development</p>
+                </div>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://via.placeholder.com/150x150/f7971e/ffffff?text=Intern-1" alt="Intern 1">
+                        </div>
+                        <h3 class="member-name">Intern-1</h3>
+                        <p class="member-position">B.Tech Computer Science, IIT Gandhinagar</p>
+                        <div class="member-education">
+                            <i class="fas fa-user-graduate"></i> Batch of 2026
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Web Development</span>
+                                <span class="interest-tag">Data Structures</span>
+                                <span class="interest-tag">Open Source</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:intern1@iitgn.ac.in" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="https://via.placeholder.com/150x150/43cea2/ffffff?text=Intern-2" alt="Intern 2">
+                        </div>
+                        <h3 class="member-name">Intern-2</h3>
+                        <p class="member-position">M.Tech Earth Sciences, IIT Gandhinagar</p>
+                        <div class="member-education">
+                            <i class="fas fa-user-graduate"></i> Batch of 2025
+                        </div>
+                        <div class="research-interests">
+                            <h4>Research Interests</h4>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Geospatial Analysis</span>
+                                <span class="interest-tag">Remote Sensing</span>
+                                <span class="interest-tag">Climate Modeling</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:intern2@iitgn.ac.in" class="social-link email" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link website" title="Portfolio">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
     </section>
 
+
+
     <!-- Footer -->
-<footer class="site-footer">
-    <div class="container">
-        <div class="footer-container">
-            <div class="footer-about">
-                <h2>GeoD Labs</h2>
-                <p>Advancing geospatial data science research at IIT Gandhinagar.</p>
-                <div class="footer-logo">
-                    <img src="images/iitgn logo.png" alt="IIT Gandhinagar logo" width="120" height="120" loading="lazy">
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h2>GeoD Labs</h2>
+                    <p>Advancing geospatial data science research at IIT Gandhinagar.</p>
+                    <div class="footer-logo">
+                        <img src="images/iitgn logo.png" alt="IIT Gandhinagar logo" width="120" height="120"
+                            loading="lazy">
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Dataset</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        GeoD Labs<br>
+                        IIT Gandhinagar<br>
+                        Palaj, Gandhinagar, Gujarat 382055<br>
+                        <a href="mailto:geodlabs@iitgn.ac.in">
+                            <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
+                        </a><br>
+                        <a href="tel:+919999999999">
+                            <i class="fas fa-phone"></i> +91 9999 999 999
+                        </a>
+                    </address>
                 </div>
             </div>
 
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="#">Publications</a></li>
-                    <li><a href="#">Dataset</a></li>
-                    <li><a href="#">Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h3>Contact Us</h3>
-                <address>
-                    GeoD Labs<br>
-                    IIT Gandhinagar<br>
-                    Palaj, Gandhinagar, Gujarat 382055<br>
-                    <a href="mailto:geodlabs@iitgn.ac.in">
-                        <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
-                    </a><br>
-                    <a href="tel:+919999999999">
-                        <i class="fas fa-phone"></i> +91 9999 999 999
-                    </a>
-                </address>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <div class="copyright">
-                <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
     <!-- JavaScript -->
     <script>
         // Team filtering functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const filterButtons = document.querySelectorAll('.nav-btn');
             const teamCategories = document.querySelectorAll('.team-category');
 
             filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const category = this.getAttribute('data-category');
-                    
+
                     // Update active button
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     // Show/hide categories
                     teamCategories.forEach(categoryElement => {
                         const categoryType = categoryElement.getAttribute('data-category');
-                        
+
                         if (category === 'all' || category === categoryType) {
                             categoryElement.style.display = 'block';
                             // Animate cards
@@ -683,7 +765,7 @@ Ph.D.  2023-present (IITGn)
                 rootMargin: '0px 0px -50px 0px'
             };
 
-            const observer = new IntersectionObserver(function(entries) {
+            const observer = new IntersectionObserver(function (entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
@@ -699,4 +781,5 @@ Ph.D.  2023-present (IITGn)
         });
     </script>
 </body>
+
 </html>
