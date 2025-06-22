@@ -7,179 +7,199 @@
     <title>About - GeoD Labs | IIT Gandhinagar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Preconnect to external font/icon domains if using -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 </head>
 <body>
-   <!-- Header -->
-<header class="site-header">
-    <div class="container header-container">
-        <div class="logo">
-            <a href="index.html" aria-label="GeoD Labs Home">
-                <img src="/api/placeholder/50/50" alt="GeoD Labs Logo" width="50" height="50">
-                <span class="logo-text">Geo<span class="highlight">D</span> Labs</span>
-            </a>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" aria-label="GeoD Labs Home">
+                    <img src="/api/placeholder/50/50" alt="GeoD Labs Logo" width="50" height="50">
+                    <span class="logo-text">Geo<span class="highlight">D</span> Labs</span>
+                </a>
+            </div>
+            
+            <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+            
+            <nav id="primary-navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active" aria-current="page">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="research.html" class="nav-link">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="publications.html" class="nav-link">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        
-        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation menu">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-            <span class="sr-only">Menu</span>
-        </button>
-        
-        <nav id="primary-navigation" aria-label="Main navigation">
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link active" aria-current="page">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="research.html" class="nav-link">Research</a>
-                </li>
-                <li class="nav-item">
-                    <a href="publications.html" class="nav-link">Publications</a>
-                </li>
-                <li class="nav-item">
-                    <a href="datasets.html" class="nav-link">Datasets</a>
-                </li>
-                <li class="nav-item">
-                    <a href="team.html" class="nav-link">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
 
     <main id="main-content">
-        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>About GeoD Lab</h1>
+                <p>Exploring Earth's fundamental processes through innovative research and cutting-edge technology</p>
+            </div>
+        </section>
 
         <!-- About Section -->
         <section class="about-section" id="about" aria-labelledby="about-heading">
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">
-                        <h2 id="about-heading" class="section-heading">Heading</h2>
-                        <p class="lead">introduction</p>
+                        <h2 id="about-heading" class="section-heading">About GeoD Lab</h2>
+                        <p class="lead">GeoD Lab is dedicated to exploring the fundamental processes operating inside and on the surface of the Earth, with a primary focus on the lithosphere. Led by Dr. Utsav Mannu (Assistant Professor, Department of Earth Sciences, IIT Gandhinagar), our team leverages a combination of physics-based and statistical tools to advance the frontiers of Earth science research.</p>
                         
-                        <h3>Our Mission</h3>
-                        <p>summary</p>
+                        <h3>Our Core Goal</h3>
+                        <p>The core goal of GeoD Lab is to facilitate groundbreaking research that unravels the complex processes shaping our planet. We are committed to deepening scientific understanding of Earth's lithosphere through innovative geodynamic modelling, advanced statistical seismology, and state-of-the-art seismic interpretation. By pushing the boundaries of knowledge in Earth sciences, we aim to provide valuable insights to the global geoscience community.</p>
                         
-                        <h3>Our Vision</h3>
-                        <p>summary</p>
+                        <h3>The Challenges We Tackle</h3>
+                        <p>GeoD Lab addresses some of the most pressing challenges in Earth sciences, with a focus on decoding the mechanisms behind earthquakes, landslides, and tsunamis; improving the statistical understanding of seismic hazards for better risk assessment and forecasting; revealing the hidden structure and evolution of the Earth's interior through seismic data interpretation; and advancing predictive capabilities in geoscience by integrating multidisciplinary approaches and developing novel tools.</p>
+                        
+                        <p>Through these efforts, we strive to bridge fundamental research with practical applications, contributing to safer societies and a deeper appreciation of our dynamic planet.</p>
                     </div>
                     
                     <div class="about-image" aria-hidden="true">
-                        <img src="/api/placeholder/600/400" alt="image" width="600" height="400" loading="lazy">
+                        <img src="/api/placeholder/600/400" alt="GeoD Lab research visualization" width="600" height="400" loading="lazy">
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Areas Section -->
+        <section class="research-areas-section" id="research-areas" aria-labelledby="research-areas-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="research-areas-heading" class="section-heading">What Fields We Work In</h2>
+                    <p class="section-subheading">Our research spans several key areas in Earth sciences</p>
                 </div>
                 
-                <div class="values-section">
-                    <h3>Our Core Values</h3>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <i class="fas fa-award value-icon" aria-hidden="true"></i>
-                            <h4>Excellence</h4>
-                            <p>We strive for the highest standards in our research and education, pushing the boundaries of what's possible in geospatial science.</p>
-                        </div>
-                        
-                        <div class="value-card">
-                            <i class="fas fa-lightbulb value-icon" aria-hidden="true"></i>
-                            <h4>Innovation</h4>
-                            <p>We encourage creative thinking and novel approaches to complex problems, fostering an environment where new ideas can flourish.</p>
-                        </div>
-                        
-                        <div class="value-card">
-                            <i class="fas fa-users value-icon" aria-hidden="true"></i>
-                            <h4>Collaboration</h4>
-                            <p>We believe in the power of interdisciplinary teamwork and partnerships to tackle the most challenging problems in our field.</p>
-                        </div>
-                        
-                        <div class="value-card">
-                            <i class="fas fa-chart-line value-icon" aria-hidden="true"></i>
-                            <h4>Impact</h4>
-                            <p>We focus on research that addresses real-world challenges and benefits society, translating scientific advances into practical solutions.</p>
-                        </div>
-                        
-                        <div class="value-card">
-                            <i class="fas fa-leaf value-icon" aria-hidden="true"></i>
-                            <h4>Sustainability</h4>
-                            <p>We are committed to promoting sustainable development through our work, creating technologies that help protect our planet.</p>
-                        </div>
+                <div class="research-areas-grid">
+                    <div class="research-area-card">
+                        <i class="fas fa-globe-americas research-icon" aria-hidden="true"></i>
+                        <h3>Geodynamic Modelling</h3>
+                        <p>We develop and apply innovative models to simulate a range of geodynamic phenomena, including earthquakes, landslides, and tsunamis. Our work features high-resolution 2D and 3D subduction models, fracture simulations for earthquake modeling, rift and topographical simulations, river profile inversions, and tectonic geomorphological studies.</p>
+                    </div>
+                    
+                    <div class="research-area-card">
+                        <i class="fas fa-chart-bar research-icon" aria-hidden="true"></i>
+                        <h3>Statistical Seismology</h3>
+                        <p>By analyzing large datasets of seismic activity, we use advanced statistical methods to uncover patterns, assess earthquake probabilities, and enhance hazard forecasting. Our research aims to quantify seismic risk and understand the statistical properties of earthquake occurrence.</p>
+                    </div>
+                    
+                    <div class="research-area-card">
+                        <i class="fas fa-wave-square research-icon" aria-hidden="true"></i>
+                        <h3>Seismic Interpretations</h3>
+                        <p>We interpret seismic data to reveal the structure and dynamics of the Earth's interior. Through seismic imaging and data analysis, we contribute to understanding fault systems, subsurface properties, and the mechanisms driving tectonic activity.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- History & Achievements -->
-        <section class="history-section" id="history" aria-labelledby="history-heading">
+        <!-- Core Values -->
+        <section class="values-section" id="values" aria-labelledby="values-heading">
             <div class="container">
-                <div class="section-header">
-                    <h2 id="history-heading" class="section-heading">Our History & Achievements</h2>
-                    <p class="section-subheading">A journey of growth and excellence in research</p>
-                </div>
-        </section>
-
-        <!-- Facilities -->
-        <section class="facilities-section" id="facilities" aria-labelledby="facilities-heading">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="facilities-heading" class="section-heading">Lab Facilities</h2>
-                    <p class="section-subheading">State-of-the-art infrastructure and resources for cutting-edge research</p>
-                </div>
-        </section>
-
-        
-    <!-- Footer -->
-<footer class="site-footer">
-    <div class="container">
-        <div class="footer-container">
-            <div class="footer-about">
-                <h2>GeoD Labs</h2>
-                <p>Advancing geospatial data science research at IIT Gandhinagar.</p>
-                <div class="footer-logo">
-                    <img src="images/iitgn logo.png" alt="IIT Gandhinagar logo" width="120" height="120" loading="lazy">
+                <h2 id="values-heading" class="section-heading">Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-award value-icon" aria-hidden="true"></i>
+                        <h4>Excellence</h4>
+                        <p>We strive for the highest standards in our research and education, pushing the boundaries of what's possible in Earth science.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <i class="fas fa-lightbulb value-icon" aria-hidden="true"></i>
+                        <h4>Innovation</h4>
+                        <p>We encourage creative thinking and novel approaches to complex problems, fostering an environment where new ideas can flourish.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <i class="fas fa-users value-icon" aria-hidden="true"></i>
+                        <h4>Collaboration</h4>
+                        <p>We believe in the power of interdisciplinary teamwork and partnerships to tackle the most challenging problems in our field.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <i class="fas fa-chart-line value-icon" aria-hidden="true"></i>
+                        <h4>Impact</h4>
+                        <p>We focus on research that addresses real-world challenges and benefits society, translating scientific advances into practical solutions.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <i class="fas fa-microscope value-icon" aria-hidden="true"></i>
+                        <h4>Scientific Rigor</h4>
+                        <p>We maintain the highest standards of scientific methodology, ensuring our research contributes meaningful insights to the geoscience community.</p>
+                    </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="#">Publications</a></li>
-                    <li><a href="#">Dataset</a></li>
-                    <li><a href="#">Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h2>GeoD Labs</h2>
+                    <p>Advancing Earth science research through innovative geodynamic modeling and seismic analysis at IIT Gandhinagar.</p>
+                    <div class="footer-logo">
+                        <img src="images/iitgn logo.png" alt="IIT Gandhinagar logo" width="120" height="120" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        GeoD Labs<br>
+                        Department of Earth Sciences<br>
+                        IIT Gandhinagar<br>
+                        Palaj, Gandhinagar, Gujarat 382055<br>
+                        <a href="mailto:geodlabs@iitgn.ac.in">
+                            <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
+                        </a><br>
+                        <a href="tel:+919999999999">
+                            <i class="fas fa-phone"></i> +91 9999 999 999
+                        </a>
+                    </address>
+                </div>
             </div>
             
-            <div class="footer-contact">
-                <h3>Contact Us</h3>
-                <address>
-                    GeoD Labs<br>
-                    IIT Gandhinagar<br>
-                    Palaj, Gandhinagar, Gujarat 382055<br>
-                    <a href="mailto:geodlabs@iitgn.ac.in">
-                        <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
-                    </a><br>
-                    <a href="tel:+919999999999">
-                        <i class="fas fa-phone"></i> +91 9999 999 999
-                    </a>
-                </address>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <div class="copyright">
-                <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
@@ -193,7 +213,7 @@
             "@type": "EducationalOrganization",
             "name": "IIT Gandhinagar"
           },
-          "description": "Research laboratory focused on geospatial data science and technologies",
+          "description": "Research laboratory focused on Earth science, geodynamic modeling, statistical seismology, and seismic interpretation",
           "url": "https://geodlabs.iitgn.ac.in",
           "foundingDate": "2018",
           "location": {
