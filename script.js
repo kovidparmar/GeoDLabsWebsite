@@ -37,20 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Mobile Navigation ----
   function initMobileNavigation() {
     if (!elements.mobileNavToggle || !elements.navMenu) return;
-    
+
     elements.mobileNavToggle.addEventListener('click', () => {
       elements.navMenu.classList.toggle('active');
       elements.mobileNavToggle.setAttribute(
-        'aria-expanded', 
+        'aria-expanded',
         elements.navMenu.classList.contains('active')
       );
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!e.target.closest('nav') && 
-          !e.target.closest('.mobile-nav-toggle') && 
-          elements.navMenu.classList.contains('active')) {
+      if (!e.target.closest('nav') &&
+        !e.target.closest('.mobile-nav-toggle') &&
+        elements.navMenu.classList.contains('active')) {
         elements.navMenu.classList.remove('active');
         elements.mobileNavToggle.setAttribute('aria-expanded', 'false');
       }
@@ -62,22 +62,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!elements.navLinks.length) return;
 
     elements.navLinks.forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
           // Calculate position accounting for header height
           const headerHeight = elements.header ? elements.header.offsetHeight : config.navbarHeight;
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          
+
           window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'
           });
-          
+
           // Close mobile menu if open
           if (elements.navMenu && elements.navMenu.classList.contains('active')) {
             elements.navMenu.classList.remove('active');
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
               elements.mobileNavToggle.setAttribute('aria-expanded', 'false');
             }
           }
-          
+
           // Update URL hash without scrolling
           history.pushState(null, null, targetId);
         }
@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Header Scroll Effect ----
   function initHeaderScrollEffect() {
     if (!elements.header) return;
-    
+
     // Create throttle function to limit scroll event firing
     const throttle = (callback, delay) => {
       let lastCall = 0;
-      return function(...args) {
+      return function (...args) {
         const now = new Date().getTime();
         if (now - lastCall < delay) return;
         lastCall = now;
@@ -121,17 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Publication Filtering ----
   function initPublicationFilters() {
     if (!elements.publicationFilters.length || !elements.publicationItems.length) return;
-    
+
     elements.publicationFilters.forEach(filter => {
-      filter.addEventListener('click', function() {
+      filter.addEventListener('click', function () {
         // Remove active class from all filters
         elements.publicationFilters.forEach(f => f.classList.remove('active'));
-        
+
         // Add active class to clicked filter
         this.classList.add('active');
-        
+
         const filterValue = this.getAttribute('data-filter');
-        
+
         // Show/hide publications based on filter
         elements.publicationItems.forEach(item => {
           if (filterValue === 'all' || item.classList.contains(filterValue)) {
@@ -153,17 +153,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Search Functionality ----
   function initSearchFunctionality() {
     if (!elements.searchInput) return;
-    
-    elements.searchInput.addEventListener('input', debounce(function() {
+
+    elements.searchInput.addEventListener('input', debounce(function () {
       const searchTerm = this.value.toLowerCase().trim();
-      
+
       // If we have publications, search through them
       if (elements.publicationItems.length) {
         elements.publicationItems.forEach(item => {
           const title = item.querySelector('.publication-title')?.textContent.toLowerCase() || '';
           const authors = item.querySelector('.publication-authors')?.textContent.toLowerCase() || '';
           const abstract = item.querySelector('.publication-abstract')?.textContent.toLowerCase() || '';
-          
+
           if (title.includes(searchTerm) || authors.includes(searchTerm) || abstract.includes(searchTerm)) {
             item.style.display = 'block';
             setTimeout(() => { item.style.opacity = '1'; }, 10);
@@ -173,13 +173,13 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
-      
+
       // If we have research projects, search through them too
       if (elements.researchProjects.length) {
         elements.researchProjects.forEach(project => {
           const title = project.querySelector('h3')?.textContent.toLowerCase() || '';
           const description = project.querySelector('p')?.textContent.toLowerCase() || '';
-          
+
           if (title.includes(searchTerm) || description.includes(searchTerm)) {
             project.style.display = 'block';
             setTimeout(() => { project.style.opacity = '1'; }, 10);
@@ -195,9 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Scroll Animation ----
   function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
+
     if (!animatedElements.length) return;
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -208,14 +208,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.2 });
-    
+
     animatedElements.forEach(el => observer.observe(el));
   }
 
   // ---- Back to Top Button ----
   function initBackToTopButton() {
     if (!elements.backToTopBtn) return;
-    
+
     // Create the button if it doesn't exist
     if (!elements.backToTopBtn) {
       const button = document.createElement('button');
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(button);
       elements.backToTopBtn = button;
     }
-    
+
     // Show/hide button based on scroll position
     window.addEventListener('scroll', throttle(() => {
       if (window.scrollY > window.innerHeight / 2) {
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.backToTopBtn.classList.remove('visible');
       }
     }, 200));
-    
+
     // Scroll to top when clicked
     elements.backToTopBtn.addEventListener('click', () => {
       window.scrollTo({
@@ -247,21 +247,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Dark Mode Toggle ----
   function initDarkModeToggle() {
     if (!elements.darkModeToggle) return;
-    
+
     // Check for saved user preference or system preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     // Set initial theme
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
       document.documentElement.classList.add('dark-mode');
       elements.darkModeToggle.setAttribute('aria-pressed', 'true');
     }
-    
+
     // Toggle theme on button click
     elements.darkModeToggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark-mode');
-      
+
       const isDarkMode = document.documentElement.classList.contains('dark-mode');
       localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
       elements.darkModeToggle.setAttribute('aria-pressed', isDarkMode.toString());
@@ -271,15 +271,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Contact Form Validation ----
   function initContactForm() {
     if (!elements.contactForm) return;
-    
-    elements.contactForm.addEventListener('submit', function(e) {
+
+    elements.contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      
+
       const nameInput = this.querySelector('[name="name"]');
       const emailInput = this.querySelector('[name="email"]');
       const messageInput = this.querySelector('[name="message"]');
       let isValid = true;
-      
+
       // Simple form validation
       if (nameInput && !nameInput.value.trim()) {
         showError(nameInput, 'Please enter your name');
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (nameInput) {
         clearError(nameInput);
       }
-      
+
       if (emailInput) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(emailInput.value.trim())) {
@@ -297,14 +297,14 @@ document.addEventListener('DOMContentLoaded', () => {
           clearError(emailInput);
         }
       }
-      
+
       if (messageInput && !messageInput.value.trim()) {
         showError(messageInput, 'Please enter your message');
         isValid = false;
       } else if (messageInput) {
         clearError(messageInput);
       }
-      
+
       // If form is valid, submit it (in a real implementation, you would send data to server)
       if (isValid) {
         const submitButton = this.querySelector('[type="submit"]');
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
           submitButton.disabled = true;
           submitButton.textContent = 'Sending...';
         }
-        
+
         // Simulate form submission - replace with actual API call
         setTimeout(() => {
           this.reset();
@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
       }
     });
-    
+
     function showError(input, message) {
       const formGroup = input.closest('.form-group');
       if (formGroup) {
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         input.classList.add('invalid');
       }
     }
-    
+
     function clearError(input) {
       const formGroup = input.closest('.form-group');
       if (formGroup) {
@@ -350,14 +350,14 @@ document.addEventListener('DOMContentLoaded', () => {
         input.classList.remove('invalid');
       }
     }
-    
+
     function showFormSuccess() {
       const successMessage = document.createElement('div');
       successMessage.className = 'success-message';
       successMessage.textContent = 'Thank you! Your message has been sent successfully.';
-      
+
       elements.contactForm.parentNode.insertBefore(successMessage, elements.contactForm.nextSibling);
-      
+
       setTimeout(() => {
         successMessage.remove();
       }, 5000);
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function initImageLightbox() {
     const galleryImages = document.querySelectorAll('.gallery-image');
     if (!galleryImages.length) return;
-    
+
     // Create lightbox elements
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
@@ -384,67 +384,67 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
     document.body.appendChild(lightbox);
-    
+
     const lightboxImg = lightbox.querySelector('.lightbox-image');
     const lightboxCaption = lightbox.querySelector('.lightbox-caption');
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-prev');
     const nextBtn = lightbox.querySelector('.lightbox-next');
-    
+
     let currentIndex = 0;
-    
+
     // Open lightbox when gallery image is clicked
     galleryImages.forEach((img, index) => {
-      img.addEventListener('click', function() {
+      img.addEventListener('click', function () {
         currentIndex = index;
         const imgSrc = this.getAttribute('data-full-img') || this.src;
         const caption = this.getAttribute('alt') || '';
-        
+
         lightboxImg.src = imgSrc;
         lightboxCaption.textContent = caption;
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
-        
+
         // Set focus to the lightbox for keyboard navigation
         lightbox.setAttribute('tabindex', '-1');
         lightbox.focus();
       });
     });
-    
+
     // Close lightbox
     closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', function(e) {
+    lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) {
         closeLightbox();
       }
     });
-    
+
     // Navigation buttons
     prevBtn.addEventListener('click', showPrevImage);
     nextBtn.addEventListener('click', showNextImage);
-    
+
     // Keyboard navigation
-    lightbox.addEventListener('keydown', function(e) {
+    lightbox.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') showPrevImage();
       if (e.key === 'ArrowRight') showNextImage();
     });
-    
+
     function showPrevImage() {
       currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
       updateLightboxImage();
     }
-    
+
     function showNextImage() {
       currentIndex = (currentIndex + 1) % galleryImages.length;
       updateLightboxImage();
     }
-    
+
     function updateLightboxImage() {
       const img = galleryImages[currentIndex];
       const imgSrc = img.getAttribute('data-full-img') || img.src;
       const caption = img.getAttribute('alt') || '';
-      
+
       // Fade effect
       lightboxImg.style.opacity = '0';
       setTimeout(() => {
@@ -453,11 +453,11 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.style.opacity = '1';
       }, 300);
     }
-    
+
     function closeLightbox() {
       lightbox.classList.remove('active');
       document.body.style.overflow = ''; // Restore scrolling
-      
+
       // Return focus to the clicked image
       if (galleryImages[currentIndex]) {
         galleryImages[currentIndex].focus();
@@ -468,12 +468,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Team Member Details Modal ----
   function initTeamMemberModals() {
     if (!elements.teamMembers.length) return;
-    
+
     elements.teamMembers.forEach(member => {
-      member.addEventListener('click', function() {
+      member.addEventListener('click', function () {
         const memberId = this.getAttribute('data-member-id');
         if (!memberId) return;
-        
+
         // You could fetch member details from an API or use data attributes
         const memberDetails = {
           name: this.querySelector('h3')?.textContent || 'Team Member',
@@ -484,11 +484,11 @@ document.addEventListener('DOMContentLoaded', () => {
           website: this.getAttribute('data-website') || '',
           image: this.querySelector('img')?.src || ''
         };
-        
+
         showMemberModal(memberDetails);
       });
     });
-    
+
     function showMemberModal(details) {
       // Create modal if it doesn't exist
       let modal = document.getElementById('member-modal');
@@ -517,21 +517,21 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
         document.body.appendChild(modal);
-        
+
         // Close modal events
         const closeBtn = modal.querySelector('.modal-close');
         closeBtn.addEventListener('click', () => {
           modal.classList.remove('active');
           document.body.style.overflow = '';
         });
-        
+
         modal.addEventListener('click', (e) => {
           if (e.target === modal) {
             modal.classList.remove('active');
             document.body.style.overflow = '';
           }
         });
-        
+
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && modal.classList.contains('active')) {
             modal.classList.remove('active');
@@ -539,20 +539,20 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
-      
+
       // Update modal with member details
       modal.querySelector('.member-name').textContent = details.name;
       modal.querySelector('.member-role').textContent = details.role;
       modal.querySelector('.member-bio').textContent = details.bio;
-      
+
       const memberImage = modal.querySelector('.member-image');
       memberImage.src = details.image;
       memberImage.alt = details.name;
-      
+
       // Add contact information
       const contactsContainer = modal.querySelector('.member-contacts');
       contactsContainer.innerHTML = '';
-      
+
       if (details.email) {
         const emailLink = document.createElement('a');
         emailLink.href = `mailto:${details.email}`;
@@ -560,7 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emailLink.innerHTML = `<span class="icon">✉</span> ${details.email}`;
         contactsContainer.appendChild(emailLink);
       }
-      
+
       if (details.website) {
         const websiteLink = document.createElement('a');
         websiteLink.href = details.website;
@@ -570,11 +570,11 @@ document.addEventListener('DOMContentLoaded', () => {
         websiteLink.innerHTML = `<span class="icon">🔗</span> Personal Website`;
         contactsContainer.appendChild(websiteLink);
       }
-      
+
       // Add publications
       const publicationsList = modal.querySelector('.publications-list');
       publicationsList.innerHTML = '';
-      
+
       if (details.publications.length > 0) {
         details.publications.forEach(pub => {
           if (pub.trim()) {
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         modal.querySelector('.member-publications').style.display = 'none';
       }
-      
+
       // Show modal
       modal.classList.add('active');
       document.body.style.overflow = 'hidden'; // Prevent scrolling
@@ -598,18 +598,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function initDatasetVisualizations() {
     const datasetItems = document.querySelectorAll('.dataset-item');
     if (!datasetItems.length) return;
-    
+
     datasetItems.forEach(item => {
       const visualizeBtn = item.querySelector('.visualize-btn');
       if (visualizeBtn) {
-        visualizeBtn.addEventListener('click', function(e) {
+        visualizeBtn.addEventListener('click', function (e) {
           e.preventDefault();
           const datasetId = this.closest('.dataset-item').getAttribute('data-dataset-id');
-          
+
           // In a real implementation, fetch dataset data from an API
           // For demo, we'll use placeholder data
           const demoData = generateDemoData(datasetId);
-          
+
           // Create or update visualization container
           let visContainer = item.querySelector('.visualization-container');
           if (!visContainer) {
@@ -617,70 +617,70 @@ document.addEventListener('DOMContentLoaded', () => {
             visContainer.className = 'visualization-container';
             item.appendChild(visContainer);
           }
-          
+
           // Create visualization (in a real implementation, use appropriate library like D3.js)
           renderVisualization(visContainer, demoData);
-          
+
           // Toggle button text
           this.textContent = visContainer.style.display !== 'none' ? 'Hide Visualization' : 'Visualize Data';
         });
       }
     });
-    
+
     function generateDemoData(datasetId) {
       // Generate different sample data based on dataset ID
       const dataPoints = 12;
       const data = [];
-      
+
       for (let i = 0; i < dataPoints; i++) {
         data.push({
-          label: `Sample ${i+1}`,
+          label: `Sample ${i + 1}`,
           value: Math.floor(Math.random() * 100)
         });
       }
-      
+
       return data;
     }
-    
+
     function renderVisualization(container, data) {
       // Simple bar chart rendering
       // In a real implementation, use D3.js or another visualization library
-      
+
       // Clear previous visualization
       container.innerHTML = '';
-      
+
       const chart = document.createElement('div');
       chart.className = 'simple-bar-chart';
-      
+
       // Find max value for scaling
       const maxValue = Math.max(...data.map(d => d.value));
-      
+
       data.forEach(item => {
         const bar = document.createElement('div');
         bar.className = 'chart-bar';
-        
+
         const barInner = document.createElement('div');
         barInner.className = 'bar-inner';
         barInner.style.height = `${(item.value / maxValue) * 100}%`;
         barInner.setAttribute('title', `${item.label}: ${item.value}`);
-        
+
         const barLabel = document.createElement('div');
         barLabel.className = 'bar-label';
         barLabel.textContent = item.label;
-        
+
         bar.appendChild(barInner);
         bar.appendChild(barLabel);
         chart.appendChild(bar);
       });
-      
+
       container.appendChild(chart);
-      
+
       // Add note about the visualization
       const note = document.createElement('p');
       note.className = 'visualization-note';
       note.textContent = 'This is a sample visualization. In a production environment, connect to actual dataset API.';
       container.appendChild(note);
-      
+
       // Toggle visibility
       if (container.style.display === 'none') {
         container.style.display = 'block';
@@ -691,21 +691,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---- Utility Functions ----
-  
+
   // Debounce function to limit how often a function runs
   function debounce(func, wait) {
     let timeout;
-    return function(...args) {
+    return function (...args) {
       const context = this;
       clearTimeout(timeout);
       timeout = setTimeout(() => func.apply(context, args), wait);
     };
   }
-  
+
   // Throttle function to limit rate of function execution
   function throttle(func, limit) {
     let inThrottle;
-    return function(...args) {
+    return function (...args) {
       const context = this;
       if (!inThrottle) {
         func.apply(context, args);
@@ -730,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDatasetVisualizations();
 
   // ---- Handle Initial Page State ----
-  
+
   // If page loaded with a hash, scroll to that section
   if (window.location.hash) {
     const targetElement = document.querySelector(window.location.hash);
@@ -739,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         const headerHeight = elements.header ? elements.header.offsetHeight : config.navbarHeight;
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        
+
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth'
@@ -754,3 +754,317 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// <!--  publication JavaScript -->
+document.addEventListener('DOMContentLoaded', function () {
+  // Toggle abstract visibility
+  const abstractToggles = document.querySelectorAll('.abstract-toggle');
+  abstractToggles.forEach(toggle => {
+    toggle.addEventListener('click', function () {
+      const publicationItem = this.closest('.publication-item');
+      const abstract = publicationItem.querySelector('.publication-abstract');
+
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+
+      if (isExpanded) {
+        abstract.style.maxHeight = '0';
+        abstract.style.opacity = '0';
+        abstract.style.marginTop = '0';
+        this.querySelector('span').textContent = 'Show Abstract';
+        this.querySelector('i').classList.remove('fa-chevron-up');
+        this.querySelector('i').classList.add('fa-chevron-down');
+      } else {
+        abstract.style.maxHeight = abstract.scrollHeight + 'px';
+        abstract.style.opacity = '1';
+        abstract.style.marginTop = '15px';
+        this.querySelector('span').textContent = 'Hide Abstract';
+        this.querySelector('i').classList.remove('fa-chevron-down');
+        this.querySelector('i').classList.add('fa-chevron-up');
+      }
+    });
+  });
+
+  // View toggle (grid/list)
+  const gridViewBtn = document.getElementById('grid-view');
+  const listViewBtn = document.getElementById('list-view');
+  const publicationList = document.querySelector('.publication-list');
+
+  gridViewBtn.addEventListener('click', function () {
+    publicationList.classList.remove('list-view');
+    publicationList.classList.add('grid-view');
+    gridViewBtn.classList.add('active');
+    listViewBtn.classList.remove('active');
+  });
+
+  listViewBtn.addEventListener('click', function () {
+    publicationList.classList.remove('grid-view');
+    publicationList.classList.add('list-view');
+    listViewBtn.classList.add('active');
+    gridViewBtn.classList.remove('active');
+  });
+
+  // Filter functionality
+  const yearFilter = document.getElementById('year-filter');
+  const topicFilter = document.getElementById('topic-filter');
+  const authorFilter = document.getElementById('author-filter');
+  const clearFiltersBtn = document.getElementById('clear-filters');
+  const publicationItems = document.querySelectorAll('.publication-item');
+  const noResults = document.getElementById('no-results');
+
+  function applyFilters() {
+    const selectedYear = yearFilter.value;
+    const selectedTopic = topicFilter.value;
+    const selectedAuthor = authorFilter.value;
+
+    let visibleCount = 0;
+
+    publicationItems.forEach(item => {
+      const yearMatch = selectedYear === 'all' || item.getAttribute('data-year') === selectedYear;
+      const topicMatch = selectedTopic === 'all' || item.getAttribute('data-topic').includes(selectedTopic);
+      const authorMatch = selectedAuthor === 'all' || item.getAttribute('data-authors').includes(selectedAuthor);
+
+      if (yearMatch && topicMatch && authorMatch) {
+        item.style.display = '';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    if (visibleCount === 0) {
+      noResults.classList.remove('hidden');
+    } else {
+      noResults.classList.add('hidden');
+    }
+  }
+
+  yearFilter.addEventListener('change', applyFilters);
+  topicFilter.addEventListener('change', applyFilters);
+  authorFilter.addEventListener('change', applyFilters);
+
+  clearFiltersBtn.addEventListener('click', function () {
+    yearFilter.value = 'all';
+    topicFilter.value = 'all';
+    authorFilter.value = 'all';
+    applyFilters();
+  });
+
+  // Search functionality
+  const searchInput = document.getElementById('publication-search');
+  const resetSearchBtn = document.getElementById('reset-search');
+
+  searchInput.addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase();
+    let visibleCount = 0;
+
+    publicationItems.forEach(item => {
+      const title = item.querySelector('.publication-title').textContent.toLowerCase();
+      const authors = item.querySelector('.authors').textContent.toLowerCase();
+      const abstract = item.querySelector('.publication-abstract').textContent.toLowerCase();
+      const journal = item.querySelector('.journal').textContent.toLowerCase();
+
+      if (title.includes(searchTerm) || authors.includes(searchTerm) ||
+        abstract.includes(searchTerm) || journal.includes(searchTerm)) {
+        item.style.display = '';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    if (visibleCount === 0) {
+      noResults.classList.remove('hidden');
+    } else {
+      noResults.classList.add('hidden');
+    }
+  });
+
+  resetSearchBtn.addEventListener('click', function () {
+    searchInput.value = '';
+    publicationItems.forEach(item => {
+      item.style.display = '';
+    });
+    noResults.classList.add('hidden');
+  });
+
+  // Mobile navigation toggle
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const primaryNavigation = document.getElementById('primary-navigation');
+
+  if (mobileNavToggle) {
+    mobileNavToggle.addEventListener('click', function () {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      primaryNavigation.classList.toggle('active');
+    });
+  }
+
+  // Search button functionality
+  const searchButton = document.querySelector('.search-button');
+  if (searchButton) {
+    searchButton.addEventListener('click', function () {
+      const searchInput = document.getElementById('publication-search');
+      if (searchInput.value.trim() === '') {
+        searchInput.focus();
+      } else {
+        // Trigger the input event to perform search
+        searchInput.dispatchEvent(new Event('input'));
+      }
+    });
+  }
+
+  // Back to top button
+  const backToTopButton = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', function () {
+    if (window.pageYOffset > 300) {
+      backToTopButton.style.display = 'block';
+    } else {
+      backToTopButton.style.display = 'none';
+    }
+  });
+
+  backToTopButton.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Load more button
+  const loadMoreBtn = document.getElementById('load-more');
+  let itemsToShow = 8; // Initial number of items shown
+
+  // Initially hide items beyond the first 8
+  publicationItems.forEach((item, index) => {
+    if (index >= itemsToShow) {
+      item.classList.add('hidden');
+    }
+  });
+
+  loadMoreBtn.addEventListener('click', function () {
+    itemsToShow += 4; // Show 4 more items
+
+    publicationItems.forEach((item, index) => {
+      if (index < itemsToShow) {
+        item.classList.remove('hidden');
+      }
+    });
+
+    // Hide the button if all items are shown
+    if (itemsToShow >= publicationItems.length) {
+      this.style.display = 'none';
+    }
+  });
+
+  // Pagination functionality
+  const paginationLinks = document.querySelectorAll('.pagination a');
+  paginationLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Remove active class from all links
+      paginationLinks.forEach(l => {
+        l.classList.remove('active');
+        l.removeAttribute('aria-current');
+      });
+
+      // Add active class to clicked link (unless it's "Next")
+      if (!this.textContent.includes('Next')) {
+        this.classList.add('active');
+        this.setAttribute('aria-current', 'page');
+      }
+
+      // Scroll to top of publications
+      document.getElementById('main-content').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Initialize abstracts as collapsed
+  const abstracts = document.querySelectorAll('.publication-abstract');
+  abstracts.forEach(abstract => {
+    abstract.style.maxHeight = '0';
+    abstract.style.opacity = '0';
+    abstract.style.overflow = 'hidden';
+    abstract.style.transition = 'all 0.3s ease';
+    abstract.style.marginTop = '0';
+  });
+});
+
+// end
+
+
+// <!-- team JavaScript -->
+
+// Team filtering functionality
+document.addEventListener('DOMContentLoaded', function () {
+  const filterButtons = document.querySelectorAll('.nav-btn');
+  const teamCategories = document.querySelectorAll('.team-category');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const category = this.getAttribute('data-category');
+
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      // Show/hide categories
+      teamCategories.forEach(categoryElement => {
+        const categoryType = categoryElement.getAttribute('data-category');
+
+        if (category === 'all' || category === categoryType) {
+          categoryElement.style.display = 'block';
+          // Animate cards
+          const cards = categoryElement.querySelectorAll('.member-card');
+          cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, index * 100);
+          });
+        } else {
+          categoryElement.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Smooth scrolling for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add intersection observer for animation
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Observe all member cards
+  document.querySelectorAll('.member-card').forEach(card => {
+    observer.observe(card);
+  });
+});
