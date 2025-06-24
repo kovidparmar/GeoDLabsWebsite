@@ -20,7 +20,7 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html" aria-label="GeoD Labs Home">
-                    <img src="/api/placeholder/50/50" alt="GeoD Labs Logo" width="50" height="50">
+                    <img src="images/geod-labs-logo.png" alt="GeoD Labs Logo" width="50" height="50">
                     <span class="logo-text">GeoD Labs</span>
                 </a>
             </div>
@@ -76,7 +76,7 @@
                             leverages a combination of physics-based and statistical tools to advance the frontiers of
                             Earth science research.</p>
 
-                        <h3>Our Core Goal</h3>
+                        <h2 id="about-heading">Our Core Goal</h2>
                         <p>The core goal of GeoD Lab is to facilitate groundbreaking research that unravels the complex
                             processes shaping our planet. We are committed to deepening scientific understanding of
                             Earth's lithosphere through innovative geodynamic modelling, advanced statistical
@@ -96,106 +96,100 @@
                             contributing to safer societies and a deeper appreciation of our dynamic planet.</p>
                     </div>
 
-                    <div class="about-image" aria-hidden="true">
-                        <img src="/api/placeholder/600/400" alt="Group Photo" width="600" height="400" loading="lazy">
+                    <div class="about-image">
+                        <img src="images/geod-lab-team-photo.jpg" alt="GeoD Lab team members working together in the research facility" width="600" height="400" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
+    </main>
 
-
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="container">
-                <div class="footer-container">
-                    <div class="footer-about">
-                        <h2>GeoD Labs</h2>
-                        <p>From Surface Shifts to Subsurface Secrets</p>
-                        <div class="footer-logo">
-                            <img src="images/iitgn-logo.png" alt="IIT Gandhinagar logo" width="120" height="120"
-                                loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="footer-links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="index.html">About</a></li>
-                            <li><a href="research.html">Research</a></li>
-                            <li><a href="publications.html">Publications</a></li>
-                            <li><a href="team.html">Team</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-contact">
-                        <h3>Contact Us</h3>
-                        <address>
-                            GeoD Labs<br>
-                            IIT Gandhinagar<br>
-                            Palaj, Gandhinagar, Gujarat 382055<br>
-                            <a href="mailto:geodlabs@iitgn.ac.in">
-                                <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
-                            </a><br>
-                            <a href="tel:+919999999999">
-                                <i class="fas fa-phone"></i> +91 9999 999 999
-                            </a>
-                        </address>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h2>GeoD Labs</h2>
+                    <p>From Surface Shifts to Subsurface Secrets</p>
+                    <div class="footer-logo">
+                        <img src="images/iitgn-logo.png" alt="IIT Gandhinagar logo" width="120" height="120"
+                            loading="lazy">
                     </div>
                 </div>
 
-                <div class="footer-bottom">
-                    <div class="copyright">
-                        <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
-                    </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        GeoD Labs<br>
+                        IIT Gandhinagar<br>
+                        Palaj, Gandhinagar, Gujarat 382055<br>
+                        <a href="mailto:geodlabs@iitgn.ac.in">
+                            <i class="fas fa-envelope"></i> geodlabs@iitgn.ac.in
+                        </a><br>
+                        <a href="tel:+919999999999">
+                            <i class="fas fa-phone"></i> +91 9999 999 999
+                        </a>
+                    </address>
                 </div>
             </div>
-        </footer>
 
-        <!-- Back to top button -->
-        <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-            <i class="fas fa-arrow-up" aria-hidden="true"></i>
-        </button>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 GeoD Labs, IIT Gandhinagar. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        <!-- JavaScript -->
-        <script src="script.js"></script>
-</body>
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
-</html>
-
-<!-- JavaScript -->
-<script src="script.js"></script>
-<script>
-    // Add schema.org structured data for research organization
-    const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "ResearchOrganization",
-        "name": "GeoD Labs",
-        "parentOrganization": {
-            "@type": "EducationalOrganization",
-            "name": "IIT Gandhinagar"
-        },
-        "description": "Research laboratory focused on Earth science, geodynamic modeling, statistical seismology, and seismic interpretation",
-        "url": "https://geodlabs.iitgn.ac.in",
-        "foundingDate": "2018",
-        "location": {
-            "@type": "Place",
-            "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "India",
-                "addressRegion": "Gujarat",
-                "addressLocality": "Gandhinagar",
-                "postalCode": "382055",
-                "streetAddress": "IIT Gandhinagar, Palaj"
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Add schema.org structured data for research organization
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "ResearchOrganization",
+            "name": "GeoD Labs",
+            "parentOrganization": {
+                "@type": "EducationalOrganization",
+                "name": "IIT Gandhinagar"
+            },
+            "description": "Research laboratory focused on Earth science, geodynamic modeling, statistical seismology, and seismic interpretation",
+            "url": "https://geodlabs.iitgn.ac.in",
+            "foundingDate": "2018",
+            "location": {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "India",
+                    "addressRegion": "Gujarat",
+                    "addressLocality": "Gandhinagar",
+                    "postalCode": "382055",
+                    "streetAddress": "IIT Gandhinagar, Palaj"
+                }
             }
-        }
-    };
+        };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(structuredData);
-    document.head.appendChild(script);
-</script>
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+    </script>
 </body>
 
 </html>
