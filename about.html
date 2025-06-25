@@ -159,37 +159,20 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
-    <script>
-        // Add schema.org structured data for research organization
-        const structuredData = {
-            "@context": "https://schema.org",
-            "@type": "ResearchOrganization",
-            "name": "GeoD Labs",
-            "parentOrganization": {
-                "@type": "EducationalOrganization",
-                "name": "IIT Gandhinagar"
-            },
-            "description": "Research laboratory focused on Earth science, geodynamic modeling, statistical seismology, and seismic interpretation",
-            "url": "https://geodlabs.iitgn.ac.in",
-            "foundingDate": "2018",
-            "location": {
-                "@type": "Place",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressCountry": "India",
-                    "addressRegion": "Gujarat",
-                    "addressLocality": "Gandhinagar",
-                    "postalCode": "382055",
-                    "streetAddress": "IIT Gandhinagar, Palaj"
-                }
-            }
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.text = JSON.stringify(structuredData);
-        document.head.appendChild(script);
-    </script>
-</body>
-
 </html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    if (mobileToggle && navList) {
+        mobileToggle.addEventListener('click', function () {
+            navList.classList.toggle('active');
+
+            // Optional: Change button icon or aria-expanded state
+            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+            mobileToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    }
+});
+</script>

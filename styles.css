@@ -141,6 +141,8 @@ a:hover {
 /* Header */
 .site-header {
     background: rgba(255, 255, 255, 0.95);
+    /* Fallback for older browsers */
+    background: white\9;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: var(--shadow-sm);
@@ -169,10 +171,12 @@ a:hover {
     align-items: center;
     gap: 0.75rem;
     transition: var(--hover-transition);
+    will-change: transform;
 }
 
 .logo:hover {
     transform: translateY(-2px);
+    will-change: auto;
 }
 
 .logo img {
@@ -192,7 +196,6 @@ a:hover {
     font-weight: 700;
     color: var(--dark-color);
 }
-
 
 .mobile-nav-toggle {
     display: none;
@@ -225,11 +228,13 @@ a:hover {
     border-radius: var(--border-radius-md);
     position: relative;
     transition: var(--hover-transition);
+    will-change: transform;
 }
 
 .nav-link:hover {
     color: var(--primary-color);
     background: rgba(30, 58, 138, 0.05);
+    will-change: auto;
 }
 
 .nav-link.active {
@@ -285,9 +290,11 @@ a:hover {
     position: relative;
     z-index: 3;
     text-align: center;
+    width: 100%;
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
+    overflow-wrap: break-word;
 }
 
 .hero-title {
@@ -336,7 +343,18 @@ a:hover {
     }
 }
 
-/* Buttons */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons - Consolidated and improved */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -355,6 +373,7 @@ a:hover {
     text-transform: none;
     letter-spacing: 0.025em;
     min-width: 150px;
+    will-change: transform;
 }
 
 .btn::before {
@@ -366,24 +385,15 @@ a:hover {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.btn:hover {
+    will-change: auto;
 }
 
 .btn:hover::before {
     left: 100%;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 2rem;
-    border-radius: var(--border-radius-lg);
-    font-weight: 600;
-    text-decoration: none;
-    transition: var(--hover-transition);
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
 }
 
 .btn-primary {
@@ -403,6 +413,7 @@ a:hover {
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
@@ -444,6 +455,8 @@ section {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Fallback for browsers that don't support background-clip */
+    color: var(--dark-color);
 }
 
 .section-subheading {
@@ -482,6 +495,11 @@ section {
     height: auto;
     border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow-xl);
+    transition: var(--hover-transition);
+}
+
+.what-we-do-visual img:hover {
+    transform: scale(1.02);
 }
 
 /* Research Areas */
@@ -496,12 +514,24 @@ section {
     overflow: hidden;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
+    transition: var(--hover-transition);
+    background: white;
+}
+
+.research-area-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
 }
 
 .research-area-image img {
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: var(--hover-transition);
+}
+
+.research-area-card:hover .research-area-image img {
+    transform: scale(1.05);
 }
 
 .research-area-content {
@@ -521,8 +551,6 @@ section {
 }
 
 /* News Section */
-/* Simplified News Section CSS - Removed unnecessary effects */
-
 .news-highlights {
     background: linear-gradient(135deg, var(--gray-50) 0%, rgba(30, 58, 138, 0.02) 100%);
 }
@@ -540,6 +568,12 @@ section {
     border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow-md);
     border-left: 4px solid var(--secondary-color);
+    transition: var(--hover-transition);
+}
+
+.news-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
 }
 
 .news-date {
@@ -571,18 +605,21 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    transition: var(--hover-transition);
+}
+
+.read-more:hover {
+    gap: 0.75rem;
 }
 
 .read-more::after {
     content: '→';
+    transition: var(--hover-transition);
 }
 
 .news-view-all {
     text-align: center;
 }
-
-/* Footer */
-/* Simplified Footer CSS - Removed unnecessary effects */
 
 /* Footer */
 .site-footer {
@@ -674,7 +711,6 @@ section {
     margin-bottom: 0;
 }
 
-
 /* Back to top button */
 .back-to-top {
     position: fixed;
@@ -697,6 +733,7 @@ section {
     transform: translateY(20px);
     transition: var(--hover-transition);
     box-shadow: var(--shadow-lg);
+    will-change: transform;
 }
 
 .back-to-top.show {
@@ -709,33 +746,10 @@ section {
     background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
     transform: translateY(-3px);
     box-shadow: var(--shadow-xl);
+    will-change: auto;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(2deg);
-    }
-}
-
+/* Fade in animation utility */
 .fade-in-up {
     opacity: 0;
     transform: translateY(30px);
@@ -805,6 +819,7 @@ section {
         width: 100%;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
         gap: 0;
         padding: 1rem;
@@ -814,6 +829,7 @@ section {
 
     .nav-list.active {
         display: flex;
+        animation: slideDown 0.3s ease-out;
     }
 
     .nav-item {
@@ -891,6 +907,11 @@ section {
         --text-color: #000000;
         --border-color: #000000;
     }
+
+    .section-header h2 {
+        color: var(--dark-color) !important;
+        -webkit-text-fill-color: var(--dark-color) !important;
+    }
 }
 
 /* Reduced motion support */
@@ -903,6 +924,11 @@ section {
 
     html {
         scroll-behavior: auto;
+    }
+
+    .btn::before,
+    .nav-link::after {
+        display: none;
     }
 }
 
@@ -1317,104 +1343,6 @@ section {
 
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .mobile-nav-toggle {
-        display: block;
-    }
-
-    .nav-list {
-        position: fixed;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        gap: 0;
-        box-shadow: var(--shadow-lg);
-        padding: 1rem 0;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-20px);
-        transition: var(--hover-transition);
-    }
-
-    .nav-list.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    .nav-item {
-        padding: 0 2rem;
-    }
-
-    .nav-link {
-        display: block;
-        padding: 1rem;
-        border-radius: 0;
-    }
-
-    .research-hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-    }
-
-    .research-stats {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-    }
-
-    .stat-item {
-        padding: 1.5rem;
-    }
-
-    .stat-number {
-        font-size: 2rem;
-    }
-
-    .research-image-grid {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-    }
-
-    .research-content {
-        padding: 1.5rem;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .publications-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .collaboration-categories {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-
-    .container {
-        padding: 0 1rem;
-    }
-}
-
 @media (max-width: 480px) {
     .research-hero {
         padding: 6rem 0 4rem;
@@ -1629,7 +1557,7 @@ section {
 }
 
 /* Publications Filter */
-..publications-filter {
+.publications-filter {
     background: white;
     padding: 2rem;
     border-radius: 12px;
@@ -1856,106 +1784,6 @@ section {
 }
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .mobile-nav-toggle {
-        display: block;
-    }
-
-    #primary-navigation {
-        position: fixed;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        box-shadow: var(--shadow-lg);
-        transition: top 0.3s ease;
-        z-index: 999;
-    }
-
-    #primary-navigation.active {
-        top: 80px;
-    }
-
-    .nav-list {
-        flex-direction: column;
-        padding: 2rem;
-        gap: 0;
-    }
-
-    .nav-item {
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .nav-item:last-child {
-        border-bottom: none;
-    }
-
-    .nav-link {
-        display: block;
-        padding: 1rem 0;
-        width: 100%;
-    }
-
-    .page-banner {
-        padding: 6rem 0 3rem;
-    }
-
-    .publications-page {
-        padding: 2rem 0;
-    }
-
-    .filter-options {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .view-options {
-        justify-content: center;
-        margin-bottom: 1.5rem;
-    }
-
-    .publication-list.grid-view {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .publication-list.list-view .publication-item {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .publication-item {
-        padding: 1.5rem;
-    }
-
-    .hero-cta {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        min-width: 200px;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-
-    .footer-contact address {
-        text-align: center;
-    }
-
-    .back-to-top {
-        bottom: 1rem;
-        right: 1rem;
-        width: 45px;
-        height: 45px;
-        padding: 0.75rem;
-    }
-}
 
 @media (max-width: 480px) {
     .container {
@@ -1981,17 +1809,7 @@ section {
     }
 }
 
-/* Animation Keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 
 /* Focus styles for accessibility */
 *:focus {
@@ -2322,69 +2140,6 @@ button:focus,
 }
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .mobile-nav-toggle {
-        display: block;
-    }
-
-    .nav-list {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        padding: 1rem 0;
-        box-shadow: var(--shadow-lg);
-        border-top: 1px solid var(--border-color);
-    }
-
-    .nav-list.active {
-        display: flex;
-    }
-
-    .hero-section {
-        padding: 6rem 0 3rem;
-    }
-
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-
-    .team-nav {
-        top: 70px;
-    }
-
-    .nav-buttons {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
-    }
-
-    .nav-btn {
-        white-space: nowrap;
-        min-width: auto;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .member-card {
-        padding: 1.5rem;
-    }
-
-    .interests-tags {
-        justify-content: flex-start;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-}
 
 @media (max-width: 480px) {
     .container {
@@ -2422,18 +2177,6 @@ button:focus,
     }
 }
 
-/* Animation keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .member-card {
     animation: fadeInUp 0.6s ease-out;
@@ -2561,3 +2304,4 @@ button:focus,
         padding: 60px 0;
     }
 }
+

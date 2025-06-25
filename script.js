@@ -1,187 +1,177 @@
 // GeoD Labs Website JavaScript
-// Enhanced functionality for navigation, interactions, and user experience
+// Main functionality for navigation, interactions, and user experience
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
+    // Initialize all components
     initMobileNavigation();
-    initSmoothScrolling();
     initBackToTop();
-    initScrollEffects();
-    initNewsCarousel();
+    initSmoothScrolling();
+    initNewsAnimations();
     initFormValidation();
-    initLazyLoading();
     initAccessibility();
-    initTeamPage();
+    initPerformanceOptimizations();
 });
 
-// Mobile Navigation Toggle
+// Mobile Navigation
 function initMobileNavigation() {
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const primaryNav = document.querySelector('#primary-navigation');
+    const navigation = document.querySelector('#primary-navigation');
     const navLinks = document.querySelectorAll('.nav-link');
-
-    if (mobileToggle && primaryNav) {
-        mobileToggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            
-            // Toggle aria-expanded
-            this.setAttribute('aria-expanded', !isExpanded);
-            
-            // Toggle navigation visibility
-            primaryNav.classList.toggle('nav-open');
-            
-            // Toggle hamburger icon
-            const icon = this.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-            
-            // Toggle body scroll lock on mobile
-            document.body.classList.toggle('nav-open');
-        });
-
-        // Close mobile nav when clicking on nav links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    primaryNav.classList.remove('nav-open');
-                    mobileToggle.setAttribute('aria-expanded', 'false');
-                    document.body.classList.remove('nav-open');
-                    
-                    const icon = mobileToggle.querySelector('i');
-                    if (icon) {
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-times');
-                    }
-                }
-            });
-        });
-
-        // Close mobile nav when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileToggle.contains(e.target) && !primaryNav.contains(e.target)) {
-                if (primaryNav.classList.contains('nav-open')) {
-                    primaryNav.classList.remove('nav-open');
-                    mobileToggle.setAttribute('aria-expanded', 'false');
-                    document.body.classList.remove('nav-open');
-                    
-                    const icon = mobileToggle.querySelector('i');
-                    if (icon) {
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-times');
-                    }
-                }
-            }
-        });
-    }
-}
-
-// Smooth Scrolling for Internal Links
-function initSmoothScrolling() {
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
     
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                e.preventDefault();
-                
-                const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
-                const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Update focus for accessibility
-                targetElement.focus();
-            }
+    if (!mobileToggle || !navigation) return;
+    
+    // Toggle mobile menu
+    mobileToggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+        navigation.classList.toggle('nav-open');
+        document.body.classList.toggle('nav-open');
+        
+        // Update icon
+        const icon = this.querySelector('i');
+        if (icon) {
+            icon.className = isExpanded ? 'fas fa-bars' : 'fas fa-times';
+        }
+        
+        // Focus management
+        if (!isExpanded) {
+            navigation.querySelector('.nav-link')?.focus();
+        }
+    });
+    
+    // Close mobile menu when clicking nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navigation.classList.remove('nav-open');
+            document.body.classList.remove('nav-open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) icon.className = 'fas fa-bars';
         });
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navigation.classList.contains('nav-open')) {
+            navigation.classList.remove('nav-open');
+            document.body.classList.remove('nav-open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            mobileToggle.focus();
+        }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navigation.contains(e.target) && !mobileToggle.contains(e.target)) {
+            if (navigation.classList.contains('nav-open')) {
+                navigation.classList.remove('nav-open');
+                document.body.classList.remove('nav-open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+            }
+        }
     });
 }
 
 // Back to Top Button
 function initBackToTop() {
     const backToTopBtn = document.querySelector('#back-to-top');
+    if (!backToTopBtn) return;
     
-    if (backToTopBtn) {
-        // Show/hide button based on scroll position
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
+    // Show/hide button based on scroll position
+    function toggleBackToTop() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
+    
+    // Throttled scroll event
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                toggleBackToTop();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Smooth scroll to top
+    backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
         
-        // Smooth scroll to top
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
+        // Focus management
+        setTimeout(() => {
+            document.querySelector('#main-content')?.focus();
+        }, 500);
+    });
 }
 
-// Scroll Effects (Header background, animations)
-function initScrollEffects() {
-    const header = document.querySelector('.site-header');
-    const heroSection = document.querySelector('.hero');
+// Smooth Scrolling for Anchor Links
+function initSmoothScrolling() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
-    // Header background on scroll
-    if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            const targetElement = document.querySelector(href);
+            if (!targetElement) return;
+            
+            e.preventDefault();
+            
+            const headerOffset = 80; // Adjust based on your header height
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Update focus for accessibility
+            setTimeout(() => {
+                targetElement.focus();
+            }, 500);
         });
-    }
-    
+    });
+}
+
+// News and Content Animations
+function initNewsAnimations() {
     // Intersection Observer for fade-in animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
     // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.research-area-card, .news-item, .what-we-do-content');
-    animatedElements.forEach(el => {
+    const animateElements = document.querySelectorAll(
+        '.research-area-card, .news-item, .what-we-do-content, .hero-content'
+    );
+    
+    animateElements.forEach(el => {
+        el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
-}
-
-// News Section Enhancement
-function initNewsCarousel() {
-    const newsGrid = document.querySelector('.news-grid');
-    const newsItems = document.querySelectorAll('.news-item');
-    
-    if (newsItems.length > 0) {
-        // Add hover effects
-        newsItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.classList.add('hovered');
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.classList.remove('hovered');
-            });
-        });
-    }
 }
 
 // Form Validation (for contact forms)
@@ -196,15 +186,10 @@ function initFormValidation() {
         });
         
         // Real-time validation
-        const inputs = form.querySelectorAll('input, textarea');
+        const inputs = form.querySelectorAll('input, textarea, select');
         inputs.forEach(input => {
-            input.addEventListener('blur', function() {
-                validateField(this);
-            });
-            
-            input.addEventListener('input', function() {
-                clearFieldError(this);
-            });
+            input.addEventListener('blur', () => validateField(input));
+            input.addEventListener('input', () => clearFieldError(input));
         });
     });
 }
@@ -230,22 +215,22 @@ function validateField(field) {
     
     // Check if required field is empty
     if (field.hasAttribute('required') && !value) {
-        errorMessage = 'This field is required';
+        errorMessage = 'This field is required.';
         isValid = false;
     }
     // Email validation
     else if (fieldType === 'email' && value) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
-            errorMessage = 'Please enter a valid email address';
+            errorMessage = 'Please enter a valid email address.';
             isValid = false;
         }
     }
-    // Phone validation (basic)
+    // Phone validation
     else if (fieldType === 'tel' && value) {
-        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-        if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
-            errorMessage = 'Please enter a valid phone number';
+        const phoneRegex = /^[\+]?[\d\s\-\(\)]{10,}$/;
+        if (!phoneRegex.test(value)) {
+            errorMessage = 'Please enter a valid phone number.';
             isValid = false;
         }
     }
@@ -266,43 +251,23 @@ function showFieldError(field, message) {
     field.classList.add('error');
     field.setAttribute('aria-invalid', 'true');
     
-    const errorElement = document.createElement('span');
-    errorElement.classList.add('field-error');
-    errorElement.textContent = message;
-    errorElement.setAttribute('role', 'alert');
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.textContent = message;
+    errorDiv.id = field.id + '-error';
     
-    field.parentNode.appendChild(errorElement);
+    field.setAttribute('aria-describedby', errorDiv.id);
+    field.parentNode.insertBefore(errorDiv, field.nextSibling);
 }
 
 function clearFieldError(field) {
     field.classList.remove('error');
     field.removeAttribute('aria-invalid');
+    field.removeAttribute('aria-describedby');
     
     const existingError = field.parentNode.querySelector('.field-error');
     if (existingError) {
         existingError.remove();
-    }
-}
-
-// Lazy Loading for Images
-function initLazyLoading() {
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src || img.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        
-        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        lazyImages.forEach(img => {
-            img.classList.add('lazy');
-            imageObserver.observe(img);
-        });
     }
 }
 
@@ -313,7 +278,7 @@ function initAccessibility() {
     if (skipLink) {
         skipLink.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector('#main-content');
             if (target) {
                 target.focus();
                 target.scrollIntoView();
@@ -321,38 +286,140 @@ function initAccessibility() {
         });
     }
     
-    // Keyboard navigation for cards
-    const interactiveCards = document.querySelectorAll('.research-area-card, .news-item');
-    interactiveCards.forEach(card => {
-        card.setAttribute('tabindex', '0');
+    // Enhanced keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        // Tab key navigation enhancements
+        if (e.key === 'Tab') {
+            document.body.classList.add('using-keyboard');
+        }
+    });
+    
+    document.addEventListener('mousedown', function() {
+        document.body.classList.remove('using-keyboard');
+    });
+    
+    // ARIA live regions for dynamic content
+    createLiveRegion();
+}
+
+function createLiveRegion() {
+    const liveRegion = document.createElement('div');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.setAttribute('aria-atomic', 'true');
+    liveRegion.className = 'sr-only';
+    liveRegion.id = 'live-region';
+    document.body.appendChild(liveRegion);
+}
+
+function announceToScreenReader(message) {
+    const liveRegion = document.querySelector('#live-region');
+    if (liveRegion) {
+        liveRegion.textContent = message;
+        setTimeout(() => {
+            liveRegion.textContent = '';
+        }, 1000);
+    }
+}
+
+// Performance Optimizations
+function initPerformanceOptimizations() {
+    // Lazy loading for images (if not natively supported)
+    if ('IntersectionObserver' in window) {
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
         
+        if (lazyImages.length > 0) {
+            const imageObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+    }
+    
+    // Preload critical resources
+    preloadCriticalResources();
+}
+
+function preloadCriticalResources() {
+    const criticalImages = [
+        'images/geod-labs-hero-bg.jpg',
+        'images/iitgn-logo.png'
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+}
+
+// Research Areas Interactive Features
+function initResearchInteractions() {
+    const researchCards = document.querySelectorAll('.research-area-card');
+    
+    researchCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('hovered');
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('hovered');
+        });
+        
+        // Keyboard navigation
         card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
-                const link = this.querySelector('a');
-                if (link) {
-                    link.click();
-                }
+                e.preventDefault();
+                const link = this.querySelector('.btn');
+                if (link) link.click();
             }
         });
     });
+}
+
+// News Filtering and Search (if needed)
+function initNewsFiltering() {
+    const newsItems = document.querySelectorAll('.news-item');
+    const searchInput = document.querySelector('#news-search');
     
-    // Focus management for mobile menu
-    const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const primaryNav = document.querySelector('#primary-navigation');
-    
-    if (mobileToggle && primaryNav) {
-        mobileToggle.addEventListener('click', function() {
-            setTimeout(() => {
-                if (primaryNav.classList.contains('nav-open')) {
-                    const firstNavLink = primaryNav.querySelector('.nav-link');
-                    if (firstNavLink) {
-                        firstNavLink.focus();
-                    }
+    if (searchInput && newsItems.length > 0) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            newsItems.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                const content = item.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
                 }
-            }, 100);
+            });
+            
+            // Announce results to screen readers
+            const visibleItems = Array.from(newsItems).filter(item => 
+                item.style.display !== 'none'
+            ).length;
+            announceToScreenReader(`${visibleItems} news items found`);
         });
     }
 }
+
+// Error Handling
+window.addEventListener('error', function(e) {
+    console.error('JavaScript error:', e.error);
+    // Could implement error reporting here
+});
 
 // Utility Functions
 function debounce(func, wait) {
@@ -367,448 +434,70 @@ function debounce(func, wait) {
     };
 }
 
-// Performance optimized scroll handler
-const optimizedScrollHandler = debounce(() => {
-    // Handle scroll-dependent functionality here if needed
-}, 16); // ~60fps
-
-window.addEventListener('scroll', optimizedScrollHandler);
-
-// Handle resize events
-window.addEventListener('resize', debounce(() => {
-    // Close mobile nav on resize to desktop
-    if (window.innerWidth > 768) {
-        const primaryNav = document.querySelector('#primary-navigation');
-        const mobileToggle = document.querySelector('.mobile-nav-toggle');
-        
-        if (primaryNav && primaryNav.classList.contains('nav-open')) {
-            primaryNav.classList.remove('nav-open');
-            document.body.classList.remove('nav-open');
-            
-            if (mobileToggle) {
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                const icon = mobileToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
-            }
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
         }
-    }
-}, 250));
-
-// Error handling for missing elements
-function safeQuerySelector(selector) {
-    try {
-        return document.querySelector(selector);
-    } catch (error) {
-        console.warn(`Element not found: ${selector}`);
-        return null;
-    }
-}
-
-// Export functions for testing (if needed)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        initMobileNavigation,
-        initSmoothScrolling,
-        initBackToTop,
-        validateForm,
-        validateField
     };
 }
 
-
-// JavaScript for GeoD Labs About Page
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
-    const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const primaryNav = document.querySelector('#primary-navigation');
-
-    if (mobileToggle && primaryNav) {
-        mobileToggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            
-            // Toggle aria-expanded
-            this.setAttribute('aria-expanded', !isExpanded);
-            
-            // Toggle navigation visibility
-            primaryNav.classList.toggle('nav-open');
-            
-            // Toggle hamburger icon
-            const icon = this.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-        });
-    }
-
-    // Back to Top Button
-    const backToTopBtn = document.querySelector('#back-to-top');
-    
-    if (backToTopBtn) {
-        // Show/hide button based on scroll position
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        // Smooth scroll to top
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    // Header scroll effect
-    const header = document.querySelector('.site-header');
-    if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    }
-});
+// Export functions for use in other scripts if needed
+window.GeoD = {
+    announceToScreenReader,
+    debounce,
+    throttle
+};
 
 
-
-// Additional JavaScript functions for Research Page
-// Add these to your existing script.js file
-
-// Initialize research page specific functionality
-function initResearchPage() {
-    initResearchCardAnimations();
-    initProjectCards();
-    initPublicationCards();
-    initCollaborationSection();
-    initResearchImageGallery();
-}
-
-// Research card animations and interactions
-function initResearchCardAnimations() {
-    const researchCards = document.querySelectorAll('.research-detailed-card');
-    
-    if (researchCards.length > 0) {
-        // Intersection Observer for staggered animations
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('animate-in');
-                    }, index * 200); // Staggered animation
-                }
-            });
-        }, observerOptions);
-        
-        researchCards.forEach(card => {
-            cardObserver.observe(card);
-        });
-        
-        // Add hover effects for research cards
-        researchCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.classList.add('card-hovered');
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.classList.remove('card-hovered');
-            });
-        });
-    }
-}
-
-// Project cards functionality
-function initProjectCards() {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        // Add click interaction for project cards
-        card.addEventListener('click', function(e) {
-            // Prevent default if clicking on links inside
-            if (e.target.tagName !== 'A') {
-                this.classList.toggle('expanded');
-            }
-        });
-        
-        // Keyboard navigation
-        card.setAttribute('tabindex', '0');
-        card.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                this.classList.toggle('expanded');
-            }
-        });
-        
-        // Hover effects
-        card.addEventListener('mouseenter', function() {
-            this.classList.add('project-hovered');
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.classList.remove('project-hovered');
-        });
-    });
-}
-
-// Publication cards interactions
-function initPublicationCards() {
-    const publicationCards = document.querySelectorAll('.publication-card');
-    
-    publicationCards.forEach(card => {
-        // Add click effect
-        card.addEventListener('click', function() {
-            this.classList.add('clicked');
-            setTimeout(() => {
-                this.classList.remove('clicked');
-            }, 200);
-        });
-        
-        // Hover animations
-        card.addEventListener('mouseenter', function() {
-            this.classList.add('pub-hovered');
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.classList.remove('pub-hovered');
-        });
-    });
-}
-
-// Collaboration section animations
-function initCollaborationSection() {
-    const collabCategories = document.querySelectorAll('.collab-category');
-    
-    // Animate collaboration categories on scroll
-    const collabObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('collab-visible');
-                
-                // Animate list items with delay
-                const listItems = entry.target.querySelectorAll('li');
-                listItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.classList.add('item-visible');
-                    }, index * 100);
-                });
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    collabCategories.forEach(category => {
-        collabObserver.observe(category);
-    });
-}
-
-// Research image gallery functionality
-function initResearchImageGallery() {
-    const imageGrids = document.querySelectorAll('.research-image-grid');
-    
-    imageGrids.forEach(grid => {
-        const images = grid.querySelectorAll('img');
-        
-        images.forEach((img, index) => {
-            // Add click to expand functionality
-            img.addEventListener('click', function() {
-                createImageModal(this);
-            });
-            
-            // Add keyboard navigation
-            img.setAttribute('tabindex', '0');
-            img.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    createImageModal(this);
-                }
-            });
-            
-            // Staggered loading animation
-            img.addEventListener('load', function() {
-                setTimeout(() => {
-                    this.classList.add('image-loaded');
-                }, index * 150);
-            });
-        });
-    });
-}
-
-// Create image modal for expanded view
-function createImageModal(imgElement) {
-    // Remove existing modal if present
-    const existingModal = document.querySelector('.image-modal');
-    if (existingModal) {
-        existingModal.remove();
-    }
-    
-    // Create modal elements
-    const modal = document.createElement('div');
-    modal.className = 'image-modal';
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-label', 'Expanded image view');
-    
-    const modalContent = document.createElement('div');
-    modalContent.className = 'modal-content';
-    
-    const closeBtn = document.createElement('button');
-    closeBtn.className = 'modal-close';
-    closeBtn.innerHTML = '<i class="fas fa-times"></i>';
-    closeBtn.setAttribute('aria-label', 'Close modal');
-    
-    const modalImg = document.createElement('img');
-    modalImg.src = imgElement.src;
-    modalImg.alt = imgElement.alt;
-    modalImg.className = 'modal-image';
-    
-    // Assemble modal
-    modalContent.appendChild(closeBtn);
-    modalContent.appendChild(modalImg);
-    modal.appendChild(modalContent);
-    document.body.appendChild(modal);
-    
-    // Add event listeners
-    closeBtn.addEventListener('click', closeImageModal);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeImageModal();
-        }
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', handleModalKeydown);
-    
-    // Prevent body scroll
-    document.body.style.overflow = 'hidden';
-    
-    // Focus management
-    closeBtn.focus();
-    
-    // Animate in
-    setTimeout(() => {
-        modal.classList.add('modal-open');
-    }, 10);
-}
-
-// Close image modal
-function closeImageModal() {
-    const modal = document.querySelector('.image-modal');
-    if (modal) {
-        modal.classList.add('modal-closing');
-        setTimeout(() => {
-            modal.remove();
-            document.body.style.overflow = '';
-            document.removeEventListener('keydown', handleModalKeydown);
-        }, 300);
-    }
-}
-
-// Handle modal keyboard navigation
-function handleModalKeydown(e) {
-    if (e.key === 'Escape') {
-        closeImageModal();
-    }
-}
-
-// Research tags interaction
-function initResearchTags() {
-    const tags = document.querySelectorAll('.research-tags .tag');
-    
-    tags.forEach(tag => {
-        tag.addEventListener('click', function() {
-            this.classList.toggle('tag-selected');
-            // Here you could add filtering functionality
-        });
-    });
-}
-
-// Smooth reveal for research content sections
-function initContentReveal() {
-    const contentSections = document.querySelectorAll('.research-content, .research-details');
-    
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('content-revealed');
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    contentSections.forEach(section => {
-        revealObserver.observe(section);
-    });
-}
-
-// Initialize all research page functionality when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if we're on the research page
-    if (document.querySelector('.research-areas') || document.querySelector('.current-projects')) {
-        initResearchPage();
-        initResearchTags();
-        initContentReveal();
-    }
-});
-
-// Export functions for potential reuse
-if (typeof window !== 'undefined') {
-    window.ResearchPageJS = {
-        initResearchPage,
-        initResearchCardAnimations,
-        initProjectCards,
-        initPublicationCards,
-        createImageModal,
-        closeImageModal
-    };
-}
-
-// Publications Page JavaScript
+// Publications Page Functionality
 // Add this to your existing script.js file
 
-// Initialize publications page functionality
-function initPublicationsPage() {
-    initPublicationSearch();
-    initPublicationFilters();
-    initViewToggle();
-    initPublicationAnimations();
-}
+// Initialize publications page features when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on the publications page
+    if (document.querySelector('.publications-page')) {
+        initPublicationsSearch();
+        initPublicationsFilter();
+        initViewToggle();
+        initPublicationsInteractions();
+    }
+});
 
-// Publication search functionality
-function initPublicationSearch() {
+// Publications Search Functionality
+function initPublicationsSearch() {
     const searchInput = document.querySelector('#publication-search');
     const searchButton = document.querySelector('.search-button');
     const publicationItems = document.querySelectorAll('.publication-item');
     const noResultsMessage = document.querySelector('#no-results');
     const resetButton = document.querySelector('#reset-search');
-
-    if (!searchInput) return;
-
-    // Search function
+    
+    if (!searchInput || !publicationItems.length) return;
+    
+    // Debounced search function
+    const debouncedSearch = debounce(performSearch, 300);
+    
     function performSearch() {
         const searchTerm = searchInput.value.toLowerCase().trim();
         let visibleCount = 0;
-
+        
         publicationItems.forEach(item => {
             const title = item.querySelector('.publication-title').textContent.toLowerCase();
             const authors = item.querySelector('.authors').textContent.toLowerCase();
             const year = item.querySelector('.year').textContent.toLowerCase();
             
-            const isVisible = title.includes(searchTerm) || 
-                            authors.includes(searchTerm) || 
-                            year.includes(searchTerm);
-
+            const isVisible = !searchTerm || 
+                title.includes(searchTerm) || 
+                authors.includes(searchTerm) || 
+                year.includes(searchTerm);
+            
             if (isVisible) {
-                item.style.display = '';
+                item.style.display = 'block';
                 item.classList.remove('hidden');
                 visibleCount++;
             } else {
@@ -816,91 +505,82 @@ function initPublicationSearch() {
                 item.classList.add('hidden');
             }
         });
-
+        
         // Show/hide no results message
-        if (visibleCount === 0 && searchTerm !== '') {
+        if (visibleCount === 0 && searchTerm) {
             noResultsMessage.classList.remove('hidden');
         } else {
             noResultsMessage.classList.add('hidden');
         }
-
-        // Animate visible items
-        animateVisiblePublications();
+        
+        // Announce results to screen readers
+        if (searchTerm) {
+            announceToScreenReader(`${visibleCount} publications found for "${searchTerm}"`);
+        }
     }
-
-    // Event listeners for search
-    searchInput.addEventListener('input', debounce(performSearch, 300));
-    searchInput.addEventListener('keypress', function(e) {
+    
+    // Event listeners
+    searchInput.addEventListener('input', debouncedSearch);
+    searchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
             performSearch();
         }
     });
-
+    
     if (searchButton) {
         searchButton.addEventListener('click', performSearch);
     }
-
-    // Reset search functionality
+    
     if (resetButton) {
         resetButton.addEventListener('click', function() {
             searchInput.value = '';
             clearAllFilters();
             performSearch();
+            searchInput.focus();
         });
     }
 }
 
-// Publication filters functionality
-function initPublicationFilters() {
+// Publications Filter Functionality
+function initPublicationsFilter() {
     const yearFilter = document.querySelector('#year-filter');
     const authorFilter = document.querySelector('#author-filter');
     const clearFiltersBtn = document.querySelector('#clear-filters');
     const publicationItems = document.querySelectorAll('.publication-item');
-    const noResultsMessage = document.querySelector('#no-results');
-
+    
+    if (!yearFilter || !authorFilter || !publicationItems.length) return;
+    
     function applyFilters() {
-        const selectedYear = yearFilter ? yearFilter.value : 'all';
-        const selectedAuthor = authorFilter ? authorFilter.value : 'all';
-        const searchTerm = document.querySelector('#publication-search')?.value.toLowerCase().trim() || '';
+        const selectedYear = yearFilter.value;
+        const selectedAuthor = authorFilter.value;
+        const searchTerm = document.querySelector('#publication-search').value.toLowerCase().trim();
         
         let visibleCount = 0;
-
+        
         publicationItems.forEach(item => {
-            let showItem = true;
-
-            // Year filter
-            if (selectedYear !== 'all') {
-                const itemYear = item.getAttribute('data-year');
-                if (itemYear !== selectedYear) {
-                    showItem = false;
-                }
-            }
-
-            // Author filter
-            if (selectedAuthor !== 'all' && showItem) {
-                const itemAuthors = item.getAttribute('data-authors') || '';
-                if (!itemAuthors.includes(selectedAuthor)) {
-                    showItem = false;
-                }
-            }
-
-            // Search filter
-            if (searchTerm && showItem) {
-                const title = item.querySelector('.publication-title').textContent.toLowerCase();
-                const authors = item.querySelector('.authors').textContent.toLowerCase();
-                const year = item.querySelector('.year').textContent.toLowerCase();
-                
-                if (!title.includes(searchTerm) && 
-                    !authors.includes(searchTerm) && 
-                    !year.includes(searchTerm)) {
-                    showItem = false;
-                }
-            }
-
-            // Show/hide item
-            if (showItem) {
-                item.style.display = '';
+            const itemYear = item.dataset.year;
+            const itemAuthors = item.dataset.authors;
+            const title = item.querySelector('.publication-title').textContent.toLowerCase();
+            const authors = item.querySelector('.authors').textContent.toLowerCase();
+            const year = item.querySelector('.year').textContent.toLowerCase();
+            
+            // Check year filter
+            const yearMatch = selectedYear === 'all' || itemYear === selectedYear;
+            
+            // Check author filter
+            const authorMatch = selectedAuthor === 'all' || itemAuthors.includes(selectedAuthor);
+            
+            // Check search term
+            const searchMatch = !searchTerm || 
+                title.includes(searchTerm) || 
+                authors.includes(searchTerm) || 
+                year.includes(searchTerm);
+            
+            const isVisible = yearMatch && authorMatch && searchMatch;
+            
+            if (isVisible) {
+                item.style.display = 'block';
                 item.classList.remove('hidden');
                 visibleCount++;
             } else {
@@ -908,130 +588,121 @@ function initPublicationFilters() {
                 item.classList.add('hidden');
             }
         });
-
+        
         // Show/hide no results message
+        const noResultsMessage = document.querySelector('#no-results');
         if (visibleCount === 0) {
-            noResultsMessage?.classList.remove('hidden');
+            noResultsMessage.classList.remove('hidden');
         } else {
-            noResultsMessage?.classList.add('hidden');
+            noResultsMessage.classList.add('hidden');
         }
-
-        // Animate visible items
-        animateVisiblePublications();
+        
+        // Announce filter results
+        const filterText = [];
+        if (selectedYear !== 'all') filterText.push(`year ${selectedYear}`);
+        if (selectedAuthor !== 'all') filterText.push(`author filter applied`);
+        if (searchTerm) filterText.push(`search "${searchTerm}"`);
+        
+        const filterDescription = filterText.length > 0 ? ` with filters: ${filterText.join(', ')}` : '';
+        announceToScreenReader(`${visibleCount} publications shown${filterDescription}`);
     }
-
-    // Event listeners for filters
-    if (yearFilter) {
-        yearFilter.addEventListener('change', applyFilters);
-    }
-
-    if (authorFilter) {
-        authorFilter.addEventListener('change', applyFilters);
-    }
-
-    // Clear filters functionality
+    
+    // Event listeners
+    yearFilter.addEventListener('change', applyFilters);
+    authorFilter.addEventListener('change', applyFilters);
+    
     if (clearFiltersBtn) {
-        clearFiltersBtn.addEventListener('click', function() {
-            clearAllFilters();
-            applyFilters();
-        });
+        clearFiltersBtn.addEventListener('click', clearAllFilters);
     }
-
-    // Clear filters function
+    
     function clearAllFilters() {
-        if (yearFilter) yearFilter.value = 'all';
-        if (authorFilter) authorFilter.value = 'all';
-        const searchInput = document.querySelector('#publication-search');
-        if (searchInput) searchInput.value = '';
+        yearFilter.value = 'all';
+        authorFilter.value = 'all';
+        document.querySelector('#publication-search').value = '';
+        applyFilters();
+        announceToScreenReader('All filters cleared');
     }
-
-    // Make clearAllFilters available globally for reset functionality
-    window.clearAllFilters = clearAllFilters;
 }
 
-// View toggle functionality (Grid/List view)
+// View Toggle Functionality (Grid/List)
 function initViewToggle() {
     const gridViewBtn = document.querySelector('#grid-view');
     const listViewBtn = document.querySelector('#list-view');
     const publicationList = document.querySelector('.publication-list');
-
+    
     if (!gridViewBtn || !listViewBtn || !publicationList) return;
-
-    // Grid view
-    gridViewBtn.addEventListener('click', function() {
-        publicationList.classList.remove('list-view');
-        publicationList.classList.add('grid-view');
+    
+    function setView(viewType) {
+        // Update buttons
+        document.querySelectorAll('.view-toggle').forEach(btn => {
+            btn.classList.remove('active');
+        });
         
-        // Update active states
-        this.classList.add('active');
-        listViewBtn.classList.remove('active');
+        // Update list container
+        publicationList.classList.remove('grid-view', 'list-view');
+        publicationList.classList.add(viewType);
         
-        // Store preference
-        localStorage.setItem('publicationsView', 'grid');
+        // Update active button
+        if (viewType === 'grid-view') {
+            gridViewBtn.classList.add('active');
+            announceToScreenReader('Grid view selected');
+        } else {
+            listViewBtn.classList.add('active');
+            announceToScreenReader('List view selected');
+        }
         
-        // Re-animate items
-        setTimeout(animateVisiblePublications, 100);
+        // Save preference to localStorage if available
+        try {
+            localStorage.setItem('publications-view', viewType);
+        } catch (e) {
+            // Handle cases where localStorage is not available
+            console.log('Unable to save view preference');
+        }
+    }
+    
+    // Event listeners
+    gridViewBtn.addEventListener('click', () => setView('grid-view'));
+    listViewBtn.addEventListener('click', () => setView('list-view'));
+    
+    // Keyboard navigation
+    [gridViewBtn, listViewBtn].forEach(btn => {
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
     });
-
-    // List view
-    listViewBtn.addEventListener('click', function() {
-        publicationList.classList.remove('grid-view');
-        publicationList.classList.add('list-view');
-        
-        // Update active states
-        this.classList.add('active');
-        gridViewBtn.classList.remove('active');
-        
-        // Store preference
-        localStorage.setItem('publicationsView', 'list');
-        
-        // Re-animate items
-        setTimeout(animateVisiblePublications, 100);
-    });
-
+    
     // Load saved preference
-    const savedView = localStorage.getItem('publicationsView');
-    if (savedView === 'list') {
-        listViewBtn.click();
+    try {
+        const savedView = localStorage.getItem('publications-view');
+        if (savedView && (savedView === 'grid-view' || savedView === 'list-view')) {
+            setView(savedView);
+        }
+    } catch (e) {
+        // Use default grid view if localStorage is not available
+        console.log('Unable to load view preference');
     }
 }
 
-// Animation for publication items
-function initPublicationAnimations() {
+// Publications Interactive Features
+function initPublicationsInteractions() {
     const publicationItems = document.querySelectorAll('.publication-item');
     
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const publicationObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('animate-in');
-                }, index * 100); // Staggered animation
-            }
-        });
-    }, observerOptions);
-    
     publicationItems.forEach(item => {
-        publicationObserver.observe(item);
-        
-        // Add hover effects
+        // Add hover effects for better UX
         item.addEventListener('mouseenter', function() {
-            this.classList.add('item-hovered');
+            this.classList.add('hovered');
         });
         
         item.addEventListener('mouseleave', function() {
-            this.classList.remove('item-hovered');
+            this.classList.remove('hovered');
         });
         
-        // Add keyboard navigation
-        item.setAttribute('tabindex', '0');
+        // Keyboard navigation for publication items
         item.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === 'Enter') {
                 const link = this.querySelector('.btn');
                 if (link) {
                     e.preventDefault();
@@ -1039,265 +710,219 @@ function initPublicationAnimations() {
                 }
             }
         });
-    });
-}
-
-// Animate visible publications (for filter/search results)
-function animateVisiblePublications() {
-    const visibleItems = document.querySelectorAll('.publication-item:not(.hidden)');
-    
-    visibleItems.forEach((item, index) => {
-        item.classList.remove('animate-in');
-        setTimeout(() => {
-            item.classList.add('animate-in');
-        }, index * 50);
-    });
-}
-
-// Publication statistics
-function updatePublicationStats() {
-    const totalItems = document.querySelectorAll('.publication-item').length;
-    const visibleItems = document.querySelectorAll('.publication-item:not(.hidden)').length;
-    
-    // Update stats display if element exists
-    const statsElement = document.querySelector('.publication-stats');
-    if (statsElement) {
-        statsElement.textContent = `Showing ${visibleItems} of ${totalItems} publications`;
-    }
-}
-
-// Export functionality for individual publications
-function initPublicationExport() {
-    const exportButtons = document.querySelectorAll('.export-btn');
-    
-    exportButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const publicationItem = this.closest('.publication-item');
-            exportPublication(publicationItem);
-        });
-    });
-}
-
-function exportPublication(item) {
-    const title = item.querySelector('.publication-title').textContent;
-    const authors = item.querySelector('.authors').textContent.replace(/.*:\s*/, '');
-    const year = item.querySelector('.year').textContent.replace(/.*:\s*/, '');
-    
-    // Create citation text
-    const citation = `${authors} (${year}). ${title}.`;
-    
-    // Copy to clipboard
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(citation).then(() => {
-            showNotification('Citation copied to clipboard!');
-        });
-    } else {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = citation;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        showNotification('Citation copied to clipboard!');
-    }
-}
-
-// Show notification function
-function showNotification(message) {
-    // Remove existing notification
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create notification
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #4CAF50;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 4px;
-        z-index: 1000;
-        animation: slideInRight 0.3s ease;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Debounce function (if not already in your main JS)
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Initialize publications page when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if we're on the publications page
-    if (document.querySelector('.publications-page')) {
-        initPublicationsPage();
-        initPublicationExport();
         
-        // Update stats on load
-        setTimeout(updatePublicationStats, 100);
-    }
-});
+        // Handle publication link clicks
+        const publicationLink = item.querySelector('.btn');
+        if (publicationLink) {
+            publicationLink.addEventListener('click', function(e) {
+                // Track publication clicks (analytics could be added here)
+                const title = item.querySelector('.publication-title').textContent;
+                console.log(`Publication accessed: ${title}`);
+                
+                // Announce to screen readers
+                announceToScreenReader(`Opening publication: ${title}`);
+            });
+        }
+    });
+    
+    // Add animation on scroll for publication items
+    initPublicationAnimations();
+}
 
-// Make functions available globally if needed
-if (typeof window !== 'undefined') {
-    window.PublicationsPageJS = {
-        initPublicationsPage,
-        initPublicationSearch,
-        initPublicationFilters,
-        initViewToggle,
-        animateVisiblePublications,
-        exportPublication
+// Animation for publication items
+function initPublicationAnimations() {
+    const publicationItems = document.querySelectorAll('.publication-item');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -30px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Stagger animation for better visual effect
+                setTimeout(() => {
+                    entry.target.classList.add('animate-in');
+                }, index * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    publicationItems.forEach(item => {
+        item.classList.add('animate-on-scroll');
+        observer.observe(item);
+    });
+}
+
+// Utility function to clear all filters (used by both search and filter functions)
+function clearAllFilters() {
+    const yearFilter = document.querySelector('#year-filter');
+    const authorFilter = document.querySelector('#author-filter');
+    const searchInput = document.querySelector('#publication-search');
+    
+    if (yearFilter) yearFilter.value = 'all';
+    if (authorFilter) authorFilter.value = 'all';
+    if (searchInput) searchInput.value = '';
+    
+    // Trigger filter application
+    const publicationItems = document.querySelectorAll('.publication-item');
+    publicationItems.forEach(item => {
+        item.style.display = 'block';
+        item.classList.remove('hidden');
+    });
+    
+    const noResultsMessage = document.querySelector('#no-results');
+    if (noResultsMessage) {
+        noResultsMessage.classList.add('hidden');
+    }
+}
+
+// Enhanced search with highlighting (optional feature)
+function highlightSearchTerms(element, searchTerm) {
+    if (!searchTerm) return;
+    
+    const textNodes = getTextNodes(element);
+    const regex = new RegExp(`(${escapeRegex(searchTerm)})`, 'gi');
+    
+    textNodes.forEach(node => {
+        if (regex.test(node.textContent)) {
+            const highlightedHTML = node.textContent.replace(regex, '<mark>$1</mark>');
+            const wrapper = document.createElement('span');
+            wrapper.innerHTML = highlightedHTML;
+            node.parentNode.replaceChild(wrapper, node);
+        }
+    });
+}
+
+function getTextNodes(element) {
+    const textNodes = [];
+    const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+    
+    let node;
+    while (node = walker.nextNode()) {
+        textNodes.push(node);
+    }
+    
+    return textNodes;
+}
+
+function escapeRegex(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Publications sorting functionality (optional enhancement)
+function initPublicationsSorting() {
+    const sortSelect = document.querySelector('#sort-publications');
+    if (!sortSelect) return;
+    
+    const publicationList = document.querySelector('.publication-list');
+    const publicationItems = Array.from(document.querySelectorAll('.publication-item'));
+    
+    sortSelect.addEventListener('change', function() {
+        const sortBy = this.value;
+        let sortedItems;
+        
+        switch (sortBy) {
+            case 'year-desc':
+                sortedItems = publicationItems.sort((a, b) => 
+                    b.dataset.year - a.dataset.year
+                );
+                break;
+            case 'year-asc':
+                sortedItems = publicationItems.sort((a, b) => 
+                    a.dataset.year - b.dataset.year
+                );
+                break;
+            case 'title-asc':
+                sortedItems = publicationItems.sort((a, b) => 
+                    a.querySelector('.publication-title').textContent.localeCompare(
+                        b.querySelector('.publication-title').textContent
+                    )
+                );
+                break;
+            case 'title-desc':
+                sortedItems = publicationItems.sort((a, b) => 
+                    b.querySelector('.publication-title').textContent.localeCompare(
+                        a.querySelector('.publication-title').textContent
+                    )
+                );
+                break;
+            default:
+                sortedItems = publicationItems;
+        }
+        
+        // Re-append sorted items
+        sortedItems.forEach(item => {
+            publicationList.appendChild(item);
+        });
+        
+        announceToScreenReader(`Publications sorted by ${sortBy.replace('-', ' ')}`);
+    });
+}
+
+// Export publications functions for potential use elsewhere
+if (typeof window.GeoD !== 'undefined') {
+    window.GeoD.publications = {
+        clearAllFilters,
+        highlightSearchTerms
     };
 }
 
 // Team Page Specific JavaScript Functions
 // Add these functions to your existing script.js file
 
+// Initialize team page functionality
+function initTeamPage() {
+    initTeamFiltering();
+    initMemberCardAnimations();
+    initMemberCardInteractions();
+}
+
+// Team Member Filtering
 function initTeamFiltering() {
-    const filterButtons = document.querySelectorAll('.team-nav .nav-btn');
+    const navButtons = document.querySelectorAll('.team-nav .nav-btn');
     const teamCategories = document.querySelectorAll('.team-category');
     
-    if (filterButtons.length === 0 || teamCategories.length === 0) {
-        return; // Exit if elements don't exist (not on team page)
-    }
-
-    // Initially show all categories
-    showAllCategories();
-
-    filterButtons.forEach(button => {
+    if (navButtons.length === 0 || teamCategories.length === 0) return;
+    
+    navButtons.forEach(button => {
         button.addEventListener('click', function() {
             const category = this.getAttribute('data-category');
             
             // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            navButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
             // Filter team categories
-            filterTeamCategories(category);
+            filterTeamMembers(category, teamCategories);
             
-            // Smooth scroll to team section after filtering
-            setTimeout(() => {
-                const teamSection = document.querySelector('.team-section');
-                if (teamSection) {
-                    const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
-                    const targetPosition = teamSection.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }, 100);
-        });
-    });
-}
-
-function filterTeamCategories(category) {
-    const teamCategories = document.querySelectorAll('.team-category');
-    
-    teamCategories.forEach(categorySection => {
-        const categoryData = categorySection.getAttribute('data-category');
-        
-        if (category === 'all' || categoryData === category) {
-            categorySection.style.display = 'block';
+            // Announce change to screen readers
+            const categoryName = this.textContent;
+            announceToScreenReader(`Showing ${categoryName.toLowerCase()}`);
             
-            // Add animation class
-            categorySection.classList.remove('fade-out');
-            categorySection.classList.add('fade-in');
-            
-            // Animate member cards within the category
-            const memberCards = categorySection.querySelectorAll('.member-card');
-            memberCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('animate-in');
-                }, index * 100);
-            });
-        } else {
-            categorySection.classList.remove('fade-in');
-            categorySection.classList.add('fade-out');
-            
-            // Hide after animation
-            setTimeout(() => {
-                categorySection.style.display = 'none';
-            }, 300);
-        }
-    });
-}
-
-function showAllCategories() {
-    const teamCategories = document.querySelectorAll('.team-category');
-    
-    teamCategories.forEach(categorySection => {
-        categorySection.style.display = 'block';
-        categorySection.classList.add('fade-in');
-        
-        // Animate member cards
-        const memberCards = categorySection.querySelectorAll('.member-card');
-        memberCards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('animate-in');
-            }, index * 50);
-        });
-    });
-}
-
-// Enhanced member card interactions
-function initMemberCardInteractions() {
-    const memberCards = document.querySelectorAll('.member-card');
-    
-    memberCards.forEach(card => {
-        // Add hover effect for social links
-        const socialLinks = card.querySelectorAll('.social-link');
-        
-        socialLinks.forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-        
-        // Add click effect for cards
-        card.addEventListener('click', function(e) {
-            // Don't trigger if clicking on social links
-            if (!e.target.closest('.social-link')) {
-                this.classList.add('clicked');
-                setTimeout(() => {
-                    this.classList.remove('clicked');
-                }, 200);
+            // Scroll to team section smoothly
+            const teamSection = document.querySelector('.team-section');
+            if (teamSection) {
+                const headerOffset = 100;
+                const elementPosition = teamSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
         
-        // Keyboard navigation support
-        card.addEventListener('keydown', function(e) {
+        // Keyboard navigation for filter buttons
+        button.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 this.click();
@@ -1306,412 +931,303 @@ function initMemberCardInteractions() {
     });
 }
 
-// Initialize team page functionality
-function initTeamPage() {
-    initTeamFiltering();
-    initMemberCardInteractions();
-    
-    // Add scroll animations for team sections
+// Filter team members based on category
+function filterTeamMembers(category, teamCategories) {
+    teamCategories.forEach(categoryDiv => {
+        const categoryData = categoryDiv.getAttribute('data-category');
+        
+        if (category === 'all' || categoryData === category) {
+            // Show category
+            categoryDiv.style.display = 'block';
+            categoryDiv.classList.add('fade-in');
+            
+            // Animate member cards within the category
+            const memberCards = categoryDiv.querySelectorAll('.member-card');
+            memberCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate-in');
+                }, index * 100);
+            });
+        } else {
+            // Hide category
+            categoryDiv.style.display = 'none';
+            categoryDiv.classList.remove('fade-in');
+        }
+    });
+}
+
+// Member Card Animations
+function initMemberCardAnimations() {
+    // Intersection Observer for member cards
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver((entries) => {
+    const cardObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
+                cardObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // Observe team category headers
-    const categoryHeaders = document.querySelectorAll('.category-header');
-    categoryHeaders.forEach(header => {
-        observer.observe(header);
+    // Observe all member cards
+    const memberCards = document.querySelectorAll('.member-card');
+    memberCards.forEach((card, index) => {
+        card.classList.add('animate-on-scroll');
+        // Stagger the animation slightly
+        card.style.animationDelay = `${index * 0.1}s`;
+        cardObserver.observe(card);
     });
 }
 
-// Update the main DOMContentLoaded event listener
-// Add this to your existing DOMContentLoaded function:
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Your existing initialization functions
-    initMobileNavigation();
-    initSmoothScrolling();
-    initBackToTop();
-    initScrollEffects();
-    initNewsCarousel();
-    initFormValidation();
-    initLazyLoading();
-    initAccessibility();
+// Member Card Interactions
+function initMemberCardInteractions() {
+    const memberCards = document.querySelectorAll('.member-card');
     
-    // Add team page initialization
-    initTeamPage();
-});
-
-// CSS classes for animations (add these to your CSS file)
-/*
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.fade-out {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.member-card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.member-card.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.member-card.clicked {
-    transform: scale(0.98);
-    transition: transform 0.2s ease;
-}
-
-.category-header {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.category-header.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.team-nav .nav-btn {
-    transition: all 0.3s ease;
-}
-
-.team-nav .nav-btn:hover {
-    transform: translateY(-2px);
-}
-
-.team-nav .nav-btn.active {
-    transform: scale(1.05);
-}
-*/
-
-
-// Contact Page Specific JavaScript
-// Add this to your existing script.js file
-
-// Initialize contact page functionality
-function initContactPage() {
-    if (!document.querySelector('.contact')) return; // Only run on contact page
-    
-    initContactAnimations();
-    initContactInteractions();
-    initMapIntegration();
-    initCopyToClipboard();
-}
-
-// Animate contact items on scroll
-function initContactAnimations() {
-    const contactItems = document.querySelectorAll('.contact-item');
-    
-    if (contactItems.length > 0) {
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const contactObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    // Stagger animation for each contact item
-                    setTimeout(() => {
-                        entry.target.classList.add('animate-in');
-                    }, index * 200);
-                    contactObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        contactItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'all 0.6s ease-out';
-            contactObserver.observe(item);
-        });
-    }
-}
-
-// Add hover effects and click interactions
-function initContactInteractions() {
-    const contactItems = document.querySelectorAll('.contact-item');
-    
-    contactItems.forEach(item => {
-        // Add hover effect
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = 'none';
-        });
-        
-        // Add click to copy functionality for phone and email
-        const emailLink = item.querySelector('a[href^="mailto:"]');
-        const phoneLink = item.querySelector('a[href^="tel:"]');
-        
-        if (emailLink || phoneLink) {
-            item.style.cursor = 'pointer';
+    memberCards.forEach(card => {
+        // Hover effects
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('card-hovered');
             
-            item.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'A') {
-                    const link = this.querySelector('a');
-                    if (link) {
-                        // For mobile devices, trigger the link
-                        if (window.innerWidth <= 768) {
-                            link.click();
-                        } else {
-                            // For desktop, copy to clipboard
-                            const text = emailLink ? 
-                                emailLink.textContent : 
-                                phoneLink ? phoneLink.textContent : '';
-                            copyToClipboard(text, this);
-                        }
+            // Add subtle animation to social links
+            const socialLinks = this.querySelectorAll('.social-link');
+            socialLinks.forEach((link, index) => {
+                setTimeout(() => {
+                    link.style.transform = 'translateY(-2px)';
+                }, index * 50);
+            });
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('card-hovered');
+            
+            // Reset social links
+            const socialLinks = this.querySelectorAll('.social-link');
+            socialLinks.forEach(link => {
+                link.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Focus management for accessibility
+        card.addEventListener('focusin', function() {
+            this.classList.add('card-focused');
+        });
+        
+        card.addEventListener('focusout', function() {
+            this.classList.remove('card-focused');
+        });
+        
+        // Social link interactions
+        const socialLinks = card.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Handle email links
+                if (this.classList.contains('email')) {
+                    const email = this.getAttribute('href');
+                    if (email && email.startsWith('mailto:')) {
+                        // Add slight delay for visual feedback
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 150);
                     }
                 }
-            });
-        }
-    });
-}
-
-// Copy to clipboard functionality
-function initCopyToClipboard() {
-    // Add copy buttons to contact info
-    const contactTexts = document.querySelectorAll('.contact-text');
-    
-    contactTexts.forEach(contactText => {
-        const link = contactText.querySelector('a[href^="mailto:"], a[href^="tel:"]');
-        
-        if (link && window.innerWidth > 768) {
-            const copyBtn = document.createElement('button');
-            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
-            copyBtn.className = 'copy-btn';
-            copyBtn.title = 'Copy to clipboard';
-            copyBtn.setAttribute('aria-label', 'Copy to clipboard');
-            
-            copyBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                copyToClipboard(link.textContent, this);
+                
+                // Handle external links
+                if (this.getAttribute('href') === '#' || !this.getAttribute('href')) {
+                    e.preventDefault();
+                    announceToScreenReader('Link not available');
+                    return;
+                }
+                
+                // Add opening external link announcement
+                if (!this.classList.contains('email')) {
+                    announceToScreenReader('Opening external link');
+                }
             });
             
-            contactText.style.position = 'relative';
-            contactText.appendChild(copyBtn);
-        }
-    });
-}
-
-// Copy text to clipboard with feedback
-function copyToClipboard(text, element) {
-    if (navigator.clipboard && window.isSecureContext) {
-        // Modern async clipboard API
-        navigator.clipboard.writeText(text).then(() => {
-            showCopyFeedback(element, 'Copied!');
-        }).catch(() => {
-            fallbackCopyToClipboard(text, element);
+            // Keyboard navigation for social links
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    this.click();
+                }
+            });
         });
-    } else {
-        fallbackCopyToClipboard(text, element);
-    }
+    });
 }
 
-// Fallback copy method for older browsers
-function fallbackCopyToClipboard(text, element) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-999999px';
-    textArea.style.top = '-999999px';
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
+// Advanced member search functionality
+function initMemberSearch() {
+    const searchInput = document.querySelector('#member-search');
+    const memberCards = document.querySelectorAll('.member-card');
     
-    try {
-        document.execCommand('copy');
-        showCopyFeedback(element, 'Copied!');
-    } catch (err) {
-        showCopyFeedback(element, 'Copy failed');
-    }
+    if (!searchInput || memberCards.length === 0) return;
     
-    document.body.removeChild(textArea);
+    // Debounced search function
+    const debouncedSearch = debounce(function(searchTerm) {
+        searchMembers(searchTerm, memberCards);
+    }, 300);
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        debouncedSearch(searchTerm);
+    });
+    
+    // Clear search on escape
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            this.value = '';
+            searchMembers('', memberCards);
+            this.blur();
+        }
+    });
 }
 
-// Show copy feedback
-function showCopyFeedback(element, message) {
-    const feedback = document.createElement('div');
-    feedback.textContent = message;
-    feedback.className = 'copy-feedback';
-    feedback.style.cssText = `
-        position: absolute;
-        top: -40px;
-        right: 0;
-        background: #2c3e50;
-        color: white;
-        padding: 8px 12px;
-        border-radius: 4px;
-        font-size: 12px;
-        white-space: nowrap;
-        z-index: 1000;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    `;
+// Search through team members
+function searchMembers(searchTerm, memberCards) {
+    let visibleCount = 0;
     
-    const parent = element.closest('.contact-item') || element.parentElement;
-    parent.style.position = 'relative';
-    parent.appendChild(feedback);
-    
-    // Trigger animation
-    setTimeout(() => {
-        feedback.style.opacity = '1';
-    }, 10);
-    
-    // Remove after delay
-    setTimeout(() => {
-        feedback.style.opacity = '0';
-        setTimeout(() => {
-            if (feedback.parentNode) {
-                feedback.parentNode.removeChild(feedback);
+    memberCards.forEach(card => {
+        const name = card.querySelector('.member-name')?.textContent.toLowerCase() || '';
+        const position = card.querySelector('.member-position')?.textContent.toLowerCase() || '';
+        const interests = Array.from(card.querySelectorAll('.interest-tag'))
+            .map(tag => tag.textContent.toLowerCase()).join(' ');
+        const education = card.querySelector('.member-education')?.textContent.toLowerCase() || '';
+        
+        const searchableText = `${name} ${position} ${interests} ${education}`;
+        
+        if (!searchTerm || searchableText.includes(searchTerm)) {
+            card.style.display = 'block';
+            card.classList.add('search-match');
+            visibleCount++;
+            
+            // Highlight search term if provided
+            if (searchTerm) {
+                highlightSearchTerm(card, searchTerm);
+            } else {
+                removeHighlights(card);
             }
-        }, 300);
-    }, 2000);
-}
-
-// Optional: Google Maps integration
-function initMapIntegration() {
-    // You can add Google Maps integration here if needed
-    // This is a placeholder for future map functionality
-    const addressElement = document.querySelector('address');
+        } else {
+            card.style.display = 'none';
+            card.classList.remove('search-match');
+        }
+    });
     
-    if (addressElement) {
-        // Add click handler to open in maps
-        addressElement.addEventListener('click', function() {
-            const address = 'IIT Gandhinagar, Palaj, Gandhinagar, Gujarat 382355';
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-            window.open(mapsUrl, '_blank');
-        });
-        
-        // Style cursor
-        addressElement.style.cursor = 'pointer';
-        addressElement.title = 'Click to open in Google Maps';
+    // Update category visibility based on search results
+    updateCategoryVisibility();
+    
+    // Announce search results
+    if (searchTerm) {
+        announceToScreenReader(`${visibleCount} members found for "${searchTerm}"`);
+    } else {
+        announceToScreenReader('Showing all members');
     }
 }
 
-// Add contact page initialization to your main DOMContentLoaded event
-// Update your existing DOMContentLoaded event listener to include:
+// Highlight search terms in member cards
+function highlightSearchTerm(card, searchTerm) {
+    const elementsToSearch = card.querySelectorAll('.member-name, .member-position, .interest-tag');
+    
+    elementsToSearch.forEach(element => {
+        const originalText = element.textContent;
+        const highlightedText = originalText.replace(
+            new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi'),
+            '<mark>$1</mark>'
+        );
+        
+        if (highlightedText !== originalText) {
+            element.innerHTML = highlightedText;
+        }
+    });
+}
+
+// Remove search highlights
+function removeHighlights(card) {
+    const highlightedElements = card.querySelectorAll('mark');
+    highlightedElements.forEach(element => {
+        const parent = element.parentNode;
+        parent.replaceChild(document.createTextNode(element.textContent), element);
+        parent.normalize();
+    });
+}
+
+// Update category visibility during search
+function updateCategoryVisibility() {
+    const categories = document.querySelectorAll('.team-category');
+    
+    categories.forEach(category => {
+        const visibleCards = category.querySelectorAll('.member-card[style*="block"], .member-card:not([style*="none"])');
+        const categoryHeader = category.querySelector('.category-header');
+        
+        if (visibleCards.length > 0) {
+            category.style.display = 'block';
+            if (categoryHeader) categoryHeader.style.display = 'block';
+        } else {
+            if (categoryHeader) categoryHeader.style.display = 'none';
+        }
+    });
+}
+
+// Utility function to escape regex special characters
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Member card lazy loading for images
+function initMemberImageLazyLoading() {
+    const memberImages = document.querySelectorAll('.member-photo img');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    
+                    // Add loading state
+                    img.classList.add('loading');
+                    
+                    // Handle image load
+                    img.addEventListener('load', function() {
+                        this.classList.remove('loading');
+                        this.classList.add('loaded');
+                    });
+                    
+                    // Handle image error
+                    img.addEventListener('error', function() {
+                        this.classList.remove('loading');
+                        this.classList.add('error');
+                        this.src = 'https://via.placeholder.com/150x150/cccccc/666666?text=No+Image';
+                    });
+                    
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+        
+        memberImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+}
+
+// Initialize team page when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // ... your existing initialization code ...
-    initContactPage(); // Add this line
+    // Check if we're on the team page
+    if (document.querySelector('.team-section')) {
+        initTeamPage();
+        initMemberSearch();
+        initMemberImageLazyLoading();
+    }
 });
 
-// CSS styles to add to your stylesheet (add these to styles.css)
-const contactPageStyles = `
-/* Contact Page Enhancements */
-.contact-item {
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    padding: 1.5rem;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-bottom: 1.5rem;
-}
-
-.contact-item.animate-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-.contact-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.contact-text {
-    position: relative;
-}
-
-.copy-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: none;
-    border: none;
-    color: #7f8c8d;
-    font-size: 14px;
-    cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-.contact-item:hover .copy-btn {
-    opacity: 1;
-}
-
-.copy-btn:hover {
-    background: #ecf0f1;
-    color: #2c3e50;
-}
-
-.copy-feedback {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 768px) {
-    .copy-btn {
-        display: none;
-    }
-    
-    .contact-item {
-        margin-bottom: 1rem;
-        padding: 1rem;
-    }
-}
-
-/* Accessibility improvements */
-.contact-item:focus-within {
-    outline: 2px solid #3498db;
-    outline-offset: 2px;
-}
-
-address {
-    transition: color 0.3s ease;
-}
-
-address:hover {
-    color: #3498db;
-}
-`;
-
-// Function to inject styles (call this once)
-function injectContactStyles() {
-    if (!document.querySelector('#contact-page-styles')) {
-        const styleSheet = document.createElement('style');
-        styleSheet.id = 'contact-page-styles';
-        styleSheet.textContent = contactPageStyles;
-        document.head.appendChild(styleSheet);
-    }
-}
-
-// Initialize styles
-injectContactStyles();
+// Export team functions for external use
+window.TeamPage = {
+    filterTeamMembers,
+    searchMembers,
+    initTeamPage
+};

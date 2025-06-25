@@ -473,3 +473,19 @@
 </body>
 
 </html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    if (mobileToggle && navList) {
+        mobileToggle.addEventListener('click', function () {
+            navList.classList.toggle('active');
+
+            // Optional: Change button icon or aria-expanded state
+            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+            mobileToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    }
+});
+</script>
