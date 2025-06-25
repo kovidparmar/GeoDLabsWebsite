@@ -1857,7 +1857,7 @@ button:focus,
     padding: 2rem 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
-    top: 80px;
+    top: 40px;
     z-index: 100;
     box-shadow: var(--shadow-sm);
 }
