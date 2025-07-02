@@ -569,8 +569,9 @@ function initPublicationsFilter() {
             const yearMatch = selectedYear === 'all' || itemYear === selectedYear;
 
             // Check author filter
-            const authorMatch = selectedAuthor === 'all' || itemAuthors.includes(selectedAuthor);
-
+            // Check author filter
+            const authorMatch = selectedAuthor === 'all' ||
+                (itemAuthors && itemAuthors.toLowerCase().split(',').includes(selectedAuthor.toLowerCase()));
             // Check search term
             const searchMatch = !searchTerm ||
                 title.includes(searchTerm) ||
