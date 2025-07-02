@@ -262,7 +262,6 @@ a:hover {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: url('images/campus-lite2.jpg') center/cover no-repeat;
     color: white;
     display: flex;
     align-items: center;
@@ -277,12 +276,10 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        135deg, 
-        rgba(0, 0, 0, 0.4) 0%, 
-        rgba(0, 0, 0, 0.2) 50%, 
-        rgba(0, 0, 0, 0.4) 100%
-    );
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.4) 100%);
     z-index: 1;
 }
 
@@ -301,7 +298,7 @@ a:hover {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     margin-bottom: 1.5rem;
-    text-shadow: 
+    text-shadow:
         0 2px 4px rgba(0, 0, 0, 0.8),
         0 4px 20px rgba(0, 0, 0, 0.6),
         0 8px 40px rgba(0, 0, 0, 0.4);
@@ -316,7 +313,7 @@ a:hover {
     opacity: 0.95;
     font-weight: 600;
     line-height: 1.6;
-    text-shadow: 
+    text-shadow:
         0 1px 3px rgba(0, 0, 0, 0.8),
         0 2px 10px rgba(0, 0, 0, 0.5),
         0 4px 20px rgba(0, 0, 0, 0.3);
@@ -337,6 +334,7 @@ a:hover {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -348,6 +346,7 @@ a:hover {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -442,6 +441,8 @@ section {
     position: relative;
 }
 
+
+
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -474,7 +475,7 @@ section {
 
 .what-we-do-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 4rem;
     align-items: center;
 }
@@ -1430,9 +1431,9 @@ section {
 
 .about-section {
     padding: 6rem 0;
-    background: linear-gradient(180deg, 
-        rgba(248, 250, 252, 0.5) 0%, 
-        rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(180deg,
+            rgba(248, 250, 252, 0.5) 0%,
+            rgba(255, 255, 255, 1) 100%);
 }
 
 .about-content {
@@ -1486,16 +1487,16 @@ section {
     .hero-section {
         padding: 6rem 0 4rem;
     }
-    
+
     .about-section {
         padding: 4rem 0;
     }
-    
+
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .about-text .lead {
         padding: 1rem;
         font-size: 1.125rem;
@@ -1506,7 +1507,7 @@ section {
     .hero-section {
         padding: 4rem 0 3rem;
     }
-    
+
     .about-section {
         padding: 3rem 0;
     }
@@ -1825,6 +1826,7 @@ button:focus,
 
 /* Print styles */
 @media print {
+
     .site-header,
     .mobile-nav-toggle,
     .search-container,
@@ -1895,6 +1897,7 @@ button:focus,
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
+
 /* Team Section */
 .team-section {
     padding: 4rem 0;
@@ -2288,6 +2291,7 @@ button:focus,
     color: var(--primary-light);
     text-decoration: underline;
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .contact-info {
@@ -2299,9 +2303,8 @@ button:focus,
     .contact-hero {
         padding: 100px 0 60px;
     }
-    
+
     .contact {
         padding: 60px 0;
     }
 }
-
