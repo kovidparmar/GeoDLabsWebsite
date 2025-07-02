@@ -1853,13 +1853,13 @@ button:focus,
 
 /* Team */
 
-/* Team Navigation */
+/* Team Navigation
 .team-nav {
     background: var(--white);
     padding: 2rem 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
-    top: 40px;
+    top: 70px;
     z-index: 100;
     box-shadow: var(--shadow-sm);
 }
@@ -1896,7 +1896,7 @@ button:focus,
     border-color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
-}
+} */
 
 /* Team Section */
 .team-section {
