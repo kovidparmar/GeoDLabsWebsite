@@ -475,7 +475,7 @@ section {
 
 .what-we-do-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
 }
@@ -1910,9 +1910,8 @@ button:focus,
     }
 }
 
-/* Team */
 
-/* Team Navigation
+/* Team Navigation  */
 .team-nav {
     background: var(--white);
     padding: 2rem 0;
@@ -1955,7 +1954,28 @@ button:focus,
     border-color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
-} */
+}
+
+/* Mobile responsive fix */
+@media (max-width: 768px) {
+    .team-nav {
+        top: 40px;
+        /* Keep it below the page nav - don't change to 0 */
+        padding: 1.5rem 0;
+        z-index: 99;
+        /* Lower than page nav to prevent overlap */
+    }
+
+    .nav-buttons {
+        gap: 0.5rem;
+        padding: 0 1rem;
+    }
+
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
 
 /* Team Section */
 .team-section {
